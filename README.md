@@ -5,46 +5,35 @@
 
 累计 **1** 期 · **5** 个仓库。
 
-## 怎么读？
+## 怎么读？（重要）
 
-GitHub 对 `.html` **只显示源码**，不会渲染。所以请按下面的方式读：
+GitHub 对 `.html` **只当源码显示，不会渲染**。所以下表给了三种读法：
 
-| 想要的效果 | 点哪个 | 说明 |
-|-----------|--------|------|
-| 直接看内容 | 下表「**阅读**」 | 指向 `.md`，GitHub **原生渲染**成排版好的页面 ✅ 推荐 |
-| 看网页版原貌 | 下表「**网页版**」+ 预览服务 | 见下方「网页版怎么打开」 |
-| 一张图带走 / 发群 | 下表「**长图**」 | GitHub 会内联显示图片 |
+| 你想要的 | 点哪个 | 说明 |
+|---------|--------|------|
+| 直接看内容 | 「**阅读**」 | 指向 `.md`，GitHub **原生渲染**成排版页面 ✅ 首选，零依赖 |
+| 看网页版原貌 | 「**网页版**」 | 走 htmlpreview 预览服务，点开即为渲染后的网页 |
+| 一张图带走 / 发群 | 「**长图**」 | 整页截图，GitHub 自动内联显示 |
 
-### 网页版怎么打开
+> 一句话：**要内容点「阅读」（.md）；要样式点「网页版」；要一张图点「长图」。**
 
-`daily/*.html` 是自包含的单文件网页，但需要「以网页方式」提供才能渲染，三种办法任选：
+### 想彻底摆脱预览服务？开启 GitHub Pages（一次性）
 
-1. **开启 GitHub Pages（推荐，一次性设置）**
-   仓库 `Settings → Pages → Source: Deploy from a branch → main / (root)` → Save。
-   之后访问：https://luyao-appleaccount.github.io/github-daily-archive/
-   每期网页版即为：`https://luyao-appleaccount.github.io/github-daily-archive/daily/github-daily-YYYY-MM-DD.html`
-
-2. **免设置，用第三方预览服务**（把日期替换掉即可直接看）：
-   `https://raw.githack.com/luyao-appleaccount/github-daily-archive/main/daily/github-daily-YYYY-MM-DD.html`
-
-3. **本地看**：`git clone` 后用浏览器打开 `daily/github-daily-YYYY-MM-DD.html`。
-
-> 换句话说：**要内容，读 `.md`；要样式，用 Pages；要一张图，看长图。**
-
-> 🌐 在线浏览（GitHub Pages）：https://luyao-appleaccount.github.io/github-daily-archive/
+仓库 `Settings → Pages → Source: Deploy from a branch → main / (root)` → **Save**。
+启用后 `daily/github-daily-YYYY-MM-DD.html` 可直接在新标签页打开，本 README 的「网页版」链接也会自动切换到 Pages 地址。
 
 ## 归档目录
 
 | 日期 | 本期收录 | 日报 |
 |------|---------|------|
-| **2026-09-28** | hindsight · open-code-review · WeKnora · scriptc 等 5 个 | [阅读](daily/github-daily-2026-09-28.md) · [网页版](daily/github-daily-2026-09-28.html) · [长图](daily/github-daily-2026-09-28.jpg) |
+| **2026-09-28** | hindsight · open-code-review · WeKnora · scriptc 等 5 个 | [阅读](daily/github-daily-2026-09-28.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-09-28.html) · [长图](daily/github-daily-2026-09-28.jpg) |
 
 ## 目录结构
 
 ```
 daily/github-daily-YYYY-MM-DD.md     Markdown 日报（GitHub 原生渲染，推荐阅读）
-daily/github-daily-YYYY-MM-DD.html   网页版（自包含单文件，配 Pages / 预览服务使用）
-daily/github-daily-YYYY-MM-DD.jpg    整页长图（可选，GitHub 内联显示）
+daily/github-daily-YYYY-MM-DD.html   网页版（自包含单文件，靠 Pages / 预览服务渲染）
+daily/github-daily-YYYY-MM-DD.jpg    整页长图（GitHub 内联显示，可用 --no-image 关闭）
 index.json                           去重索引：每期推送过的仓库清单
 ```
 
