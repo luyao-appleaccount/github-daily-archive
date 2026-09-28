@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="oBngyjKcVBaDsxCwoI83LK">
+<head data-page-node-id="4q2jxPcMsmvGlgMV57LCSM">
+<meta charset="UTF-8" data-page-node-id="734qjSqnDdabRIZOz6t0v4">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="9dc1x4E6WGAIlyfKvrgCL5">
+<title>每日 GitHub 精选 · 2026-09-28</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#1a1d21;
+    --ink-2:#4a5058;
+    --ink-3:#7b838d;
+    --line:#e4e7eb;
+    --brand:#2f6fed;
+    --brand-soft:#eef3fe;
+    --amber:#b26a00;
+    --amber-soft:#fff6e6;
+    --green:#1f7a4d;
+    --green-soft:#ecf8f1;
+    --violet:#6b4fd8;
+    --violet-soft:#f1edfe;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:32px 20px 56px;
+    background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  header.hero{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:28px 32px;margin-bottom:24px;
+  }
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:700}
+  h1{margin:8px 0 6px;font-size:27px;line-height:1.35;letter-spacing:-.01em}
+  .sub{color:var(--ink-2);font-size:14px;margin:0}
+  .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    display:inline-block;padding:4px 11px;border-radius:999px;
+    font-size:12.5px;font-weight:600;background:var(--brand-soft);color:var(--brand);
+  }
+  .chip.g{background:var(--green-soft);color:var(--green)}
+  .chip.v{background:var(--violet-soft);color:var(--violet)}
+  .chip.a{background:var(--amber-soft);color:var(--amber)}
+
+  h2{
+    font-size:17px;margin:34px 0 14px;padding-left:11px;
+    border-left:4px solid var(--brand);line-height:1.3;
+  }
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px 26px;margin-bottom:20px;
+  }
+  .card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+  .idx{
+    width:26px;height:26px;border-radius:8px;background:var(--brand);color:#fff;
+    font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
+    flex:0 0 auto;
+  }
+  .repo{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .repo a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--brand-soft)}
+  .repo a:hover{border-bottom-color:var(--brand)}
+  .stats{
+    display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 16px;
+    padding-bottom:14px;border-bottom:1px dashed var(--line);
+    font-size:13px;color:var(--ink-3);
+  }
+  .stats b{color:var(--ink-2);font-weight:600}
+  .tag{font-size:12px;padding:3px 9px;border-radius:6px;font-weight:600}
+  .t-agent{background:var(--violet-soft);color:var(--violet)}
+  .t-eng{background:var(--brand-soft);color:var(--brand)}
+  .t-app{background:var(--green-soft);color:var(--green)}
+  .t-algo{background:var(--amber-soft);color:var(--amber)}
+  .lead{color:var(--ink-2);margin:0 0 16px;font-size:14.5px}
+  .lead b{color:var(--ink)}
+  h3{
+    font-size:13px;margin:18px 0 8px;color:var(--ink-3);
+    letter-spacing:.05em;font-weight:700;
+  }
+  h3::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--brand);margin-right:7px;vertical-align:middle}
+  ul{margin:0;padding-left:19px}
+  li{margin:4px 0;color:var(--ink-2)}
+  li b,li strong{color:var(--ink)}
+  p{margin:8px 0;color:var(--ink-2)}
+  .callout{
+    margin-top:16px;padding:12px 15px;border-radius:10px;
+    background:var(--amber-soft);border-left:3px solid var(--amber);
+    font-size:13.5px;color:var(--ink-2);
+  }
+  .callout b{color:var(--amber)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 4px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th{background:#fafbfc;color:var(--ink-3);font-size:12px;font-weight:700;letter-spacing:.04em}
+  td:first-child{white-space:nowrap;color:var(--ink-3);font-weight:600}
+  .tbl-wrap{overflow-x:auto}
+  code{background:#f1f3f5;padding:1.5px 5px;border-radius:4px;font-size:12.5px;font-family:"SF Mono",Menlo,Consolas,monospace;color:#b0407a}
+  pre{
+    background:#fafbfc;border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;overflow-x:auto;font-size:12.5px;line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;color:var(--ink-2);
+  }
+  footer{
+    margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+    text-align:center;color:var(--ink-3);font-size:12.5px;
+  }
+</style>
+</head>
+<body data-page-node-id="fnG3m2E5ChG2EBDvGKmZaF">
+<div class="wrap" data-page-node-id="axFxCaZYNnNfKL1vac6x5f">
+
+<header class="hero" data-page-node-id="TzIXNBuLHqe1QA4aj6S1PX">
+  <div class="eyebrow" data-page-node-id="VOyMK0ErxMi5HjkOYS7QXS">Daily GitHub Digest</div>
+  <h1 data-page-node-id="SqpdpNOo6KzSdE2xEgH2p5">每日 GitHub 精选 · 第 1 期</h1>
+  <p class="sub" data-page-node-id="HXgrvUeQYAzcYV9HheVoq5">2026 年 9 月 28 日（周一）· 本期入选 <b data-page-node-id="uZLDtxkK2A2XRF3Og1VWnv">5</b> 个仓库</p>
+  <div class="meta" data-page-node-id="FbG6da2WJBK2sndtB6iZhF">
+    <span class="chip v" data-page-node-id="zyhJCVOz3RjhDsJWmcxyCC">AI Agent ×2</span>
+    <span class="chip" data-page-node-id="E0wRaDfL4wBOF2hH0fsdYm">工程实践 ×1</span>
+    <span class="chip g" data-page-node-id="J279RCYkA3qn0vlJnmsWOP">应用项目 ×1</span>
+    <span class="chip a" data-page-node-id="iBN52qD5VFYU7PpVqZHM0y">算法 / 基础设施 ×1</span>
+  </div>
+</header>
+
+<h2 data-page-node-id="3GEF8aWG0Q9QFLwPenxlVQ">速览</h2>
+<div class="card" data-page-node-id="6EhntMdm1SU0EbpFKZaLyV">
+  <div class="tbl-wrap" data-page-node-id="KvM0y8QXMgvKpFDLlVqipS">
+  <table data-page-node-id="Hilm4cbjAzuABN1toXF3Yr">
+    <thead data-page-node-id="XnERjbxJ1oUN3xT7iFDAfJ"><tr data-page-node-id="DxBotYEbHwPGCm6GCxcz8J"><th data-page-node-id="oYQeeM6NELhvHgYLMl4fVz">#</th><th data-page-node-id="0jme0zomGdSk3IM7FCMCsU">仓库</th><th data-page-node-id="rQkr8GHJAjqTkqh22SrunG">类目</th><th data-page-node-id="fDYubwFKUPDsWpaZQLHAST">语言</th><th data-page-node-id="D0MsNz0d1N6HWRA3OcHlsS">Stars</th><th data-page-node-id="2oqhNP194EZldm6BWdLcyh">近期增量</th></tr></thead>
+    <tbody data-page-node-id="L1d4tb8slQ3xsLil3tNWyM">
+      <tr data-page-node-id="LWAOlC58F4GNNqI7WR4EX5"><td data-page-node-id="I83JVoxpASs045DDU4U6cH">1</td><td data-page-node-id="Nv4VfhWQa5tm8FaShMXnKt"><b data-page-node-id="ae30KqffWI7kIIcAvp5PE6">vectorize-io/hindsight</b></td><td data-page-node-id="VDLFzmHlycs9EWq9buO8Xg">AI Agent</td><td data-page-node-id="ZpQCbuwRbo93VaZiR67ztX">Python / Rust / TS</td><td data-page-node-id="zWtjMhBG37rPptNzMgwMli">37.4k</td><td data-page-node-id="GLt1J8AyNkhCiwStMGeMfz">+11,089 ⭐ 周</td></tr>
+      <tr data-page-node-id="fOH8Aaaw2UVc4LwuTuqdy7"><td data-page-node-id="hXurBXwkQtJVFH2z3mU5qp">2</td><td data-page-node-id="ywE0aM6NnnULTJOXawqXId"><b data-page-node-id="mj1xBGKVI13Hb8eno2VgG8">alibaba/open-code-review</b></td><td data-page-node-id="vNQ8Huatv9CsQI9kL1uqmL">工程实践</td><td data-page-node-id="PkGDRfIIaphf46pfv1GaI3">Go</td><td data-page-node-id="NE7TQ1mYNI8UrwV1Jufllv">42.0k</td><td data-page-node-id="aSLrICsAqkP8Qoacbq8WpF">+3,727 ⭐ 周</td></tr>
+      <tr data-page-node-id="MMz8I5ZqxZii63jIvByOf6"><td data-page-node-id="nydJCUovVpxZjRt5rfynie">3</td><td data-page-node-id="dUMwCPHIx8ykxuA1nEcMP7"><b data-page-node-id="2C9tYzbUOapCK36yRjw99e">Tencent/WeKnora</b></td><td data-page-node-id="Q9CgDUvJAZG3ITk1gMzKAH">应用项目</td><td data-page-node-id="xP9cmh3AiotjLuL9ToqziW">Go</td><td data-page-node-id="6U0KnDGZqkm5DX4j2LO582">30.6k</td><td data-page-node-id="vE5xkioQZrnb9KV03JUbvI">+2,705 ⭐ 周</td></tr>
+      <tr data-page-node-id="a88ND6zkKzLR2b9dfV3kup"><td data-page-node-id="Z2D23T0b3rM3ghbEwaRlp9">4</td><td data-page-node-id="lvEZqUZpGMxB7RcvFYvn3v"><b data-page-node-id="k9ohOMF1Kdkrt0CTYlewVL">vercel-labs/scriptc</b></td><td data-page-node-id="9YU1x9vR7xmWu4vSsM05Tg">算法 / 编译</td><td data-page-node-id="8MEQNfhWI2p50sb6Z10eiM">TypeScript / C</td><td data-page-node-id="qpk6Ld7JbKU0U6XvsytngX">5.4k</td><td data-page-node-id="fS8RhjiJm1djhZZhIi4iA2">+102 ⭐ 日</td></tr>
+      <tr data-page-node-id="cdrtZ5wCHcJGG3Q2kkSR6x"><td data-page-node-id="tZGUIDco8EXK0eeQLf6pEx">5</td><td data-page-node-id="cEKnDggORF1migz5QkGDVD"><b data-page-node-id="MQCxI38VaCWURGqQhjVh04">cloudflare/quiche</b></td><td data-page-node-id="Y77KHHGwklHrkmbmecVj1i">算法 / 网络</td><td data-page-node-id="mv1Ks8BcbNbDLdWuy6VV2s">Rust</td><td data-page-node-id="f4A6dQZRD2zbAvE8PBSdEx">12.7k</td><td data-page-node-id="Ut2LhUqwyZM7324b80XRcv">+521 ⭐ 周</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<h2 data-page-node-id="7FVOQ0LbGFqdQMlICAdtSg">本期精选</h2>
+
+<div class="card" data-page-node-id="HCeryXen2t4oQFuqSNzwWG">
+  <div class="card-head" data-page-node-id="gv7mEklzGeQE6dXNBxnJKd">
+    <span class="idx" data-page-node-id="s7vSCzyWCO67ZQH2VP8pZx">1</span>
+    <h4 class="repo" data-page-node-id="hD0KUjoAgl1VgtPSuyBJBC"><a href="https://github.com/vectorize-io/hindsight" target="_blank" data-page-node-id="0EmhLrx79hnYajXf6dUjy5">vectorize-io / hindsight</a></h4>
+    <span class="tag t-agent" data-page-node-id="dEOT09tG2syS3qBEqswGNe">AI Agent</span>
+  </div>
+  <div class="stats" data-page-node-id="YYlUYK9sirFaU6cw0Hu3o5"><span data-page-node-id="pflSGh9KcEtRyMLniT27N1"><b data-page-node-id="D7O7AECaqSHlyVHHmIJyuC">语言</b> Python / Rust / TS</span><span data-page-node-id="Y3i3jPGQik95nb2AIwAqU0"><b data-page-node-id="GB8dKneE5rQW6788fM6FHr">Stars</b> 37.4k</span><span data-page-node-id="4qauZ1VWssmwk6G37LJmj0"><b data-page-node-id="Tyz71PXz3PcEFablPviruM">本周</b> +11,089 ⭐</span><span data-page-node-id="6xxhk9HvoNRYAXTLV1v4qq"><b data-page-node-id="gKUqkf76WaU8e42vTtYCB6">协议</b> MIT</span></div>
+  <p class="lead" data-page-node-id="GPA4BgURr2lYkIe7aksdZg"><b data-page-node-id="Gbcsint9QQKeBAcxStn8a2">一句话简介：</b>给 AI Agent 装上类人记忆系统的开源基础设施，用 <code data-page-node-id="dbybQdOiXiFyaKpfFRLvxm">retain / recall / reflect</code> 三个操作解决「Agent 记不住、跨会话断片」的老问题。</p>
+
+  <h3 data-page-node-id="TQMPPS04jQ4Z7ubdVS7E1k">核心功能</h3>
+  <ul data-page-node-id="VrGuY65CnMjUcdb8nRR2UC">
+    <li data-page-node-id="vMZ5hhQFH72LCpOjwjAYfF"><b data-page-node-id="1M2c5mFnDmHi5FIAlu23SB">三类操作</b>：<code data-page-node-id="r9Pc8kP4576n5q428g3416">retain</code>（写入记忆，自动抽取事实/时间/实体/关系）、<code data-page-node-id="wlFLRbriWQHHNIeNdKkbSm">recall</code>（检索）、<code data-page-node-id="gwUWrbzZXZkqQMOyeoKc8I">reflect</code>（深度分析，形成新连接并回答需要推理的问题）。</li>
+    <li data-page-node-id="bbdLcCv8ZRsYFvwblPqK5z"><b data-page-node-id="bDgBQqHq7sxFWh46LvrVGs">四路并行检索</b>：语义向量 + BM25 关键词 + 图（实体/时序/因果）+ 时间范围过滤，再用 RRF 融合 + cross-encoder 重排，最后按 token 预算裁剪。</li>
+    <li data-page-node-id="VA2JUqFzcnQzAaZqLtReOZ"><b data-page-node-id="pEbHsYaiUrOxgoT3BkxBWT">后台固化机制</b>：散落事实自动合并成 <code data-page-node-id="AuP1YW4HMiPqpHOTWxiuIN">observations</code>（带原文引用与证据计数，只被「精修」不被覆盖），进一步生成 <code data-page-node-id="Q6GEOsVor3jfDT390sztQJ">mental models</code> / knowledge pages——读取即数据库读，无需 LLM 调用，Agent 启动就带着一页已沉淀的知识。</li>
+    <li data-page-node-id="4jkhT1xA3RQZ3oE7IhSn2V"><b data-page-node-id="gj15NFuU6VI3FMPzoUOHp8">Bank 隔离</b>：一个 bank = 一个用户/Agent/项目的独立「大脑」，严格不串味，并支持 disposition traits（怀疑、字面、共情）影响推理风格。</li>
+    <li data-page-node-id="zIIWvdd2ZxaMLSjbQTnX9j"><b data-page-node-id="5lRtFilwkp8E13PYxNGSan">Memory Defense</b>：每个 bank 可选开启，按 45 种模式扫描密钥/PII，命中即脱敏（<code data-page-node-id="lAN6CrguK3KndfAsSC90cL">[REDACTED:github_token]</code>）或直接拦截。</li>
+    <li data-page-node-id="PuEcDphL3nfsSG8pBQnfuf"><b data-page-node-id="ax1Qaidh18owIQ5MDUZ6uR">多语言保真</b>：输入语言端到端保留，中文实体不会被罗马化。</li>
+  </ul>
+
+  <h3 data-page-node-id="dgjssWDsWBmULHxMttLYPu">技术栈</h3>
+  <p data-page-node-id="6ukpKoILRFs36tqSudhRHe">核心 API 为 Python（PostgreSQL + pgvector，或 Oracle AI Database 23ai）；Rust 实现的 CLI 与 reranker；Go / Python / TypeScript 客户端；Next.js 控制平面；Docker / Helm / Grafana 监控。</p>
+
+  <h3 data-page-node-id="2Yj7ku7M3oEXQvLefzOWSS">适用场景</h3>
+  <p data-page-node-id="MnI7SMSJybeGgEVymuiMrZ">个人助理与客服的跨会话个性化；AI 员工类 Agent（需根据反馈改变行为、沉淀复杂任务经验）；多 Agent 协作中的共享记忆；给 Cursor / Claude Code 等编码 Agent 提供按仓库长期记忆（<code data-page-node-id="0PXAT9d3a2M517rgdIR9LD">npx @vectorize-io/hindsight-coding-agents install all</code>，从 git 历史自动建库）。</p>
+
+  <h3 data-page-node-id="b3EamYvCT4nNmVTlRtEPSD">推荐理由</h3>
+  <ul data-page-node-id="7ECD09ICMUnVkZxn6T5Zzt">
+    <li data-page-node-id="D0YBehUWxHJWl5VXSxUFO4">内置 <b data-page-node-id="cp95yl3ds96Gi6RMGghBT9">MCP Server</b>（每个 bank 一个端点，默认开启）与 <b data-page-node-id="4mE1G4Dk6q7CbdpuMGIG5x">60+ 集成</b>（LangGraph、LlamaIndex、CrewAI、Pydantic AI、n8n、Dify、Pipecat 等），多数无需改代码；<code data-page-node-id="9hAN87Hk3Kcm2KV0H3sI0V">wrap_openai()</code> / <code data-page-node-id="X0mraudi46WpWKygHOUSWB">wrap_anthropic()</code> 两行即可挂载记忆。</li>
+    <li data-page-node-id="2Xa4iEcKZYp14nEYIp3m2s">LiteLLM 包装层让一套集成覆盖 100+ 模型；MIT 协议，可自托管也可用云服务。</li>
+  </ul>
+  <div class="callout" data-page-node-id="BJafVIznE2svToHEYDOuD4"><b data-page-node-id="gkt3aetOBNRVqr85G914Dv">注意：</b>对 n8n 这类简单工作流偏重，官方也承认可能「overkill」。</div>
+</div>
+
+<div class="card" data-page-node-id="dy6FhsDo1507Y1JPyht4G5">
+  <div class="card-head" data-page-node-id="9YjeTRRT3dejgCuqFJSI80">
+    <span class="idx" data-page-node-id="HnkxEcbWyHw0UqgHtsfUfJ">2</span>
+    <h4 class="repo" data-page-node-id="XwJPy6HbCZFQ6CQN7q6hLs"><a href="https://github.com/alibaba/open-code-review" target="_blank" data-page-node-id="FR4HPn3WA7dxvsaAdCgCTf">alibaba / open-code-review</a></h4>
+    <span class="tag t-eng" data-page-node-id="UFnMUGBxTBqag00IKaFEWK">工程实践</span>
+  </div>
+  <div class="stats" data-page-node-id="GvzLhg09Q8fXkh8J9Kq1Xi"><span data-page-node-id="dXwwHkoEAZzvj9OfyrmDv1"><b data-page-node-id="RF1BolQ6OhoP4jJfOmD4MX">语言</b> Go</span><span data-page-node-id="CC4AK7cuDOw9STaXsQIUUh"><b data-page-node-id="AmR1gIfnwOK6wgR1u0J05S">Stars</b> 42.0k</span><span data-page-node-id="Qb1m7A8u0FcWsLHfG0lgTL"><b data-page-node-id="bFLBweynYsk4jv7TN4Xz8A">本周</b> +3,727 ⭐</span><span data-page-node-id="cWiHq0RnLMYBkIpKgJV9Hd"><b data-page-node-id="Uex0ujWDRdES6KqwTkx2us">协议</b> Apache-2.0</span></div>
+  <p class="lead" data-page-node-id="tRvCIuKfYJgB9vCNQ4Tx4X"><b data-page-node-id="NMbFZUs99AlBa71dFB3tbH">一句话简介：</b>阿里内部官方 AI 代码审查助手开源版，「确定性工程 × LLM Agent」混合架构，输出精确到行级的审查评论。</p>
+
+  <h3 data-page-node-id="31pEGWMYAOrgZGmFglwzJd">核心功能</h3>
+  <ul data-page-node-id="hwjGHqpzcCPXedLBqbazXv">
+    <li data-page-node-id="c6DbEOkZlKeTNPFMf2h7ZC">读取 Git diff，把变更文件交给带工具调用能力的 Agent；Agent 可读完整文件、全库检索、交叉参考其他变更文件，产出深度评论而非表层 diff 吐槽。</li>
+    <li data-page-node-id="d2j7k90muONxx4gkeB9ZE5"><code data-page-node-id="VrdOOUHC9CeQMawHrgEaG4">ocr scan</code> 支持<b data-page-node-id="qYAU6JRU55MPKfNDrLPFcH">整文件扫描</b>，用于审计没有有效 diff 的陌生代码库。</li>
+    <li data-page-node-id="6BfMuwQfdlHEAZ0ofY81Mv"><b data-page-node-id="LaJXCGHHtn5DhmnFOW8Jwz">确定性部分（硬约束）</b>：精准文件选择与过滤、智能文件打包（如 <code data-page-node-id="lcm4kOKT2ICn78QBXFnA4V">message_en.properties</code> 与 <code data-page-node-id="oyGOx6se4Ah4KwWVl3G5VA">message_zh.properties</code> 绑定为一个子 Agent，各自隔离上下文、天然并发）、模板引擎驱动的细粒度规则匹配、独立的评论定位与反思模块。</li>
+    <li data-page-node-id="X53fHyFYYXfPxZS2llYkwd"><b data-page-node-id="mapEXeBCoBiSupda44rIxh">Agent 部分（动态决策）</b>：场景化 prompt 模板 + 从大规模生产调用链中提炼的专用工具集。</li>
+    <li data-page-node-id="9NpUEKsgDG8JsKLNvDx6aJ">支持 workspace 模式 / 分支区间（merge-base）/ 单 commit / <code data-page-node-id="eBS3PdDlrtfV8tuPE192hZ">--resume</code> 续跑 / JSON 输出 / <b data-page-node-id="JB6yo9LB5WS5NwpTNr9ViL">Delegation 模式</b>（交给宿主编码 Agent 审查，无需配 LLM Key）。</li>
+  </ul>
+
+  <h3 data-page-node-id="MH6UBazxAKbAw1M2vUy5Mc">技术栈</h3>
+  <p data-page-node-id="aYJYuBz8wTqpgrpM6DLREZ">Go 核心（<code data-page-node-id="b1BWCa8QeATIkNc150uJDh">cmd/opencodereview</code> + <code data-page-node-id="CcSysCxrKv5ThcHNhtNKnx">internal/</code>）；npm 平台包分发（<code data-page-node-id="ribFSUJ9S6h2ALfnDXWABE">@alibaba-group/open-code-review</code>，按 os/cpu 自动选二进制，规避受限网络下的 postinstall 下载）；VS Code 与 IntelliJ IDEA 插件；GitHub Actions / GitLab CI / Gerrit 集成；OpenTelemetry 可观测。</p>
+
+  <h3 data-page-node-id="lqnoNlkHwGEalzXtJxBCsi">适用场景</h3>
+  <p data-page-node-id="i8SFKB3U3jHjlPQUTNPMm6">CI/CD 中做 PR 自动审查；IDE 内本地自审；作为 Claude Code / Codex / Cursor / Kimi Code / opencode 的插件或 Skill 被调用；多语言安全规则检查（NPE、线程安全、XSS、SQL 注入）。</p>
+
+  <h3 data-page-node-id="18hGCGXNjeiFnMYF7ABmsM">推荐理由</h3>
+  <ul data-page-node-id="CwuB12kzZP3JaBphGjVelu">
+    <li data-page-node-id="dSyu7SNr2G8V6FDdaKrkLl"><b data-page-node-id="tXzej3wUrCyi4mXteGnN9E">有公开 Benchmark 背书</b>：AACR-Bench 由 50 个热门仓库、200 个真实 PR、10 种语言、80+ 资深工程师交叉标注的 1,505 条真值问题构成，可在 Hugging Face 下载。</li>
+    <li data-page-node-id="NSmwukCI8si2fGtyN8lWYL">与通用 Agent（如 Claude Code）相比，同模型下 <b data-page-node-id="YokGgWnY8Oftk87KSLxAgy">Precision 与 F1 显著更高、token 消耗约为 1/9</b>、速度更快——代价是 Recall 更低，官方明确这是「宁缺毋滥」的取舍；对不想被误报淹没的团队很合适。</li>
+    <li data-page-node-id="ELmxiIofyxMJx2u1WXYX88">Apache-2.0，OpenSSF Best Practices <b data-page-node-id="FhgkihKANaLUmX247TVlS9">Gold</b>，中英日韩俄多语言文档。</li>
+  </ul>
+</div>
+
+<div class="card" data-page-node-id="dRBrROtyEc937HJwKtRt95">
+  <div class="card-head" data-page-node-id="p701QiFNXuSH9yjw4o4Sg3">
+    <span class="idx" data-page-node-id="Nh8B11ggjOdzrLKqeU8gVQ">3</span>
+    <h4 class="repo" data-page-node-id="tupgArNGUocvz47BhfK3a0"><a href="https://github.com/Tencent/WeKnora" target="_blank" data-page-node-id="diSGf4IbvNSqPPVjUWEDBC">Tencent / WeKnora</a></h4>
+    <span class="tag t-app" data-page-node-id="7h4PipDS6XCsMdAmumNuD8">应用项目</span>
+  </div>
+  <div class="stats" data-page-node-id="gSj0fxr7u5H6K31XyqwnLw"><span data-page-node-id="TDVAIK4aCBTF0vjz78yU6Q"><b data-page-node-id="iM8jTpaiSCrKL1WIpsEFi2">语言</b> Go</span><span data-page-node-id="62SC1IqXeHb2ykXVNydolp"><b data-page-node-id="RrD8TfEA7ZrQrStKpxWkTJ">Stars</b> 30.6k</span><span data-page-node-id="aEpAWyPeaPFhnxXOq1cyvv"><b data-page-node-id="0RvVRMewTwsQWXTA2CAMrX">本周</b> +2,705 ⭐</span></div>
+  <p class="lead" data-page-node-id="Dnk1CnRrPY6qFZpA95xTMb"><b data-page-node-id="hYBa4qkFXxOA5cC9HIJuCs">一句话简介：</b>腾讯开源的 LLM 知识平台，把原始文档同时变成「可查的 RAG」「自主推理的 Agent」「自己维护的 Wiki」，三者共享同一批知识库。</p>
+
+  <h3 data-page-node-id="oOrGbstAyX3FAUZePG83gd">核心功能</h3>
+  <ul data-page-node-id="I6mojDDA5nnnEeDpqW1rL0">
+    <li data-page-node-id="SHCXjHezW5TbRLte1woEzu"><b data-page-node-id="lChxj39OHce6unL7iPDTMq">RAG</b>：混合检索 + 多模态解析 + 答案带引用来源。</li>
+    <li data-page-node-id="eteSbbo0hCCl9Vb60WescL"><b data-page-node-id="yqBO3jC2rWcIgFS5AH3Yer">Agent</b>：多步推理，沙箱（Docker / E2B / Cube，会话持久化）、交互式终端与图形桌面、BrowserSkill 操作用户自己的 Chrome/Edge、MCP 工具逐个启用、跨会话长期记忆。</li>
+    <li data-page-node-id="wu4QfozksUnS4GaNGxLric"><b data-page-node-id="RuzYAZM4Pz8VBunaAI3fhI">Wiki</b>：从文档抽取人物/产品/概念生成带引用的页面，知识图谱展示关系，每次变更可回滚。</li>
+    <li data-page-node-id="fd6LwPdp0Qlut2Cbu9T7Zq">检索 chunk 可编辑 / diff / 回滚；文件夹上传保留目录树；<code data-page-node-id="7aXObrN97awnAH0yNI6YbW">anydoc</code>（Rust 静态库、cgo 链接）在 Go 进程内解析 Office 文件。</li>
+    <li data-page-node-id="rb4os4tQ4Z4BQQ2bwl1c32">治理能力：多工作区 RBAC（四种角色 + 资源归属 + 审计日志）、scoped API key、SSRF 白名单、任务队列仪表盘、Langfuse 追踪 agent 步骤与 token 用量。</li>
+  </ul>
+
+  <h3 data-page-node-id="SLrfmVGzV6eu0hV0PwlAnV">技术栈</h3>
+  <div class="tbl-wrap" data-page-node-id="3SUMUtQtu7mgXFGi4x7QfS">
+  <table data-page-node-id="U2VppM9HjnK7mu5E1ZDEVY">
+    <tbody data-page-node-id="cIFZ47HwDl2edxdrDzfrtV">
+      <tr data-page-node-id="35SwV0jMt0r9AAMTLenh84"><td data-page-node-id="OYvb1si77rJUdg4S6wDaOd">后端</td><td data-page-node-id="qI2oCb0V8zWhzcWuKnnGul">Go + PostgreSQL（pgvector）/ Redis；可选 Neo4j（知识图谱）、MinIO、Langfuse</td></tr>
+      <tr data-page-node-id="8ZFxPPvwjA3TGzYlSNyWGn"><td data-page-node-id="wYhwVfVRpjWy5FxT5vgtJj">模型</td><td data-page-node-id="6Cw3irnkgxRhhtAb9Yed8R">27 家内置厂商：OpenAI / Azure / Anthropic / DeepSeek / Qwen / 智谱 / 混元 / 豆包 / Gemini / MiniMax / Ollama …</td></tr>
+      <tr data-page-node-id="iAxHGIS43eTlKQ99uF5M8I"><td data-page-node-id="Or3rEHzahimA29SOGFeSuH">向量库</td><td data-page-node-id="d6JCx47d3cZamvTsc7qORU">pgvector / Elasticsearch / OpenSearch / Milvus / Weaviate / Qdrant / Apache Doris / 腾讯 VectorDB</td></tr>
+      <tr data-page-node-id="GWjG0nvMTQoBYOiU5D35tE"><td data-page-node-id="LiDj0ApXeQj07j4TyaD5UG">对象存储</td><td data-page-node-id="VvYoH1wk74Q3VGwFEYiSNM">Local / COS / MinIO / S3 / TOS / OSS / KS3 / OBS</td></tr>
+      <tr data-page-node-id="6kqkxDq72bRbAF4DZWFiE1"><td data-page-node-id="MB4M99zZOc93oBa23aZw6e">文档格式</td><td data-page-node-id="GEQCcJ9YMI9enabKVDXylj">PDF / Word / PPT / Excel / CSV / TXT / MD / HTML / EPUB / MHTML / JSON / XMind / 图片</td></tr>
+      <tr data-page-node-id="bEWXqZtIZsgIp8WPXpjTrQ"><td data-page-node-id="n0Eag4fp3cHAv6DxmdXAeJ">数据源同步</td><td data-page-node-id="DHUGB7HWpsFKBF8lNiLS2a">飞书 wiki / 飞书 Drive / Confluence / GitLab / Notion / 语雀 / 钉钉文档 / 腾讯 IMA / RSS</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 data-page-node-id="VJoEmqHjGAdb3Bxo66S4SE">适用场景</h3>
+  <p data-page-node-id="HvHLlGQf5tylRS5jd7Q8KC">企业文档问答与知识检索；自动化多步骤知识任务；自动生成内部 Wiki；给 Cursor / Claude 等 MCP 客户端发布知识库（<code data-page-node-id="RkfTR0jkUrlMZGL1w6TWMk">/mcp/&lt;endpoint_id&gt;</code>，带 token、范围、限流）；企业微信 / 飞书 / 钉钉 / Slack / Telegram 内问答；网站嵌入 widget。</p>
+
+  <h3 data-page-node-id="oCDTaHXeoZbwGBtTD17RLb">推荐理由</h3>
+  <ul data-page-node-id="08rcEvNMPIub3GeDwgrlYP">
+    <li data-page-node-id="mMcP4jLLVLuzMjkyPXIInk"><b data-page-node-id="DGJWiV5cSk4oyLWaMa5WvA">端到端可替换 + 可私有化</b>：LLM、向量库、存储后端全部可插拔，数据留在自有环境——这对有合规要求的企业是决定性的。</li>
+    <li data-page-node-id="0hyfwTUC7eOhWbwg5muLmx">部署形态齐全：Docker Compose（推荐）、K8s Helm、<b data-page-node-id="GVo1s22q4T1MLIElqaH8z8">Lite 单二进制</b>（SQLite + 内存队列，无外部依赖）、桌面应用（需源码构建）。</li>
+  </ul>
+  <div class="callout" data-page-node-id="8QGB6T8vyxHhIb0px4KX8X"><b data-page-node-id="gVBwhsHwfGQJKLEzU9VI5w">注意：</b>官方明确警告生产环境不要直接暴露公网，需部署在内网并配好防火墙与访问控制。</div>
+</div>
+
+<div class="card" data-page-node-id="qoMFc1XCfUhlJdFBbCo2de">
+  <div class="card-head" data-page-node-id="obFLG5vdGjhNFGWFJuZBAR">
+    <span class="idx" data-page-node-id="KGx1CHthS2qCyaBVyLM2SN">4</span>
+    <h4 class="repo" data-page-node-id="IzsmSv5sP7BFjdmVZiyce3"><a href="https://github.com/vercel-labs/scriptc" target="_blank" data-page-node-id="fKFzc5u7vJd2BliDmf7gCr">vercel-labs / scriptc</a></h4>
+    <span class="tag t-algo" data-page-node-id="jIOYb65tMoTc2h7qV8dsd5">算法 / 编译</span>
+  </div>
+  <div class="stats" data-page-node-id="XXsebkPBvr65UM86YhRX9D"><span data-page-node-id="vNTAEzZLLMVH5Ov3QC8k8t"><b data-page-node-id="ZY64eEpbMWwSWZnRCqlnQS">语言</b> TypeScript / C</span><span data-page-node-id="9r64V8PlYUflYATfTJ70CJ"><b data-page-node-id="G3r2gudKsOAAsbNMB19b3X">Stars</b> 5.4k</span><span data-page-node-id="rMZFg45M8TWFCGVNQUZtEV"><b data-page-node-id="X6rJ7K9uzYVYPNvnbpvRqO">今日</b> +102 ⭐</span></div>
+  <p class="lead" data-page-node-id="pC1CdQvuoue6MKDbsHdULe"><b data-page-node-id="g0hu1wwu0Gb2QETd5E4PAC">一句话简介：</b>Vercel Labs 的实验性编译器，把 TypeScript / JavaScript 编译成带类型的 IR，再产出可读 C、文本 LLVM IR、原生汇编、目标文件、原生可执行文件与 WASM 模块。</p>
+
+  <h3 data-page-node-id="yipaOS5mC4OYOBHSzNQlrf">核心功能</h3>
+  <ul data-page-node-id="AIYHI7MEk9cgKI9qLG7BCb">
+    <li data-page-node-id="rgxZ5evfwTAxDZwRdjvQFl">复用 TypeScript 编译器完成解析与类型检查，前端收益全部保留。</li>
+    <li data-page-node-id="rqZuaWtxuH4S21zKjBR4lX">多级产出：typed IR → 可读 C → LLVM IR → 汇编 / object → 原生可执行文件 / WASI 模块。</li>
+    <li data-page-node-id="x46DH1e3qCX00DY1fTI7Tg"><b data-page-node-id="9irySgVljLmYHqf5wNGQ7q">静态构建不含 Node 或任何 JS 引擎</b>，只带一个很小的原生运行时；无法静态编译的代码以 diagnostic 形式明确报出，而不是静默降级。</li>
+    <li data-page-node-id="F1VhAfLtXUu5Svkjylxt2h">对 npm 包与 <code data-page-node-id="gKolA4TJwJBvI6bM5cmDJi">any</code> 类型代码，<code data-page-node-id="jLEv5eTEo7o9bImPX541uk">--dynamic</code> 显式嵌入 quickjs-ng 作为兜底。</li>
+    <li data-page-node-id="ndcPyh0ELYDbYKGIhGZOxJ">已能把已发布的 Effect 模块静态编译进程序，并处理 ESM <code data-page-node-id="OvAZNlb9FnjJzaWDzuw7jS">sideEffects</code> 元数据、依赖环下的包纯度缓存、未使用命名空间再导出剪枝。</li>
+  </ul>
+
+  <h3 data-page-node-id="3BAetdAZhz6NImMSoxlCBk">技术栈</h3>
+  <p data-page-node-id="E45EuJu8DOmavqJ9YGzaZY">TypeScript 编译器作为前端；C 与 LLVM 作为后端；Zig 提供经校验的构建与运行时包（固定 glibc 2.36 兼容）。macOS 15+ arm64 上普通 LLVM 级可执行文件使用自带 helper，clang 仅作平台链接器驱动、不再编译程序与运行时 C。</p>
+
+  <h3 data-page-node-id="n8GnSHYgFFc4LkDWEBH3dH">适用场景</h3>
+  <p data-page-node-id="Ivl09BFK35xeTlaurnATOV">把 TS 工具链、CLI、服务端热点路径编译为无运行时依赖的原生二进制；为 Serverless / 边缘场景压缩冷启动与内存占用；WASI Preview 1 下的可移植模块；研究「TS 到原生」的编译路径与 IR 设计。</p>
+
+  <h3 data-page-node-id="TRFefiGesuWCCIRVf2SICO">推荐理由</h3>
+  <ul data-page-node-id="UEy6RBF1AOOqx66xpq4dnn">
+    <li data-page-node-id="7zqzcGZuIAbzzarbI9wLEg">由 Vercel Labs 出品、定位清晰（不是又一个 JS 运行时，而是<b data-page-node-id="J1bpr1NFDTmJh3BihrvMuD">把运行时编译掉</b>），对关注启动性能与二进制体积的团队很有吸引力。</li>
+    <li data-page-node-id="updUTqeHSQis6rkZfQOU3t">目标平台覆盖 macOS / Linux / Windows + WASM，路线图与限制文档写得很明确。</li>
+  </ul>
+  <div class="callout" data-page-node-id="uB6LXh5npBrUwJ3zpeAptM"><b data-page-node-id="ruU9YbEXBU7Ig5onKTa2so">注意：</b>项目自我标注 <i data-page-node-id="hknX6eh5AxpVr2wqqm7cAu">experimental</i>，官方文档明确列出当前限制，不适合直接上生产。</div>
+</div>
+
+<div class="card" data-page-node-id="PBeZKlPBuQYwqwznzcCeuF">
+  <div class="card-head" data-page-node-id="nXw3r7FrCmRNR0V7RTxR63">
+    <span class="idx" data-page-node-id="drD8kwMAta8BmsfUzHfWsu">5</span>
+    <h4 class="repo" data-page-node-id="st6H9JGDypMRYWQJSSUwtW"><a href="https://github.com/cloudflare/quiche" target="_blank" data-page-node-id="8tPpZLNx5GmhhDr5vDqosW">cloudflare / quiche</a></h4>
+    <span class="tag t-algo" data-page-node-id="v0vWTuK7FgfBClTzXXpfSR">算法 / 网络</span>
+  </div>
+  <div class="stats" data-page-node-id="EuMOXFSHDw0YkmDhdx0BcV"><span data-page-node-id="pjhZy7YEfFhPqo9nHAWEmg"><b data-page-node-id="ObcD3C8XCvA9pFHpZvayFb">语言</b> Rust</span><span data-page-node-id="r4UogK5Kd6DOeh4CVRrdZP"><b data-page-node-id="jlRW7JT5cgIC4yc3zTeLxU">Stars</b> 12.7k</span><span data-page-node-id="NicrR503FyB5nSuNcVcsoF"><b data-page-node-id="wPJV0XaaU2T5y4eszw80Hs">本周</b> +521 ⭐</span><span data-page-node-id="sP88YTcBBuzvlUhDaLdZDj"><b data-page-node-id="jXtNoghE1EAMLQIaiHPDTd">协议</b> BSD-2-Clause</span></div>
+  <p class="lead" data-page-node-id="yaJ0NNsE0xjl2YtrWXWFMQ"><b data-page-node-id="g0kXID3yS4jZ7iftARJuwe">一句话简介：</b>Cloudflare 的 QUIC 传输协议 + HTTP/3 实现（Rust），提供处理 QUIC 包与连接状态的<b data-page-node-id="GDk9rAhyQFC35vZeZUZ4EC">低层 API</b>，I/O 与事件循环由调用方负责。</p>
+
+  <h3 data-page-node-id="6pyvtxIOjp5GbN43ce7Sor">核心功能</h3>
+  <ul data-page-node-id="tiKFtRFKBqIQ6iionMEsKW">
+    <li data-page-node-id="AgEq5wEbZHkTCeOHXAlmPu">完整的 QUIC 连接状态机：<code data-page-node-id="msavjiRWA4wz8ifPvrnij6">Config</code> 配置（版本、ALPN、流控、拥塞控制、空闲超时）、<code data-page-node-id="oMmKLaWjdeK9HgIgVaVsZH">connect()</code> / <code data-page-node-id="DIEa2D2fAGVlJPGxYFaUJx">accept()</code>、<code data-page-node-id="aonWQrUjW9Wz5oUslgL3ms">recv()</code> / <code data-page-node-id="tUdwSY0zEOoHECjuguVdZV">send()</code>、<code data-page-node-id="3AJ6im5uz1hmz7TQGz3KmP">timeout()</code> / <code data-page-node-id="JGqITBfYlDzEHuzeIjgGE6">on_timeout()</code>、流级 <code data-page-node-id="aiKCg7aT3MYfEiHSCXb3rb">stream_send()</code> / <code data-page-node-id="CSTmJcAZWO4Ejn5wQQEgmJ">stream_recv()</code>。</li>
+    <li data-page-node-id="rmhyv3LXzxHqh7fvf8tPOd"><b data-page-node-id="46y4JA1sphGrUVEcSrnSau">发送节流提示</b>：<code data-page-node-id="SfGp4WoqqVVgRIIpscryHw">SendInfo.at</code> 给出每个包的建议发送时刻，可配合 Linux <code data-page-node-id="IdLXf4TFx31N7WZF4O7Pqe">SO_TXTIME</code> 或用户态定时器避免突发丢包。</li>
+    <li data-page-node-id="xG2RCfBNpJBnaw5EeOH4wU">HTTP/3 高层模块（<code data-page-node-id="UORiUh0Rz4AFKUk9l5Puc3">quiche::h3</code>）；<code data-page-node-id="KMuEGHnPcO8pRYH46AIgkp">h3i</code> 交互式 HTTP/3 调试工具；<code data-page-node-id="wSy0i52orFnHk9NwZYFmLM">qlog</code> / <code data-page-node-id="v9m59LlQ2WSwhN0VeX8dPR">qlog-dancer</code> / <code data-page-node-id="B6TXhhNb2drZcmaWblZrJw">netlog</code> 做 QUIC 事件日志与可视化。</li>
+    <li data-page-node-id="po9rHmgD3awENjQ9N9T3Dr"><b data-page-node-id="8AIuWSgIe3TH7f7dlXeQQJ">thin C API</b>：开启 <code data-page-node-id="3ihysn0gFhrbMoXYe02zZR">ffi</code> feature 后自动构建完全自包含的 <code data-page-node-id="LAQRP7fGqB1Xry3N1dov9A">libquiche.a</code>，可直接链进 C/C++ 或其他支持 FFI 的语言。</li>
+    <li data-page-node-id="co2cLSOPqO7Gy03Qemhi2e">近期方向：PMTU 路径事件、路径指标完善（FFI <code data-page-node-id="Ij5EFwBe2uTnZ2aa8mJGlF">max_rtt</code>）、Boring 5 默认启用<b data-page-node-id="A7wBytROqGofAWWndDnjzQ">后量子密钥交换</b>。</li>
+  </ul>
+
+  <h3 data-page-node-id="xfoCGwEX80fnazvn27jJvf">技术栈</h3>
+  <p data-page-node-id="bnbQUVE9WvYO2oXBCIPv6o">Rust（MSRV 1.88+），密码学握手基于 BoringSSL（<code data-page-node-id="ZBQBee6xe8RgFuOWTy1FqV">boring-sys</code>，构建需 cmake，Windows 需 NASM）；workspace 含 <code data-page-node-id="fFXTu3mh8L5a2XrttU63dI">quiche</code> / <code data-page-node-id="FXlGdpahMXhvM8BD2Pa2RJ">h3i</code> / <code data-page-node-id="H1Wstfnf8H86dJqoUnjPRp">tokio-quiche</code> / <code data-page-node-id="d4o5jTah3bPMGYqJWW5VDM">octets</code> / <code data-page-node-id="51Fb43lHdFXIGqBFShdYoQ">qlog</code> / <code data-page-node-id="t69VwHFWwLNRI7cR0swoNH">datagram-socket</code> / <code data-page-node-id="Dz60UdndxrbyDSk79qXcyD">fuzz</code> 等；提供 Docker 镜像与 <code data-page-node-id="eiuka3xQ8hmggootjpx3dd">quic-interop-runner</code> 测试脚本。</p>
+
+  <h3 data-page-node-id="E7T6VKl75E41jCm0WBq9GW">适用场景</h3>
+  <p data-page-node-id="a5aH8HRoYkTisNkpwKK3hw">自建 HTTP/3 或 QUIC 服务端 / 客户端；把 QUIC 集成进既有 C/C++ 服务（历史使用者包括 curl、Android 的 DNS-over-HTTP/3）；在 Rust 里用 <code data-page-node-id="2PewWU5Axo8n8b5njSQqdO">tokio-quiche</code> 做异步 HTTP/3；用 <code data-page-node-id="mEXw6CPHz679hlS9bQlLmV">h3i</code> + qlog 做协议层排障与互操作测试。</p>
+
+  <h3 data-page-node-id="Q48LwjLEIoAweg5oUFNuIE">推荐理由</h3>
+  <ul data-page-node-id="d5YjhbOmx7YymOtVQBQ5LG">
+    <li data-page-node-id="25EQj5kDfIuQs9SvLH4CBV"><b data-page-node-id="ZLjbzVoVvdo2pkjfetGoeq">真实世界规模验证</b>：直接驱动 Cloudflare 边缘网络的 HTTP/3，Android DNS resolver 与 curl 都在用——这类「被大厂生产流量验证过」的网络协议实现不多。</li>
+    <li data-page-node-id="yEnGIKsEcPSpstRAEdVJ3E">低层 API 把 I/O 与事件循环交还给应用，适合嵌进自有网络框架；C API 的存在让它能服务非 Rust 技术栈。</li>
+  </ul>
+  <div class="callout" data-page-node-id="8ruXjxcPTt4UZgLToEJyAI"><b data-page-node-id="TOrbeKbeBmY9yLMzdCFcbA">注意：</b>仓库内的 client/server 示例程序明确声明不保证性能、安全与可靠性，不可用于生产；<code data-page-node-id="maECDkkKkGQb8Frn7wlorR">tokio-quiche</code> 的示例同理。</div>
+</div>
+
+<h2 data-page-node-id="UAn9uMM9h5S1xLYr8FboLc">附：这个每日推送任务是怎么实现的</h2>
+
+<div class="card" data-page-node-id="bcURvtEW2yNDnqKa7Ap409">
+  <h3 data-page-node-id="UNZE7H6yq8DPQLTDUYoDV6">一、整体实现思路</h3>
+  <pre data-page-node-id="wPVlQpsHmVubN5zQMlWKB9">GitHub Trending(日榜/周榜) ─┐
+                            ├─→ ① 粗筛(硬性阈值) → ② 精筛(多维打分+类目配额)
+GitHub Search API(增量/时间) ┘         ↓
+                              ③ 历史去重(比对已推仓库清单)
+                                       ↓
+                              ④ 深度理解(抓 README / 官方 docs / release)
+                                       ↓
+                              ⑤ 结构化总结(简介/功能/技术栈/场景/推荐理由)
+                                       ↓
+                              ⑥ 排版 → HTML 日报 + Markdown 归档 → 推送给用户</pre>
+  <p data-page-node-id="DUcr61JWRNBqE1I8KR96UT">关键点：<b data-page-node-id="Dahxwy14nBdOpFljMsi1A7">趋势榜负责「发现」，Search API 负责「补齐」</b>（榜单每天只有 ~25 条，单靠榜单会漏掉细分领域的好项目）；<b data-page-node-id="mog7aJf5oreM9tBQQsadBB">去重清单持久化</b>在 <code data-page-node-id="prQSCk077dhhKhVoqj6Isc">outputs/</code> 目录，避免连续几天推同一个仓库。</p>
+</div>
+
+<div class="card" data-page-node-id="hndoSJ9RVTuHGd3VcVwcxq">
+  <h3 data-page-node-id="Fc6ZjQykVG0e8BIFXDWsSm">二、需要配置的筛选标准</h3>
+  <div class="tbl-wrap" data-page-node-id="NE0qkPaf9qYvW1G5xeJ3Uo">
+  <table data-page-node-id="tqVqJlkq4zFAEdpQa0bpti">
+    <thead data-page-node-id="eatvjIUCenpMiRPKm6YyBB"><tr data-page-node-id="zC00AT7ELOJAvYPh193qM5"><th data-page-node-id="epO6r5PsH0a6zxa7vf467D">维度</th><th data-page-node-id="Nt6r045an13yRDvCZ9sinI">标准</th></tr></thead>
+    <tbody data-page-node-id="vnVlb4W6mhUHO6lQbOxJQI">
+      <tr data-page-node-id="AuXeiujSlFwbg0XED5LmdE"><td data-page-node-id="VJLxYvzTrPD2w2aieJ14Wh">时间活性</td><td data-page-node-id="4xxiSUwvpyIfZuDOohWo2a">最近 30 天内有提交；非归档仓库</td></tr>
+      <tr data-page-node-id="yid1VXE5lnpGu0jHGO2TSc"><td data-page-node-id="BZB71Rmltg2Ezip87sZihc">热度门槛</td><td data-page-node-id="76s3SYQE5FRE2o4xc5xVjI">周榜增量 ≥ 300 ⭐，或日榜增量 ≥ 80 ⭐（可按需调整）</td></tr>
+      <tr data-page-node-id="ZRVDx14EeA0fZqGUXDoBoC"><td data-page-node-id="MD2yQmH8ieAI1JAIuPYK6j">存量门槛</td><td data-page-node-id="ZVmLwh5Lk9MhVET9Dx5QeH">总 stars ≥ 1,000，避免「一夜爆红但内容单薄」</td></tr>
+      <tr data-page-node-id="QEcEwEVW1pIvNJkVuu26g0"><td data-page-node-id="hSbEk9I75rliMDXgMy8F8T">仓库资质</td><td data-page-node-id="Qp4AHxeuSmecOpqSf21AoR">非 fork、非 awesome / 资源聚合列表、License 明确、有 README 正文</td></tr>
+      <tr data-page-node-id="Z2OWcFHFufT6zrZFbYnRnb"><td data-page-node-id="7fN8Fi8RoDdtrseszwZiJi">质量信号</td><td data-page-node-id="CojaDsjkysbX0nJa2W39Vr">有 CI / 测试 / 文档站 / 正式 release 者优先</td></tr>
+      <tr data-page-node-id="CaTIkMgCEPApCEdh7BTME8"><td data-page-node-id="TKN6tbQ11v2H4iAPgVxqth">类目配额</td><td data-page-node-id="KFbNPojDHN3dtOLR6aDcZQ">每期 2–5 个；至少覆盖 2 个类目；单一类目 ≤ 2 个</td></tr>
+      <tr data-page-node-id="eILPXCPFYRTvyTBlk1Chhm"><td data-page-node-id="LThOKXWh3txz3TxJhwiPhY">类目定义</td><td data-page-node-id="LNqSlDWtjU8cz9BuR7whHE">① 应用项目　② 算法 / 模型　③ 工程实践 / 工具链　④ AI Agent 及基础设施</td></tr>
+      <tr data-page-node-id="q8xLwyioCMBeJmSWV1hHnn"><td data-page-node-id="qBQdziMYrfAX9bsdbUY2sx">排除项</td><td data-page-node-id="DvNYddlO0otyd0fHQRFTEE">刷星仓库、空壳仓库、纯教程 / 大纲、往期已推送过的仓库</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="card" data-page-node-id="t7212343SjxYLKQnUXvjQA">
+  <h3 data-page-node-id="BbBIj1jYjHFUDGVFJpI4d0">三、推送方式</h3>
+  <ul data-page-node-id="E3LyYambvQnBsBwyAJCenx">
+    <li data-page-node-id="xKEAXwfP7HatXleyc6Pj5t"><b data-page-node-id="SKydfzrEOZ9yRGPJRarpuW">当前（已配置）</b>：WorkBuddy 定时自动化，每天 09:00 运行；产出 HTML 日报 + Markdown 归档到工作区 <code data-page-node-id="4LwaFbB6ZngC8jsGegjCUj">outputs/</code>，通过文件卡片直接推送到会话。</li>
+    <li data-page-node-id="HfOf9LdL6jsV9j9MTHKiOK"><b data-page-node-id="9i2BrrGBUqk3pZH5KRAaz1">可扩展渠道</b>（按需开启）：
+      <ul data-page-node-id="LgqnSoSvGHpR6le1V5Y0Dq">
+        <li data-page-node-id="8J4xyzDTYcW4LGqdPwmAJ9"><b data-page-node-id="mwAcyTsHgUHtgx4U7mVF6N">IM 机器人</b>：企业微信 / 飞书 / 钉钉群机器人 Webhook（Markdown 卡片，最适合团队共享）</li>
+        <li data-page-node-id="eqD7gV8Terj7E5oEMfqKsb"><b data-page-node-id="amow2gKnkbFD2hnqN6vzwT">邮件</b>：走 Agent Mail 连接器，HTML 正文直投</li>
+        <li data-page-node-id="ztVt5m33YjRziPMjG45FbH"><b data-page-node-id="n4MRIzYIFsD9TSLyJQiFpT">仓库归档</b>：自动提交到自建 GitHub 仓库的 <code data-page-node-id="5vCybfcZrB0DxzdSzMyknM">daily/</code> 目录，形成可检索的积累</li>
+      </ul>
+    </li>
+    <li data-page-node-id="D2f8Ca4nGxBUP4TSPlehfS"><b data-page-node-id="lZ0g0xVFg0rG7kPFxMezRC">建议</b>：先保持「本地归档 + 会话推送」，积累 1–2 周后按实际阅读习惯再决定接入哪个 IM。</li>
+  </ul>
+</div>
+
+<footer data-page-node-id="tDRRM07hVg2Fq3WaNNlnJY">本期由 WorkBuddy「每日 GitHub 精选」任务自动生成 · 数据截至 2026-09-28</footer>
+</div>
+</body>
+</html>
