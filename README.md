@@ -3,7 +3,7 @@
 每天自动筛选 2–5 个优质开源仓库，覆盖 **应用项目 / 算法模型 / 工程实践 / AI Agent** 四类，
 每个仓库附项目简介、核心功能、技术栈、适用场景与推荐理由（含局限）。
 
-累计 **1** 期 · **5** 个仓库。
+累计 **2** 期 · **10** 个仓库。
 
 ## 怎么读？（重要）
 
@@ -26,6 +26,7 @@ GitHub 对 `.html` **只当源码显示，不会渲染**。所以下表给了三
 
 | 日期 | 本期收录 | 日报 |
 |------|---------|------|
+| **2026-09-29** | univer · colibri · claude-code-templates · orca 等 5 个 | [阅读](daily/github-daily-2026-09-29.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-09-29.html) · [长图](daily/github-daily-2026-09-29.jpg) |
 | **2026-09-28** | hindsight · open-code-review · WeKnora · scriptc 等 5 个 | [阅读](daily/github-daily-2026-09-28.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-09-28.html) · [长图](daily/github-daily-2026-09-28.jpg) |
 
 ## 目录结构

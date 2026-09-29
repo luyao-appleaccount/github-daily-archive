@@ -1,0 +1,217 @@
+# 每日 GitHub 精选 · 2026-09-29（第 2 期）
+
+> 筛选范围：GitHub Trending（日榜 + 周榜）+ Search API 补充近期 star 增量高、30 天内有提交的细分领域项目
+> 本期入选 5 个，覆盖类目：应用项目（1）、算法/模型（1）、工程实践/工具链（1）、AI Agent 及基础设施（2）
+> 与第 1 期去重：本期仓库均未在往期推送（去重基线 `archive/index.json`）
+
+---
+
+## 速览
+
+| # | 仓库 | 类目 | 语言 | Stars | 近期增量 |
+|---|------|------|------|-------|----------|
+| 1 | [dream-num/univer](https://github.com/dream-num/univer) | 应用项目 | TypeScript | 21.3k | +1,099 ⭐ 日榜 |
+| 2 | [JustVugg/colibri](https://github.com/JustVugg/colibri) | 算法/模型 | C | 38.2k | 约 +2,981 ⭐ 周（建库 13 周平均） |
+| 3 | [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates) | 工程实践/工具链 | Python / Rust / TS | 32.1k | +1,200 ⭐ 周榜 |
+| 4 | [stablyai/orca](https://github.com/stablyai/orca) | AI Agent 及基础设施 | TypeScript | 80.8k | +6,151 ⭐ 周榜 |
+| 5 | [trycua/cua](https://github.com/trycua/cua) | AI Agent 及基础设施 | Swift / Python / TS | 26.9k | +1,293 ⭐ 周榜 |
+
+---
+
+## 1. dream-num/univer —— Office SDK
+
+**一句话简介**：开源 Office SDK：表格、文档、幻灯片、画布、关系表与 PDF 共用同一套运行时，浏览器与服务端无头同构；还专门给 AI Agent 留了读写文件、截图自检结果的操作接口。
+
+**仓库信息**
+- 地址：https://github.com/dream-num/univer
+- 类目：应用项目 ｜ 语言：TypeScript ｜ Stars：21.3k（21319）｜ 近期增量：+1,099 ⭐ 日榜
+- 协议：Apache-2.0 ｜ 官网 / 文档：docs.univer.ai
+
+**核心功能**
+- **同构设计**：同一套架构既跑浏览器里的 UI，也跑 Node.js 无头处理——服务端批量算表、转格式，人再在浏览器里看同一个文件，不需要维护两套逻辑。
+- **插件优先**：所有能力都是可组合插件，可增删替换、可懒加载；`presets/` 提供策展好的整套组合，想快速起一个能用的编辑器就从它开始，想极致瘦身就手动组合包。
+- **Facade API**：用高层 API 操作工作簿、工作表、区间、文档、公式、命令与事件，不必钻进内部模型。
+- **Canvas 渲染引擎**：支撑大尺寸可编辑文档界面，表格 / 文档 / 幻灯片共用同一渲染层。
+- **给 AI Agent 的 Office 工作流**：Agent 通过结构化 API 读写 Office 内容 → 用内容检查、渲染截图、布局诊断三种方式**核验自己的结果** → 在隔离草稿里改、由人 review 后决定合并。配套 `univer-sdk-skills`（写给 Agent 的集成/插件/Node 后端指令集）与 `univer-mcp`（自然语言驱动表格）。
+- **开源与商业边界写得清楚**：核心 SDK、插件系统、渲染引擎、公式引擎、Facade API、主题、i18n、React/Vue/Web Components 适配全部开源；实时协作、导入导出、图表、透视表、打印属 Univer Pro 商业层，仓库里逐项列了对照表。
+
+**技术栈**
+TypeScript 单仓多包（pnpm workspace + Turborepo + Turbo 缓存）；渲染层基于 Canvas，视图层 React 18（兼容 18/19，对 16.9+ / 17 提供最低兼容）；Vitest 测试 + codecov 覆盖率；构建目标 Chrome 88 / Edge 88 / Firefox 90 / Safari 14.1 / Electron 12；无头模式要求 Node ≥ 18.17（开发单仓需 ≥ 22.18）。
+
+**适用场景**
+在自己的 SaaS / 内部系统 / BI / AI 产品里嵌入表格或文档编辑；服务端批量处理 xlsx、docx（无头）；只取需要的能力做轻量定制（比如只要公式引擎 + 网格）；给 Agent 一个能读、能改、能截图自检的 Office 操作面。
+
+**推荐理由**
+- **省掉自研编辑器的数月投入**：选区、公式、数字格式、筛选排序、数据校验、条件格式、批注、查找替换、表格——这些「看起来简单做起来要命」的功能直接以框架形式给到。
+- **同构 + 无头对 AI 场景是关键**：Agent 在服务端算，人在浏览器里审，同一个文件、同一套逻辑；这也是它区别于普通「前端表格组件」的地方。
+- 治理信号齐全：Apache-2.0、贡献指南、行为准则、安全策略、CHANGELOG、持续发布（v1.0.2 于 2026-09-24）、独立文档站与示例库，属于可长期依赖的项目。
+
+> **注意**：① 上游仓库是**开源核心**，协作 / 导入导出 / 图表 / 透视表 / 打印这些「产品级必备」在 Pro 商业版，上线前务必按能力矩阵确认 license 边界；② 定位是 SDK 框架而非现成 App，要调成想要的样子需要前端投入；③ 官方提示老环境需要 `Intl.Segmenter` polyfill，Webpack 4 这类不认 `exports` 字段的构建工具要做额外路径映射。
+
+> **一句话理解**：把它想成「Excel 的发动机」：你要的不是一个网站，而是把发动机装进自己的车里——表格只是它的一种车身，换个壳就是文档或幻灯片。
+
+---
+
+## 2. JustVugg/colibri —— MoE 推理引擎
+
+**一句话简介**：纯 C 写的极简 MoE 推理引擎：把显存、内存、NVMe 当作同一套存储层级，专家按需从磁盘流式加载，于是 744B 甚至 2.8T 参数的前沿模型也能在你已有的机器上跑起来，且不要求 GPU。
+
+**仓库信息**
+- 地址：https://github.com/JustVugg/colibri
+- 类目：算法/模型 ｜ 语言：C ｜ Stars：38.2k（38158）｜ 近期增量：约 +2,981 ⭐ 周（建库 13 周平均）
+- 协议：Apache-2.0 ｜ 官网 / 文档：justvugg.github.io/colibri
+
+**核心功能**
+- **专家按需流式加载**：744B 的 GLM-5.2 每个 token 只激活约 40B 参数，其中真正逐 token 变化的只有约 11GB（被路由到的那批专家）。引擎把稠密部分（注意力、共享专家、embedding，约 17B，int4 约 9.9GB）常驻内存，把 19,456 个路由专家（int4 每个约 19MB，合计约 370GB）放磁盘按需读取。
+- **权重版 JIT**：按实测路由热度做每层 LRU + 学习式 pinned 热存储 + 提前一层的预取，跑得越多越准——赌的是「MoE 路由有可测结构，而结构可缓存」。
+- **多级存储 + 多盘聚合**：VRAM / RAM / NVMe 是同一份权重的三个放置层级；可把模型镜像放第二块 SSD 做读取分流（实测双盘解码 +37.5%），启动时逐文件校验字节一致，镜像只放部分分片也行，读失败自动回退主盘。
+- **异构执行**：CPU、CUDA、Metal、NUMA 内存、部分/全部专家驻留共用一个运行时。Qwen3.6 上用两张 8GB 卡把解码从 1.44 提到 10.05 tok/s（7 倍），输出与 CPU 路径逐位一致。
+- **本地集群模式**：协调节点保留 token 生成、路由与 KV 状态，专家 FFN 交给其他 Mac 上的 worker 执行；一层内被路由到的专家合并成一个 TCP 请求，避免「每个专家一次往返」。
+- **压缩状态不改模型**：token 级完全一致的 forward 校验、57 倍小的 MLA KV 状态、DSA 保真、MTP 与语法草稿投机解码（收益不足时可关）。
+- **可观测性少见地好**：`coli web` 提供仪表盘、Brain 专家图谱（GLM-5.2 的 13,260 个专家按实测路由亲和度画成大脑皮层）、实时路由热图（颜色=数据所在层级）与逐轮 Profiling。
+
+**技术栈**
+纯 C——核心就是单个 `c/colibri.c` 加少量头文件，无 BLAS、运行时不依赖 Python、不要求 GPU；Makefile 按模型族构建（`make -C c glm` / `kimi_k3` / `deepseek-v4` …）；权重用 Hugging Face 上的 int4 / MXFP4 / fp4 容器（多数无需自行转换）；前端统一为 `coli chat` / `coli serve` / `coli web`；另有 Docker 与 Nix flake。
+
+**适用场景**
+要在自有硬件或内网里私有化跑前沿大模型（数据不出门、不付 API 费）；研究存储层级、KV 压缩、投机解码、CPU/GPU 重叠等推理侧系统问题；把闲置机器 + 大容量 NVMe 拼成低成本推理节点；需要一个能改代码、能复现测量的开放实验平台。
+
+**推荐理由**
+- **换了一条路线**：多数推理框架的前提是「模型要装进显存」，colibri 把「放不下」重新定义为「放得下，只是慢一点」——速度可以牺牲，语义不许被偷偷改写。
+- **诚实得罕见**：README 直接列出 6 个「还没证完的假设」（路由历史 vs 纯 LRU、多盘线性度、投机解码的盈亏平衡点…），并邀请社区提交可复现的**负面**结果；默认策略承诺绝不静默改精度或路由语义。
+- **文档与工程规格拉满**：独立文档站、五种语言 README、每个模型一份专门文档、多盘/基准协议指南、`make` 一条命令构建、正式 release（v1.12.1 于 2026-09-24）、活跃 Discord。
+
+> **注意**：① **先看硬件再 clone**：速度由磁盘决定——慢盘是「每秒零点几个 token」，快盘且缓存命中也就个位数 tok/s；② 磁盘占用极大（GLM-5.2 约 372GB、Inkling 约 469GB、Kimi K3 约 1.6TB 权重），内存需要 16–32GB+；③ 官方明说「对速度无 SLA、只对语义有保证」，且部分优化在特定场景会掉性能（专家命中率约 85% 时 MTP 实测 -32%、预取在某些主机上反而更慢）。**适合尝鲜与系统研究，不建议直接当生产推理服务。**
+
+> **一句话理解**：像 JIT 只编译真正跑到的热点代码一样，它只把当前 token 真正要用到的那十几个专家从磁盘搬进来——744B 的模型，一次只搬约 11GB 的一小撮。
+
+---
+
+## 3. davila7/claude-code-templates —— Claude Code Templates
+
+**一句话简介**：Claude Code 的配置商城加运维面板：一条 npx 装齐 Agent、斜杠命令、MCP 集成、hooks、settings 与 Skills，附带用量分析、会话监视与健康检查。
+
+**仓库信息**
+- 地址：https://github.com/davila7/claude-code-templates
+- 类目：工程实践/工具链 ｜ 语言：Python / Rust / TS ｜ Stars：32.1k（32086）｜ 近期增量：+1,200 ⭐ 周榜
+- 协议：MIT ｜ 官网 / 文档：aitmpl.com
+
+**核心功能**
+- **一条命令拼工作流**：`npx claude-code-templates@latest --agent development-team/frontend-developer --command testing/generate-tests --mcp development/github-integration --yes`，把整套开发栈一次性装好；不带参数则进入交互式浏览。
+- **六类可安装组件**：Agents（领域专家：安全审计、React 性能优化、数据库架构…）、Commands（`/generate-tests`、`/optimize-bundle`、`/check-security`）、MCPs（GitHub、PostgreSQL、Stripe、AWS、OpenAI…）、Settings（超时、内存、输出风格）、Hooks（提交前校验、完成后动作）、Skills（渐进式披露的可复用能力，如 PDF / Excel 处理）。
+- **Claude Code Analytics**：带实时状态检测的会话监控与性能指标，看 AI 编码到底花了多少时间。
+- **Conversation Monitor**：手机友好的实时回复查看界面；`--chats --tunnel` 走 Cloudflare Tunnel 做安全远程访问。
+- **Health Check**：一键诊断 Claude Code 安装是否处于优化状态。
+- **Plugin Dashboard**：统一查看 marketplace、已装插件并管理权限。
+- **100+ 模板的在线目录**：aitmpl.com 可视化浏览后直接安装，文档站 docs.aitmpl.com。
+
+**技术栈**
+以 npm 分发的 CLI（配套 `cli-rust` 目录里的 Rust 版实现），仓库同时托管 aitmpl.com 网站与其后端（`dashboard`、`cloudflare-workers`、`database`）；`.claude-plugin` 提供插件形态接入，自带 `CLAUDE.md`、`SECURITY.md`、`CHANGELOG.md`。
+
+**适用场景**
+刚上手 Claude Code、想跳过「翻文档手搓 JSON」阶段；团队要把 Agent 定义 / hooks / MCP 配置沉淀成可分发资产；给非专业开发者降低配置门槛；观察 AI 编码会话的用量与耗时分布。
+
+**推荐理由**
+- **把配置变成可分发资产**：Agent、hooks、MCP 写成模板后可像依赖一样安装，团队里谁都不用再复制粘贴配置文件，这是它最实用的价值。
+- **生态位填得准**：一面是 100+ 社区模板（MCP 覆盖 GitHub / Postgres / Stripe / AWS 等常用服务），一面是 Analytics / Health / Plugin 三个「每天都会用」的运维面板，属于装了就留下的工具。
+- MIT 协议、社区规模大（3.6k forks、近 300 个 open issue）、持续发布（v1.29.6 于 2026-09-17），文档与贡献指南齐全。
+
+> **注意**：① 模板按 Claude Code 的目录约定生成（`.claude/`、`.mcp.json` 等），换用其他 Agent 需自行迁移；② 模板质量由社区贡献决定，装第三方 Agent / 命令前先看清你交出了什么权限——尤其 MCP 会携带外部服务凭据；③ 仓库同时包含网站与 dashboard，体量较大，边缘问题不保证及时响应。
+
+> **一句话理解**：相当于给 Claude Code 装了一个「应用商店 + 任务管理器」：商店里拿现成的 Agent 和插件，任务管理器里看它此刻在忙什么、吃多少资源。
+
+---
+
+## 4. stablyai/orca —— 并行 Agent ADE
+
+**一句话简介**：面向「并行 Agent 舰队」的 ADE：一个 prompt 分发给多个编码 Agent，各自在独立 git worktree 里跑，桌面与手机端统一对比、批注 diff 并合并胜出方案。
+
+**仓库信息**
+- 地址：https://github.com/stablyai/orca
+- 类目：AI Agent 及基础设施 ｜ 语言：TypeScript ｜ Stars：80.8k（80814）｜ 近期增量：+6,151 ⭐ 周榜
+- 协议：MIT ｜ 官网 / 文档：onOrca.dev
+
+**核心功能**
+- **Parallel Worktrees**：一个 prompt 铺开到五个 Agent，每个在自己的隔离 git worktree 里工作，跑完对比结果、合并胜出的那个——把「选方案」从口头讨论变成可执行的比稿。
+- **终端与编辑器**：Ghostty 级终端（WebGL 渲染、无限分屏、重启后滚动回看仍在）+ VS Code 级编辑器（全局自动保存，文件与图片可直接拖进 prompt）。
+- **Design Mode**：在真实 Chromium 窗口里点任意 UI 元素，把该元素的 HTML、CSS 与裁剪截图直接塞进 Agent 的 prompt，改样式不再靠嘴描述。
+- **审查闭环**：在 AI 生成的 diff 上逐行批注并原路发回 Agent；原生 GitHub / Linear 面板（PR、issue、项目看板）不切窗口就能从任务开 worktree 并 review。
+- **SSH Worktrees**：在远端大机器上跑 Agent，具备完整文件编辑、git 与终端，自动重连与端口转发；本地只看结果。
+- **Mobile Companion**：iOS / Android 手机端监控与指挥 Agent，完成即通知、随时追问。
+- **Computer Use + Orca CLI**：需要真实交互时让 Agent 操作桌面应用与可见 UI；Agent 也能反向驱动 Orca（`orca worktree create` / `snapshot` / `click` / `fill`），把流程脚本化。
+- **账号与用量**：Claude / Codex 的用量与限流重置时间可见，支持热切换账号免重新登录。
+
+**技术栈**
+TypeScript 跨平台桌面应用（macOS / Windows / Linux），集成终端渲染 + Chromium + 编辑器组件；配套移动端（iOS App Store、Android APK）与 CLI；Agent 侧通过终端驱动，因此兼容任意 CLI Agent——Claude Code、Codex、Grok、Cursor、GitHub Copilot、OpenCode、Amp、Devin、Goose、Cline、CodeBuddy 等数十种都在支持列表里。
+
+**适用场景**
+一个人同时推进多条改动（同一需求多方案比稿、多个 bug 并行修复）；需要「Agent 干活 + 人 review」的研发流程；把重活放到远端大机器、本地只看结果的工作方式；移动场景下盯 Agent 进度。
+
+**推荐理由**
+- **解决的是并行 Agent 真正的瓶颈**：不是算力，而是上下文切换。worktree 隔离 + 统一视图 + diff 批注，把「切窗口、找分支、对结果」的摩擦成本压掉了，这是它和普通「多标签终端」的本质区别。
+- **不绑定模型厂商**：自带订阅即可，只要能在终端里跑起来的 Agent 都能接，避免被单一 Agent 锁定——在被某个 Agent 的额度/限流卡住时尤其值钱。
+- 形态齐全、迭代极快：桌面 / 移动 / 远端三种形态都有，MIT 协议，独立文档站，release 与变更日志高频更新，仓库自带多语言 README。
+
+> **注意**：① 它是**编排层**，本身不提供模型额度，仍需自备 Claude / Codex 等订阅；② 功能密度很高（终端 + 浏览器 + 编辑器 + 看板都在一个 App 里），首次上手需要一点时间建立心智模型；③ 并行开多个 worktree 意味着多份依赖安装与构建，磁盘和内存占用会明显上升，建议配合 SSH worktree 把重活丢到远端。
+
+> **一句话理解**：像同时开五条产线做同一款零件，最后挑一条产线的成品装车——而不是在一条产线上反复试错、每次都要回滚。
+
+---
+
+## 5. trycua/cua —— computer-use 基础设施
+
+**一句话简介**：给 Agent「配电脑」的开源基础设施：桌面自动化驱动 + 隔离云桌面 + 本地 macOS 虚机 + 决策小模型 + computer-use 评测基准，环境到数据整条链路都覆盖。
+
+**仓库信息**
+- 地址：https://github.com/trycua/cua
+- 类目：AI Agent 及基础设施 ｜ 语言：Swift / Python / TS ｜ Stars：26.9k（26879）｜ 近期增量：+1,293 ⭐ 周榜
+- 协议：MIT ｜ 官网 / 文档：cua.ai
+
+**核心功能**
+- **Cua Driver**：让 Agent 检查并操作 macOS / Windows / Linux 的原生应用与浏览器，可经 CLI、MCP 或带类型的 SDK 接入；支持「后台投递」——在不移动你的鼠标、不抢焦点的前提下完成操作（平台支持有边界，官方给了支持矩阵）。
+- **Cua Fleets**：在 run.cua.ai 按池子申请隔离云桌面，代码从池里认领一台，用 Sandbox SDK 执行命令、截屏、操作应用；本地沙箱与云 Fleet 共用同一套 SDK，凭证与镜像规则不同。
+- **Lume**：基于 Apple Virtualization.Framework，在 Apple Silicon 上用一条命令从 Apple 恢复镜像起一台干净的 macOS 虚机（也支持 Linux），随后 SSH 进去。
+- **CUA-S1**：面向 computer-use 的「System 1」小模型系列——首个研究档位聚焦表单填写：对结构化界面元素与文档值**打分**，而不是逐 token 生成文本；含 Python 模型代码、合成数据生成、训练与评测，权重托管在 Hugging Face。
+- **Cua Bench**：构造 computer-use 任务、评测 Agent、导出轨迹用于训练；可以先从不需要 VM / Docker / 模型 Key 的模拟任务开始练手。
+- **Computer-Use 2.0 概念**：同一个任务里 Agent 在代码、API 与图形界面之间来回切换，而不是只能点鼠标。
+
+**技术栈**
+单仓多包（`libs/` 下含 cua-driver、lume、cua-s1、cua-bench 等）：Swift（Apple 虚拟化与驱动）、Python 3.12/3.13 + uv（模型与评测）、TypeScript/Node 与静态站；Nix flake + Makefile 双开发环境，release-please + 约定式提交管理发版（最新 sandbox-v0.8.0，2026-09-15），仓库内有 RFC、blog、evidence、TESTING / Development / MAINTAINERS 文档，并原生提供 Claude Code、Codex、Cursor、OpenClaw 等 Agent 的接入指引。
+
+**适用场景**
+做 computer-use / GUI Agent 的团队（需要可复现的沙箱与基准）；把 Agent 接到真实桌面软件（Office、CAD、内部系统）上跑流程自动化；在 Apple Silicon 上批量起 macOS / Linux 虚机做测试或数据采集；为「Agent 操作界面」这件事收集轨迹去训小模型。
+
+**推荐理由**
+- **一个仓覆盖 computer-use 全生命周期**：环境（本地虚机 / 云桌面）→ 操作（驱动）→ 决策（专用小模型）→ 评测与数据（bench），不必自己拼四套工具；而且各部件（Driver、Sandbox SDK、Bench）都能单独取用。
+- **工程规范度罕见**：RFC 流程、TESTING / Development / MAINTAINERS 文档齐备、release-please 自动发版、Nix + Makefile 双环境、CITATION.cff 引用信息、多 Agent 接入指南——这类项目最怕「Demo 能跑、工程不成型」，它两边都顾到了。
+- **安全姿态明确**：单独的 SECURITY 指引、CUA-S1 的 model card 与部署安全说明；做 GUI 自动化必然要交出大量系统权限，有明确边界说明很重要。
+
+> **注意**：① 仓库语言标记是 HTML，但本体是多语言多包 monorepo，直接 clone 不一定开箱即用，按文档挑 `libs/` 子包安装；② 云 Fleet 属付费能力，池子认领后可能**保留付费容量**，务必按教程的清理步骤释放；③ CUA-S1 是「早期、仅源码」的研究发布，权重在 Hugging Face 单独托管、各模型与数据集的许可范围不同，别当成成品模型直接用；④ 后台投递与跨平台能力都有平台边界（issue 已过千），落地前先对着支持矩阵评估。
+
+> **一句话理解**：它不是某个 Agent，而是给 Agent 准备的「工位 + 手套 + 考卷」：工位是虚机/云桌面，手套是桌面驱动，考卷是评测基准——谁来坐这个工位都行。
+
+---
+
+## 附录：本期说明
+
+### 数据来源与筛选口径
+
+| 维度 | 标准 |
+|------|------|
+| 时间活性 | 最近 30 天内有提交，非归档仓库 |
+| 热度门槛 | 周榜增量 ≥ 300 ⭐ 或日榜增量 ≥ 80 ⭐ |
+| 存量门槛 | 总 stars ≥ 1,000 |
+| 仓库资质 | 非 fork、非 awesome / 资源聚合列表、非纯教程大纲、非空壳；License 明确且有 README 正文 |
+| 质量信号 | 有 CI / 测试 / 文档站 / 正式 release 者优先 |
+| 类目配额 | 每期 2–5 个，至少覆盖 2 个类目，单类目 ≤ 2 个 |
+| 去重基线 | `archive/index.json` 中记录的历史仓库 |
+
+### 本期取舍说明
+
+- 日榜与周榜共 26 条候选，其中 `byoungd/up`（人生进阶指南）、`rohitg00/ai-engineering-from-scratch` 等属教程 / 资源聚合类，按规则排除；`pytorch/pytorch`、`vercel/next.js`、`elastic/elasticsearch` 虽然增量达标，但属超成熟项目，新鲜度不足，让位给细分领域项目。
+- **算法/模型**类目本期由 Search API 补齐：`JustVugg/colibri` 建库 13 周即 38.2k stars（约 +2,981 ⭐/周），远超周榜门槛，且最近提交在 2026-09-28。
+- 本期 5 个仓库的 license 分别为 Apache-2.0 ×2、MIT ×3，均有正式 release 与 README 正文；去重检查已通过（与第 1 期的 hindsight / open-code-review / WeKnora / scriptc / quiche 无重叠）。
+
+---
+
+*本期由 WorkBuddy 每日 GitHub 精选任务自动生成 · 数据截至 2026-09-29 · 归档仓库：https://github.com/luyao-appleaccount/github-daily-archive*
