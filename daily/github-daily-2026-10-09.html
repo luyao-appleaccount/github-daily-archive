@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 精选 · 2026-10-09</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#1a1d21;
+    --ink-2:#4a5058;
+    --ink-3:#7b838d;
+    --line:#e4e7eb;
+    --brand:#2f6fed;
+    --brand-soft:#eef3fe;
+    --amber:#b26a00;
+    --amber-soft:#fff6e6;
+    --green:#1f7a4d;
+    --green-soft:#ecf8f1;
+    --violet:#6b4fd8;
+    --violet-soft:#f1edfe;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:32px 20px 56px;
+    background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  header.hero{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:28px 32px;margin-bottom:24px;
+  }
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:700}
+  h1{margin:8px 0 6px;font-size:27px;line-height:1.35;letter-spacing:-.01em}
+  .sub{color:var(--ink-2);font-size:14px;margin:0}
+  .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    display:inline-block;padding:4px 11px;border-radius:999px;
+    font-size:12.5px;font-weight:600;background:var(--brand-soft);color:var(--brand);
+  }
+  .chip.g{background:var(--green-soft);color:var(--green)}
+  .chip.v{background:var(--violet-soft);color:var(--violet)}
+  .chip.a{background:var(--amber-soft);color:var(--amber)}
+
+  h2{
+    font-size:17px;margin:34px 0 14px;padding-left:11px;
+    border-left:4px solid var(--brand);line-height:1.3;
+  }
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px 26px;margin-bottom:20px;
+  }
+  .card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+  .idx{
+    width:26px;height:26px;border-radius:8px;background:var(--brand);color:#fff;
+    font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
+    flex:0 0 auto;
+  }
+  .repo{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .repo a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--brand-soft)}
+  .repo a:hover{border-bottom-color:var(--brand)}
+  .stats{
+    display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 16px;
+    padding-bottom:14px;border-bottom:1px dashed var(--line);
+    font-size:13px;color:var(--ink-3);
+  }
+  .stats b{color:var(--ink-2);font-weight:600}
+  .tag{font-size:12px;padding:3px 9px;border-radius:6px;font-weight:600}
+  .t-agent{background:var(--violet-soft);color:var(--violet)}
+  .t-eng{background:var(--brand-soft);color:var(--brand)}
+  .t-app{background:var(--green-soft);color:var(--green)}
+  .t-algo{background:var(--amber-soft);color:var(--amber)}
+  .lead{color:var(--ink-2);margin:0 0 16px;font-size:14.5px}
+  .lead b{color:var(--ink)}
+  h3{
+    font-size:13px;margin:18px 0 8px;color:var(--ink-3);
+    letter-spacing:.05em;font-weight:700;
+  }
+  h3::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--brand);margin-right:7px;vertical-align:middle}
+  ul{margin:0;padding-left:19px}
+  li{margin:4px 0;color:var(--ink-2)}
+  li b,li strong{color:var(--ink)}
+  p{margin:8px 0;color:var(--ink-2)}
+  .callout{
+    margin-top:16px;padding:12px 15px;border-radius:10px;
+    background:var(--amber-soft);border-left:3px solid var(--amber);
+    font-size:13.5px;color:var(--ink-2);
+  }
+  .callout b{color:var(--amber)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 4px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th{background:#fafbfc;color:var(--ink-3);font-size:12px;font-weight:700;letter-spacing:.04em}
+  td:first-child{white-space:nowrap;color:var(--ink-3);font-weight:600}
+  .tbl-wrap{overflow-x:auto}
+  code{background:#f1f3f5;padding:1.5px 5px;border-radius:4px;font-size:12.5px;font-family:"SF Mono",Menlo,Consolas,monospace;color:#b0407a}
+  pre{
+    background:#fafbfc;border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;overflow-x:auto;font-size:12.5px;line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;color:var(--ink-2);
+  }
+  footer{
+    margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+    text-align:center;color:var(--ink-3);font-size:12.5px;
+  }
+  .callout.blue{background:var(--brand-soft);border-left-color:var(--brand);margin-top:12px}
+  .callout.blue b{color:var(--brand)}
+  .foot-links a{color:var(--brand);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Daily GitHub Digest</div>
+  <h1>每日 GitHub 精选 · 第 3 期</h1>
+  <p class="sub">2026 年 10 月 9 日（周五） · 本期入选 <b>5</b> 个仓库 · 覆盖 <b>4</b> 个类目</p>
+  <div class="meta">
+    <span class="chip g">应用项目 ×1</span>
+    <span class="chip a">算法/模型 ×1</span>
+    <span class="chip">工程实践 ×1</span>
+    <span class="chip v">AI Agent ×2</span>
+  </div>
+</header>
+
+<h2>速览</h2>
+<div class="card">
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>仓库</th><th>类目</th><th>语言</th><th>Stars</th><th>近期增量</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b><a href="https://github.com/DuarteSantos8/openGym" target="_blank" style="color:inherit">DuarteSantos8/openGym</a></b></td><td>应用项目</td><td>JavaScript (React / Node)</td><td>8.2k</td><td>+6,086 ⭐ 周榜</td></tr>
+      <tr><td>2</td><td><b><a href="https://github.com/boykopovar/AnyPS5" target="_blank" style="color:inherit">boykopovar/AnyPS5</a></b></td><td>算法/模型（二进制翻译 / 重编译）</td><td>C++</td><td>17.1k</td><td>+4,669 ⭐ 日榜 / +10,243 ⭐ 周榜</td></tr>
+      <tr><td>3</td><td><b><a href="https://github.com/EpicGames/raddebugger" target="_blank" style="color:inherit">EpicGames/raddebugger</a></b></td><td>工程实践/工具链</td><td>C</td><td>8.2k</td><td>+279 ⭐ 日榜 / +448 ⭐ 周榜</td></tr>
+      <tr><td>4</td><td><b><a href="https://github.com/thedotmack/claude-mem" target="_blank" style="color:inherit">thedotmack/claude-mem</a></b></td><td>AI Agent 及基础设施</td><td>TypeScript</td><td>98.7k</td><td>+670 ⭐ 日榜 / +3,153 ⭐ 周榜</td></tr>
+      <tr><td>5</td><td><b><a href="https://github.com/earthtojake/text-to-cad" target="_blank" style="color:inherit">earthtojake/text-to-cad</a></b></td><td>AI Agent 及基础设施</td><td>Python</td><td>18.6k</td><td>+1,898 ⭐ 周榜</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<h2>本期精选</h2>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">1</span>
+    <h4 class="repo"><a href="https://github.com/DuarteSantos8/openGym" target="_blank">DuarteSantos8 / openGym</a></h4>
+    <span class="tag t-app">应用项目</span>
+  </div>
+  <div class="stats"><span><b>语言</b> JavaScript (React / Node)</span><span><b>Stars</b> 8.2k</span><span><b>近期</b> +6,086 ⭐ 周榜</span><span><b>协议</b> AGPL-3.0</span><span><b>文档</b> opengym.duarte-santos.ch</span></div>
+  <p class="lead"><b>一句话简介：</b>自托管健身与体重追踪应用：周计划、引导式训练、逐组记录、肌肉热力图与体重曲线全跑在你自己的服务器上，Passkey 无密码登录 + 多设备字段级合并，还自带可选的 AI 教练与只读 MCP 服务。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>数据完全在你自己手里</b>：<code>docker compose up</code> 即起；前端是 React 19 + Vite 打成的静态文件，后端是纯 <code>node:http</code>（只有 <code>@simplewebauthn/server</code> 与 <code>web-push</code> 两个依赖），数据以 JSON 存在 <code>./data</code> 目录；镜像同时发布到 GitLab Registry 与 GHCR，amd64 / arm64 双架构。</li>
+    <li><b>训练记录细致到专业级</b>：超级组、热身组、递减组、rest-pause、计时动作（平板支撑 / 悬垂 / 农夫走）、按时间与速度的有氧、每组自定义休息、计划性减载；重量按上次预填、PR 实时识别、杠铃 / EZ 杆 / 六角杠 / 史密斯机自动算片。</li>
+    <li><b>进阶策略可解释</b>：线性、Greyskull LP、在可见次数区间内的双重进阶、加时间四种规则；每个目标都会解释「为什么是这个数字」，掉次数不加重量、停滞自动减载。</li>
+    <li><b>进度可视化</b>：估算 1RM 曲线、结构平衡比（Poliquin / Thibaudeau / ATG）、一年活跃度热力图、三种模式的肌肉图（训练量去向 / 恢复中 / 未训练）、体重曲线对目标线、进度照片时间轴前后对比滑块。</li>
+    <li><b>无密码登录与多设备同步</b>：Passkey（Face ID / Touch ID / 指纹）按档案跨设备同步；两台设备同时编辑时按<b>字段级合并</b>而非互相覆盖；可从 FitNotes / Strong / Hevy / Apple Health 导入，也能随时把全部数据导出成一个 JSON。</li>
+    <li><b>手机端与可选增强</b>：同一套代码用 Capacitor 打包成离线 App（Android 有签名 APK，iPhone 走 PWA）；可选 AI 教练（自带 Anthropic / OpenAI / Gemini / Ollama key，每处改动都要你批准）与只读本地 MCP 服务（Claude Desktop 可查询训练历史）。</li>
+    <li><b>工程规范度高于多数同类开源 App</b>：GitHub Actions 测试 + GitLab 覆盖率徽章、17 项 <code>.env</code> 配置列成表、OpenAPI 规格（<code>api/openapi.yaml</code>）、自托管指南覆盖 Cloudflare Tunnel / Caddy / Traefik / nginx 与 Kubernetes、界面支持 18 种语言（含 RTL 阿拉伯语）。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>前端 React 19 + Vite（React Router、Zustand），在 Docker 内构建为静态文件；后端纯 <code>node:http</code> + <code>@simplewebauthn/server</code> + <code>web-push</code>，数据落 <code>./data</code> 的 JSON；nginx 做单源同源代理 <code>/api</code>（Passkey 要求同源）；Capacitor 复用同一套代码打包手机端；Docker Compose 一键起（也可 <code>--build</code> 本地构建，宿主机不需要 Node）；训练逻辑（进阶规则、1RM、历史回读）写成可测纯函数，测试与实现同目录。</p>
+  <h3>适用场景</h3>
+  <p>想把训练数据攥在自己手里、拒绝订阅制的健身者；有 NAS / 小主机或云主机、愿意用 Docker 自托管的人；需要「计划 + 记录 + 分析」一体化而非零散 App 的进阶训练者；想给自己的训练数据接 AI 教练、或让助手查询历史记录的开发者。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>与主流健身 App 的路线正好相反</b>：数据存在你自己机器的 <code>./data</code> 里，公司倒闭或改条款都不影响你，随时可以 fork 或迁移——这是它最核心的立场。</li>
+    <li><b>训练学的细节没糊弄</b>：进阶规则、RIR / RPE 强度、结构平衡比这些「专业教练才用」的概念都真正落进了产品，而且每条进阶目标都会解释依据，不是黑箱。</li>
+    <li><b>工程成熟度超过同类开源项目</b>：真实可用的 Docker 部署、双 registry 镜像、CI 测试 + 覆盖率、OpenAPI 规格、字段级冲突合并——属于能长期自托管运行的成色。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① 协议是 <b>AGPL-3.0</b>：若你把修改后的版本作为网络服务对外提供，需要按 AGPL 开放修改后的源码，商用前先确认合规；② 首次启动要下载约 140MB 的示范动作素材；③ 手机端要用 Passkey 必须给实例配 HTTPS 域名（自托管指南给了 Cloudflare Tunnel / LAN HTTPS 等方案），iPhone 因 App Store 限制只能自托管后加 PWA 或自己用 Xcode 装；④ AI 教练需自备模型 key，MCP 服务为只读且不包含在 Docker 构建里。</div>
+  <div class="callout blue"><b>一句话理解：</b>像把训练日志从别人的云笔记搬回自家书柜：格式仍是现代 App 的样子（Passkey、离线可用、多设备同步），但钥匙和本子都在你手上。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">2</span>
+    <h4 class="repo"><a href="https://github.com/boykopovar/AnyPS5" target="_blank">boykopovar / AnyPS5</a></h4>
+    <span class="tag t-algo">算法/模型（二进制翻译 / 重编译）</span>
+  </div>
+  <div class="stats"><span><b>语言</b> C++</span><span><b>Stars</b> 17.1k</span><span><b>近期</b> +4,669 ⭐ 日榜 / +10,243 ⭐ 周榜</span><span><b>协议</b> GPL-2.0</span><span><b>文档</b> boykopovar.github.io/AnyPS5</span></div>
+  <p class="lead"><b>一句话简介：</b>PS5 可执行文件的自动移植工具：用重链接器（relinker）把可执行文件转成目标系统的原生格式，再补上系统库的动态链接实现，让程序在 Linux / Windows 上原生跑起来——不靠模拟器，也没有额外的运行时进程。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>重链接器而非解释器</b>：<code>core/relinker</code> 把 PS5 可执行文件<b>转换</b>成目标系统的原生格式，而不是逐条指令解释执行——这是它与「模拟器」路线的根本区别。</li>
+    <li><b>系统库替代实现</b>：<code>core/libs/prx</code> 里逐个实现 PS5 的系统 prx 库函数，做成适合动态链接的形式，按需补齐函数面。</li>
+    <li><b>着色器重编译</b>：<code>core/shader/recompiler</code> 把 PS5 着色器重编译成 SPIR-V，可在开启 <code>ANYPS5_ENABLE_SPIRV_TOOLS</code> 时用 Spirv-Tools 做校验。</li>
+    <li><b>兼容性口径透明</b>：仓库维护已验证游戏清单（<code>docs/user/COMPATIBILITY.md</code>）；首页进度图按「已声明函数占比」与着色器覆盖率生成实时徽章，并明确说明这是「<b>已声明</b>的系统函数」占比，而非全部 PS5 系统函数——不夸大兼容度。</li>
+    <li><b>输入映射</b>：支持 SDL 手柄（含摇杆与扳机）；键盘鼠标可通过 <code>anyps5-input.ini</code> 配置。</li>
+    <li><b>失败即显式报错</b>：遇到不支持或意外状态严格抛 <code>std::runtime_error</code>，把 <code>what()</code> 打到 stderr 后终止进程——不静默降级，便于定位问题。</li>
+    <li><b>文档分层清晰</b>：使用指南、构建说明、架构文档、技术债清单（<code>TechnicalDebt.md</code>）、代码风格约定、贡献指南各自独立成篇。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>C++ 为主，依赖 <code>3rdparty/</code> 下的第三方库（如 SPIRV-Tools）；两大核心模块为 <code>core/relinker</code>（重链接）与 <code>core/libs/prx</code>（系统库实现）；通过 GitHub Pages 发布覆盖率 / 进度徽章；实测环境为 GTX 1050 Ti / i5-7500 @3.4GHz（2D 平台游戏 Dreaming Sarah 稳定 60fps）。</p>
+  <h3>适用场景</h3>
+  <p>对二进制翻译 / 重编译、系统 ABI 兼容层感兴趣的系统与安全研究者；做游戏保存（preservation）与互操作性工作的团队；想学习「不靠模拟器做跨平台移植」这套工程方法的学生与工程师；需要拿真实大型二进制做静态分析与重编译实验的平台。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>换了一条技术路线</b>：不解释指令，而是把可执行文件重链接成宿主原生格式并补上系统库——这在同类项目里属于相对少见、研究价值更集中的一支。</li>
+    <li><b>诚实度罕见</b>：进度按「已声明函数」算的诚实口径，兼容游戏清单与技术债清单都公开，不吹「完美兼容」。</li>
+    <li><b>合规姿态写得清楚</b>：README 有专门免责声明：不包含、不分发、也不要求任何受版权保护的软件、固件、密钥或专有库，并要求使用者自行确保二进制的获取与使用合法。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① 项目仍处早期，可用范围由已验证游戏清单界定，多数商业游戏尚不可用；② <b>使用前提是你自己拥有合法的二进制</b>——README 把合法性责任明确交给使用者，务必先确认当地法律与授权；③ GPL-2.0（only）是强 copyleft，并入闭源商业产品前需谨慎评估；④ 当前主要面向 x86-64 的 Linux / Windows 目标平台。</div>
+  <div class="callout blue"><b>一句话理解：</b>像把一本外语书按目标语言<b>重新排版</b>并补齐缺失的注解，而不是请一位翻译在边上逐句同声传译——排版是永久的，翻译是临时的。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">3</span>
+    <h4 class="repo"><a href="https://github.com/EpicGames/raddebugger" target="_blank">EpicGames / raddebugger</a></h4>
+    <span class="tag t-eng">工程实践/工具链</span>
+  </div>
+  <div class="stats"><span><b>语言</b> C</span><span><b>Stars</b> 8.2k</span><span><b>近期</b> +279 ⭐ 日榜 / +448 ⭐ 周榜</span><span><b>协议</b> MIT</span><span><b>文档</b> GitHub Releases（README 为技术综述，使用手册随 release 包提供）</span></div>
+  <p class="lead"><b>一句话简介：</b>Epic Games 开源的 Windows 原生图形化调试器：面向「巨型程序」做多进程多线程调试，并附带自研调试信息格式 RDI 与一个专为超大工程优化的 RAD 链接器（调试信息达数 GB 时链接快 50%）。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>原生图形化调试器</b>：用户态、多进程、多线程；当前支持本机 Windows x64 + PDB，官方路线图规划扩展到原生 Linux 与 DWARF。</li>
+    <li><b>自研调试信息格式 RDI</b>：调试器解析自定义的 RAD Debug Info，而非直接吃 PDB / DWARF；现有工具链产出的 PDB（以及后续带 DWARF 的 PE / ELF）<b>按需转换</b>成 RDI，避免运行时反复解析原始格式。</li>
+    <li><b>radbin 转换与转储工具</b>：在原生调试信息格式与 RDI 之间做转换，也可导出 RDI 内容的文本 dump；通过调试器的 <code>--bin</code> 参数也能直接调用。</li>
+    <li><b>RAD Linker</b>：面向 x64 PE / COFF 的高性能链接器，为「超大可执行文件」优化：实测调试信息达数 GB 时链接时间缩短 50%；命令行语法与 MSVC 完全兼容，可选原生生成 RDI——顺带绕开超大工程里 32 位内部表溢出导致 PDB 损坏的问题。</li>
+    <li><b>为巨型链接场景专门优化</b>：官方直接用「调试信息多 GB」的用例做基准，正是普通链接器与调试器最容易顶不住的地方。</li>
+    <li><b>大页内存支持</b>：为巨型进程的调试做内存布局优化（README 说明 Windows 下大页若使用不当会很快造成内存碎片）。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>纯 C 实现（含自研 layer 代码生成），Windows 平台；用 MSVC C/C++ Build Tools v15(2017)+ 或 Clang 构建，配合 Windows SDK；构建脚本 <code>build.bat</code>（release 模式编译时间显著更长，可指定 <code>radlink</code> / <code>radbin</code>）；产出 <code>raddbg.exe</code> 及配套工具，README 内含 RDI 格式与链接器的设计说明。</p>
+  <h3>适用场景</h3>
+  <p>在 Windows 上调试超大 C/C++ 工程（游戏引擎、CAD、图形应用）的开发者；需要处理「PDB 过大 / 调试信息溢出」这类工具链极限问题的团队；想研究调试器与链接器内部实现（调试信息格式设计、DWARF / PDB 解析）的工程师；追求高速链接的超大单体构建。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>出自实战工具链而非玩具</b>：目标就是「巨型程序」这一类其他调试器容易顶不住的场景，并且把 RDI 格式与 RAD Linker 一并开源——价值不止一个调试器。</li>
+    <li><b>用真实极限做基准</b>：官方直接给「调试信息数 GB 时链接快 50%」这类可验证数字，说明优化方向来自真实痛点。</li>
+    <li><b>工程完整度高</b>：MIT 协议、预编译 release 二进制可直接下载、README 是完整技术综述（含 RDI 与链接器设计）、构建步骤细到编译器版本。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① 官方明确标注处于 <b>ALPHA</b>，功能与稳定性都在演进中，重要项目上建议与现有调试器配合使用；② 当前仅支持<b>本机 Windows x64 + PDB</b>，跨平台与 DWARF 仍在路线图上，非 Windows 用户暂时只能作为技术参考；③ 自行构建需要 MSVC Build Tools 与 Windows SDK；④ README 特意说明它<b>不含使用手册</b>——使用说明随 release 包或本地 <code>build</code> 目录提供，别只看 GitHub 首页。</div>
+  <div class="callout blue"><b>一句话理解：</b>像给「大件货物」专门修通道：普通调试器相当于标准门框，程序一大就卡住；它的做法是从链接器开始就把门框加大——自研调试信息格式 + 为 GB 级调试信息优化的链接器。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">4</span>
+    <h4 class="repo"><a href="https://github.com/thedotmack/claude-mem" target="_blank">thedotmack / claude-mem</a></h4>
+    <span class="tag t-agent">AI Agent 及基础设施</span>
+  </div>
+  <div class="stats"><span><b>语言</b> TypeScript</span><span><b>Stars</b> 98.7k</span><span><b>近期</b> +670 ⭐ 日榜 / +3,153 ⭐ 周榜</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> docs.claude-mem.ai</span></div>
+  <p class="lead"><b>一句话简介：</b>给编码 Agent 的持久记忆系统：把会话里发生的一切自动捕获、用 AI 压缩成结构化的「观察」与摘要，存进本地 SQLite + 向量库，下次会话直接检索复用——不用再反复给 Agent 讲项目背景。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>全生命周期自动捕获</b>：5 个生命周期 Hook（SessionStart、UserPromptSubmit、PostToolUse、Stop、SessionEnd，共 6 个脚本）覆盖一次会话的完整过程，不需要你手动记录。</li>
+    <li><b>把过程压缩成记忆</b>：会话中的动作与结论被压缩为结构化「观察（observations）」与摘要，而不是原样堆日志——这是它区别于「把 transcript 存下来」的关键。</li>
+    <li><b>本地存储与混合检索</b>：SQLite 存会话 / 观察 / 摘要，Chroma 向量库提供语义 + 关键词的混合检索；Worker Service 是 Bun 管理的本地 HTTP API，带 Web 阅读界面与搜索端点。</li>
+    <li><b>3 层 MCP 检索省 token</b>：<code>search</code> 只返回带 ID 的紧凑索引（约 50–100 token/条）→ <code>timeline</code> 给出时间线上下文 → 只对筛出来的 ID 调 <code>get_observations</code> 取全文（约 500–1000 token/条）；官方称「先过滤、再取全文」可省约 10 倍 token。</li>
+    <li><b>mem-search 技能</b>：用自然语言查询记忆，采用渐进式披露（progressive disclosure）：先给线索，再按需深入。</li>
+    <li><b>安装简单、适配面广</b>：<code>npx claude-mem install --ide &lt;ide&gt;</code> 一条命令装；支持 Claude Code、Grok Bot 等；提供 20+ 语种 README 与独立文档站（配置 / 开发 / 分支策略 / 排障）。</li>
+    <li><b>迭代节奏快</b>：README 徽章显示版本已到 v13.34.2，属高频发布、持续维护的项目。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>TypeScript（Node.js ≥ 20）+ Bun（运行时与进程管理，缺失时自动安装）；SQLite 3 做持久化（内置），Chroma 向量库配合 uv 管理 Python 侧向量检索依赖（缺失时自动安装）；通过 MCP 暴露 4 个检索工具；仓库体量较大（包含文档站与多语言文档）。</p>
+  <h3>适用场景</h3>
+  <p>长期用 Claude Code 等编码 Agent 做跨天 / 跨周项目的开发者（新会话总要重新交代上下文的痛点）；希望 Agent 记住「上次那条 bug 是怎么修的」的团队；研究 Agent 记忆分层与检索成本优化的人；需要本地、可审计（数据不出本机）记忆方案的组织。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>解决的是编码 Agent 最真实的摩擦点</b>：上下文遗忘。它不是往 prompt 里塞更长的历史，而是把历史<b>压缩成可检索的记忆</b>，从「塞满窗口」变成「按需取用」。</li>
+    <li><b>检索设计上非常讲究成本</b>：3 层渐进式检索把「先过滤、再取全文」制度化，官方给出约 10× token 节省的量化口径——在长会话场景里这是实打实的开销。</li>
+    <li><b>本地优先 + 生态适配广</b>：SQLite + 本地向量库存本机，Worker Service 是本地 HTTP API；MCP 工具与技能形态可被多种 Agent 复用，且提供 20+ 语种 README 与独立文档站。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① 依赖链较长（Node 20+、Bun、uv、SQLite、Chroma），首次安装虽会自动补装，但企业内网 / 受限环境最好提前准备；② 版本已到 13.x，属快速迭代期，跨大版本升级前先看仓库的分支策略与变更说明（区分 stable 与 core-dev / community-edge）；③ 记忆内容会被发往你配置的模型做压缩，涉及敏感代码库时先确认数据流向与保留策略；④ 仓库体积很大（含文档站与多语言 README），克隆前注意磁盘占用。</div>
+  <div class="callout blue"><b>一句话理解：</b>像给 Agent 配了一位会自动写工作日志、还能按关键词翻旧账的助理：你只需问「上次那个认证 bug 怎么解的」，它先递一张索引卡片，你圈出相关的几条，它再把详情拿给你——而不是每次都把整本日志搬到你面前。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">5</span>
+    <h4 class="repo"><a href="https://github.com/earthtojake/text-to-cad" target="_blank">earthtojake / text-to-cad</a></h4>
+    <span class="tag t-agent">AI Agent 及基础设施</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Python</span><span><b>Stars</b> 18.6k</span><span><b>近期</b> +1,898 ⭐ 周榜</span><span><b>协议</b> MIT</span><span><b>文档</b> texttocad.dev</span></div>
+  <p class="lead"><b>一句话简介：</b>给 Agent 装上 CAD 能力：以插件 / 技能形态把本地 3D 建模工作流接进 Claude Code、Codex、Cursor 等 Agent，直接产出 STEP / GLB / STL / 3MF 文件，还能做面向制造的设计检查、出工程图并对接 3D 打印 / 钣金 / CNC 服务。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>真 CAD，不是网格玩具</b>：以 build123d + Open CASCADE 为内核，输出的是带精确几何的 <b>STEP 工程文件</b>，而非只有三角面的 STL。</li>
+    <li><b>多格式产出</b>：STEP、GLB、STL、3MF 四种，覆盖工程交换、渲染与 3D 打印的不同用途。</li>
+    <li><b>可制造性检查（DFM）</b>：生成后自动做面向制造的设计校验，把「画得出来但造不出来」的问题提前暴露。</li>
+    <li><b>工程图生成</b>：可产出工程图，供打样与加工沟通使用。</li>
+    <li><b>对接制造服务</b>：连接主流 3D 打印、钣金与 CNC 加工服务，让「建模 → 下单」在同一次 Agent 会话里完成。</li>
+    <li><b>广谱 Agent 适配</b>：支持所有支持插件或 skills 框架的 Agent，包括 Claude Code、Codex、Cursor、Gemini、Grok；Claude Code / Claude Desktop / Codex / Cursor 各有独立的安装与更新命令。</li>
+    <li><b>交互式查看</b>：在能显示 app view 的客户端里以 viewer card 呈现模型（可旋转、可加入 prompt）；终端环境则给一个在浏览器 CAD Viewer 打开的链接。</li>
+    <li><b>MCP 双形态</b>：既可装插件（带 skills），也可只装 MCP 服务（<code>cadgen mcp</code>），让不支持插件的 Agent 也能用。</li>
+    <li><b>工程规范</b>：GitHub Actions 测试工作流、PyPI 包（<code>cadgen</code>）、独立文档站（texttocad.dev）、多 Agent 的安装 / 更新 / 重装说明齐备。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Python 3.11+ 的 <code>cadgen</code> 包（PyPI 发布），CAD 内核为 build123d 0.11 + Open CASCADE 7.9；通过 uv / uvx 分发与运行（首次运行下载 CAD 运行时，需联网）；配套 Node.js 20+ 的文档站；插件形态基于 skills 框架，兼容 Claude Code、Codex、Cursor 等；同时提供 MCP 服务器模式。</p>
+  <h3>适用场景</h3>
+  <p>需要「用自然语言改 CAD 模型」的机械 / 硬件工程师与产品设计者；把建模纳入 Agent 自动化的团队（例如按参数批量出件、按需求出图）；需要快速生成可打印件或钣金件的创客与初创硬件团队；想给自家 Agent 增加 3D 输出能力的开发者。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>补上了「Agent 只会写字」到「Agent 能出图纸」的这一段</b>：精确几何 STEP + DFM 检查 + 制造服务对接，是少见的端到端能力（描述 → 模型 → 可制造性 → 下单）。</li>
+    <li><b>内核选型靠谱</b>：build123d + Open CASCADE 是成熟的参数化 CAD 与几何内核组合，产出模型能被主流 CAD 软件与工厂侧接受，而不是只能在自家查看器里看。</li>
+    <li><b>落地门槛低</b>：四种 Agent 的安装 / 更新命令写得很细，PyPI 有包、有 CI 测试、有独立文档站，MIT 协议，属于即装即用的一类。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① 首次使用需要联网下载 CAD 运行时（体积不小），离线环境要提前准备；② 依赖 uv / Python 3.11+，环境不满足时需先装 uv；③ <b>默认开启使用统计与崩溃上报</b>（随机 ID，不含你的文件 / 路径 / prompt），可用 <code>uvx cadgen telemetry off</code> 关闭——数据敏感场合先关掉；④ 生成结果属「辅助建模」，涉及公差、材料与安全关键件时仍需专业工程师复核，不要直接照图投产。</div>
+  <div class="callout blue"><b>一句话理解：</b>像把一位「会写代码的建模师」请进对话：你说「做个能夹住 20mm 方管的支架，壁厚 3mm」，它直接给你一个能用 CAD 打开、还能送去 3D 打印的 STEP 文件，而不是给你一段文字描述。</div>
+</div>
+
+<h2>附录：本期说明</h2>
+<div class="card">
+  <h3>数据来源与筛选口径</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>维度</th><th>标准</th></tr></thead>
+    <tbody>
+      <tr><td>时间活性</td><td>最近 30 天内有提交，非归档仓库</td></tr>
+      <tr><td>热度门槛</td><td>周榜增量 ≥ 300 ⭐ 或日榜增量 ≥ 80 ⭐</td></tr>
+      <tr><td>存量门槛</td><td>总 stars ≥ 1,000</td></tr>
+      <tr><td>仓库资质</td><td>非 fork、非 awesome / 资源聚合列表、非纯教程大纲、非空壳；License 明确且有 README 正文</td></tr>
+      <tr><td>质量信号</td><td>有 CI / 测试 / 文档站 / 正式 release 者优先</td></tr>
+      <tr><td>类目配额</td><td>每期 2–5 个，至少覆盖 2 个类目，单类目 ≤ 2 个</td></tr>
+      <tr><td>去重基线</td><td><code>archive/index.json</code> 中记录的历史仓库</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>本期取舍说明</h3>
+  <ul>
+    <li>候选池：日榜 9 条 + 周榜 11 条，去掉 4 个两榜重叠（<code>boykopovar/AnyPS5</code>、<code>EpicGames/raddebugger</code>、<code>thedotmack/claude-mem</code>、<code>mattpocock/skills</code>），共 <b>16</b> 个候选；逐一核对 total stars、近 30 天提交、License、fork / 归档状态后入选 5 个。</li>
+    <li>类目配额：应用项目 ×1、算法/模型 ×1、工程实践/工具链 ×1、AI Agent 及基础设施 ×2 —— 覆盖 4 个类目，单类目不超过 2 个。</li>
+    <li>本期入选协议：AGPL-3.0 / GPL-2.0 / MIT ×3，均为明确 License；5 个仓库都有 README 正文，其中 4 个带独立文档站或完整技术综述。</li>
+    <li>去重检查：与第 1 期（hindsight / open-code-review / WeKnora / scriptc / quiche）和第 2 期（univer / colibri / claude-code-templates / orca / cua）均无重叠，基线为 <code>archive/index.json</code>。</li>
+    <li>说明：本期「算法/模型」类目由 <code>boykopovar/AnyPS5</code> 承担（二进制重链接 / 着色器重编译方向）；榜单当日缺少标准的模型 / 预训练类项目，因此未强行凑数，宁缺毋滥。</li>
+  </ul>
+  <h3>本期按规则排除的候选</h3>
+  <ul>
+    <li><code>mattpocock/skills</code>：个人 <code>.agents</code> 目录直出的技能集合，属资源聚合型（非具体项目），按「非 awesome / 资源聚合列表」排除。</li>
+    <li><code>liquidslr/system-design-notes</code>：读书笔记型教程大纲，且最近提交为 2026-08-12，超出 30 天活性窗口。</li>
+    <li><code>pablostanley/yoinks</code>：最近提交 2026-07-17，超出 30 天活性窗口。</li>
+    <li><code>cursor/plugins</code>：License 未标注，不满足「License 明确」要求。</li>
+    <li><code>storytold/artcraft</code>：License 标记为 NOASSERTION（不明确），且仓库体积约 1.3GB。</li>
+  </ul>
+</div>
+
+<footer>
+  由 WorkBuddy 每日 GitHub 精选任务自动生成 · 数据截至 2026-10-09<br>
+  <span class="foot-links">归档仓库：<a href="https://github.com/luyao-appleaccount/github-daily-archive" target="_blank">github.com/luyao-appleaccount/github-daily-archive</a></span>
+</footer>
+
+</div>
+</body>
+</html>
