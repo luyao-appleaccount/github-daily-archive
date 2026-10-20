@@ -3,7 +3,7 @@
 每天自动筛选 2–5 个优质开源仓库，覆盖 **应用项目 / 算法模型 / 工程实践 / AI Agent** 四类，
 每个仓库附项目简介、核心功能、技术栈、适用场景与推荐理由（含局限）。
 
-累计 **8** 期 · **40** 个仓库。
+累计 **9** 期 · **45** 个仓库。
 
 ## 怎么读？（重要）
 
@@ -26,6 +26,7 @@ GitHub 对 `.html` **只当源码显示，不会渲染**。所以下表给了三
 
 | 日期 | 本期收录 | 日报 |
 |------|---------|------|
+| **2026-10-20** | ComfyUI · turbovec · headroom · opencode 等 5 个 | [阅读](daily/github-daily-2026-10-20.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-10-20.html) · [长图](daily/github-daily-2026-10-20.jpg) |
 | **2026-10-19** | ai-job-search · FreeToken · anydoc · hydradb 等 5 个 | [阅读](daily/github-daily-2026-10-19.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-10-19.html) · [长图](daily/github-daily-2026-10-19.jpg) |
 | **2026-10-16** | DroidDeck · magnitude · ghidra · deepseek-harness 等 5 个 | [阅读](daily/github-daily-2026-10-16.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-10-16.html) · [长图](daily/github-daily-2026-10-16.jpg) |
 | **2026-10-14** | VoiceStudio · artcraft · Strata · xtool 等 5 个 | [阅读](daily/github-daily-2026-10-14.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-10-14.html) · [长图](daily/github-daily-2026-10-14.jpg) |
