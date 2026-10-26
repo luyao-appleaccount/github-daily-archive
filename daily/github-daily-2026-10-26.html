@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 精选 · 2026-10-26</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#1a1d21;
+    --ink-2:#4a5058;
+    --ink-3:#7b838d;
+    --line:#e4e7eb;
+    --brand:#2f6fed;
+    --brand-soft:#eef3fe;
+    --amber:#b26a00;
+    --amber-soft:#fff6e6;
+    --green:#1f7a4d;
+    --green-soft:#ecf8f1;
+    --violet:#6b4fd8;
+    --violet-soft:#f1edfe;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:32px 20px 56px;
+    background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  header.hero{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:28px 32px;margin-bottom:24px;
+  }
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:700}
+  h1{margin:8px 0 6px;font-size:27px;line-height:1.35;letter-spacing:-.01em}
+  .sub{color:var(--ink-2);font-size:14px;margin:0}
+  .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    display:inline-block;padding:4px 11px;border-radius:999px;
+    font-size:12.5px;font-weight:600;background:var(--brand-soft);color:var(--brand);
+  }
+  .chip.g{background:var(--green-soft);color:var(--green)}
+  .chip.v{background:var(--violet-soft);color:var(--violet)}
+  .chip.a{background:var(--amber-soft);color:var(--amber)}
+
+  h2{
+    font-size:17px;margin:34px 0 14px;padding-left:11px;
+    border-left:4px solid var(--brand);line-height:1.3;
+  }
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px 26px;margin-bottom:20px;
+  }
+  .card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+  .idx{
+    width:26px;height:26px;border-radius:8px;background:var(--brand);color:#fff;
+    font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
+    flex:0 0 auto;
+  }
+  .repo{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .repo a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--brand-soft)}
+  .repo a:hover{border-bottom-color:var(--brand)}
+  .stats{
+    display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 16px;
+    padding-bottom:14px;border-bottom:1px dashed var(--line);
+    font-size:13px;color:var(--ink-3);
+  }
+  .stats b{color:var(--ink-2);font-weight:600}
+  .tag{font-size:12px;padding:3px 9px;border-radius:6px;font-weight:600}
+  .t-agent{background:var(--violet-soft);color:var(--violet)}
+  .t-eng{background:var(--brand-soft);color:var(--brand)}
+  .t-app{background:var(--green-soft);color:var(--green)}
+  .t-algo{background:var(--amber-soft);color:var(--amber)}
+  .lead{color:var(--ink-2);margin:0 0 16px;font-size:14.5px}
+  .lead b{color:var(--ink)}
+  h3{
+    font-size:13px;margin:18px 0 8px;color:var(--ink-3);
+    letter-spacing:.05em;font-weight:700;
+  }
+  h3::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--brand);margin-right:7px;vertical-align:middle}
+  ul{margin:0;padding-left:19px}
+  li{margin:4px 0;color:var(--ink-2)}
+  li b,li strong{color:var(--ink)}
+  p{margin:8px 0;color:var(--ink-2)}
+  .callout{
+    margin-top:16px;padding:12px 15px;border-radius:10px;
+    background:var(--amber-soft);border-left:3px solid var(--amber);
+    font-size:13.5px;color:var(--ink-2);
+  }
+  .callout b{color:var(--amber)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 4px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th{background:#fafbfc;color:var(--ink-3);font-size:12px;font-weight:700;letter-spacing:.04em}
+  td:first-child{white-space:nowrap;color:var(--ink-3);font-weight:600}
+  .tbl-wrap{overflow-x:auto}
+  code{background:#f1f3f5;padding:1.5px 5px;border-radius:4px;font-size:12.5px;font-family:"SF Mono",Menlo,Consolas,monospace;color:#b0407a}
+  pre{
+    background:#fafbfc;border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;overflow-x:auto;font-size:12.5px;line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;color:var(--ink-2);
+  }
+  footer{
+    margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+    text-align:center;color:var(--ink-3);font-size:12.5px;
+  }
+  .callout.blue{background:var(--brand-soft);border-left-color:var(--brand);margin-top:12px}
+  .callout.blue b{color:var(--brand)}
+  .foot-links a{color:var(--brand);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Daily GitHub Digest</div>
+  <h1>每日 GitHub 精选 · 第 13 期</h1>
+  <p class="sub">2026 年 10 月 26 日（周一） · 本期入选 <b>5</b> 个仓库 · 覆盖 <b>4</b> 个类目</p>
+  <div class="meta">
+    <span class="chip g">应用项目 ×2</span>
+    <span class="chip a">算法/模型 ×1</span>
+    <span class="chip">工程实践 ×1</span>
+    <span class="chip v">AI Agent ×1</span>
+  </div>
+</header>
+
+<h2>速览</h2>
+<div class="card">
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>仓库</th><th>类目</th><th>语言</th><th>Stars</th><th>近期增量</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b><a href="https://github.com/pollen-robotics/microduck" target="_blank" style="color:inherit">pollen-robotics/microduck</a></b></td><td>应用项目</td><td>Rust</td><td>11.8k</td><td>日榜 +647 ⭐</td></tr>
+      <tr><td>2</td><td><b><a href="https://github.com/jub0t/Concat" target="_blank" style="color:inherit">jub0t/Concat</a></b></td><td>应用项目</td><td>Rust</td><td>11.6k</td><td>建库 62 天 ≈+1,300 ⭐ 周均（估算）</td></tr>
+      <tr><td>3</td><td><b><a href="https://github.com/deeplethe/utopia" target="_blank" style="color:inherit">deeplethe/utopia</a></b></td><td>算法/模型</td><td>Rust</td><td>8.5k</td><td>建库 80 天 ≈+750 ⭐ 周均（估算）</td></tr>
+      <tr><td>4</td><td><b><a href="https://github.com/coollabsio/coolify" target="_blank" style="color:inherit">coollabsio/coolify</a></b></td><td>工程实践</td><td>PHP</td><td>64.5k</td><td>日榜 +152 ⭐</td></tr>
+      <tr><td>5</td><td><b><a href="https://github.com/TauricResearch/TradingAgents" target="_blank" style="color:inherit">TauricResearch/TradingAgents</a></b></td><td>AI Agent</td><td>Python</td><td>114.7k</td><td>日榜 +381 ⭐</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<h2>本期精选</h2>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">1</span>
+    <h4 class="repo"><a href="https://github.com/pollen-robotics/microduck" target="_blank">pollen-robotics / microduck</a></h4>
+    <span class="tag t-app">应用项目</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Rust</span><span><b>Stars</b> 11.8k</span><span><b>近期</b> 日榜 +647 ⭐</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> pollen-robotics.com/microduck 官网（可下单/硬件资料）+ docs/robot/cheatsheet.md 全命令速查 + docs/design/architecture.md 一页纸系统设计（逐部件分页）+ docs/project/ 事故与待解决问题记录 + GitHub Actions CI + 正式 release 标签（如 daemon-dev-ground-grasp-x，更新可回滚可钉版本）+ 配套 microduck_rl 训练仓（MuJoCo/PPO/domain randomisation/ONNX 导出）+ scripts/duck-sim 仿真器</span></div>
+  <p class="lead"><b>一句话简介：</b>开源机器人项目常见的是 CAD 图纸和一堆 ROS 包，真正难的那层——<b>实时控制环、OTA 更新、故障回滚</b>——往往被藏起来。Pollen Robotics（Reachy 机械臂的团队）把微鸭的这层整个放了出来：<code>robotd</code> 管 50Hz 控制环与电机总线，<code>updaterd</code> 装签名 release 并在自检不通过时自动回滚，<code>mediad</code> 用 WebRTC 推摄像头，七个守护进程用同一条 JSON-RPC 契约通信。策略不是手写步态，而是在隔壁 <code>microduck_rl</code> 里用 MuJoCo + PPO 训出来、导出 ONNX 直接上板——一条完整的 sim2real 链路，从仿真到 800 克的实体鸭子。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>七个守护进程 + 一条 JSON-RPC 契约</b>：<code>robotd</code> 拥有控制环与电机总线，<code>updaterd</code> 负责签名更新与健康门禁，<code>configd</code> 管 Wi-Fi 与身份，<code>btd</code> 是手机用的蓝牙通道，<code>padd</code> 读手柄，<code>mediad</code> 走 WebRTC 出画面，<code>tofd</code> 供深度传感器。App、控制台、手柄、你自己的脚本发的都是同一套调用，没有第二套私有接口。</li>
+    <li><b>50Hz 控制环 + 15 个舵机</b>：神经网络策略直接输出关节目标，控制环以 50Hz 稳定下发——这是「像生物一样走路」和「像机床一样抖动」的分界线。</li>
+    <li><b>换个策略就是换个技能</b>：走路、装轮子滚（roller mode）、低头用喙捡东西、被踢翻自己站起来、坐下、踢球、嘎嘎叫，都是加载不同 ONNX 策略的结果，不是写死的动画。</li>
+    <li><b>更新不怕变砖</b>：每次更新都验证签名、跑完健康检查才提交，不健康就回滚，还能把版本钉住——机器人产品化的真痛点，它写进架构里了。</li>
+    <li><b>没有鸭子也能开发</b>：<code>scripts/duck-sim</code> 让真实的守护进程跑在 MuJoCo 里的虚拟身体上，可以开一只窗口看，也可以起四只当机器登进去测。</li>
+    <li><b>决策都写下来了</b>：<code>docs/design/</code> 解释为什么这样设计，<code>docs/project/</code> 记录出过什么事、什么能堵住它——比 README 里堆徽章有用得多。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Rust（单 workspace、不引框架），跑在 Rockchip RK3566 的 Linux 上；进程间一条 Unix socket 上的 JSON-RPC；策略来自 microduck_rl（MuJoCo + PPO + 域随机化，导出 ONNX）；Apache-2.0；GitHub Actions CI + 签名 release + 逐版回滚；文档按「你已经有鸭子 / 你在它上面做开发」两条线组织。</p>
+  <h3>适用场景</h3>
+  <p>想完整走一遍 sim2real 的机器人工程师（训练在 MuJoCo、部署到 800 克实机）；做嵌入式 Linux 多守护进程 + OTA 架构的团队（这套更新门禁可以直接当范本读）；具身智能/机器人课程的教学平台（能跑仿真、能上真机、代码量可控）；给孩子一台「可以改代码」的机器宠物。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>它开源的是最难开源的那部分</b>：多数开源机器人给你结构和演示视频，微鸭给你实时控制环、进程编排、签名更新与回滚——这些才是把 demo 变成产品的分水岭。</li>
+    <li><b>sim2real 链路闭合且可复现</b>：训练仓、导出格式、加载路径、仿真器四者对得上：改一个奖励函数，能一路走到真机上看效果，这在开源里很稀缺。</li>
+    <li><b>工程细节值得逐页抄</b>：「健康检查不通过就回滚」「所有客户端共用一套 RPC」「事故写进 docs/project」——这三条能省掉很多团队半年的坑。</li>
+    <li><b>硬件真的能买</b>：不是只有代码的 PPT 项目，官网可下单；开源的是软件栈，意味着你买的是硬件、拿到的是一整套可改造的固件。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① <b>仓库是机器人端的软件栈，不是仿真玩具</b>：没有实体鸭子只能跑 <code>duck-sim</code>，完整体验要硬件；② 15 个舵机 + RK3566 单板的 BOM 不便宜，下单前先看清官网价格与地区；③ 预置策略是厂商训好的，想自己训要 GPU、MuJoCo 经验和 sim2real 调参耐心；④ 文档大量以「你已经有一台鸭子」为前提，纯软件读者会略过很多页；⑤ 2026-07 建库，daemon 契约与 API 仍可能变；⑥ 79 个 open issue 说明活跃，也说明边角没打磨完，别直接拿去做商业产品。</div>
+  <div class="callout blue"><b>一句话理解：</b>像一家车厂把整车的行车电脑、线控总成和 OTA 通道全开源了：你可以只买车身，但真正值钱的是那套让 15 个关节在 20 毫秒内听话、还能安全升级的调度逻辑。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">2</span>
+    <h4 class="repo"><a href="https://github.com/jub0t/Concat" target="_blank">jub0t / Concat</a></h4>
+    <span class="tag t-app">应用项目</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Rust</span><span><b>Stars</b> 11.6k</span><span><b>近期</b> 建库 62 天 ≈+1,300 ⭐ 周均（估算）</span><span><b>协议</b> AGPL-3.0</span><span><b>文档</b> concatenate.pages.dev 官网（下载/系统要求/指南）+ 开发者文档站（JSON-RPC 与 gRPC 两种传输）+ docs/MCP.md 一步接入 Agent + CODE_SIGNING.md 说明为什么 Windows 包未签名、以及联网发了什么 + GitHub Actions CI（fmt/clippy/测试/构建）+ 逐版 release（v0.2.8，各平台安装包与校验和）+ 26 语种 README</span></div>
+  <p class="lead"><b>一句话简介：</b>剪映好用，但要账号、要上传、有水印、高级功能要订阅。Concat 把这些「附加条件」全砍了：<b>原生 Rust 引擎 + GPU 合成器</b>，素材只在你硬盘上，字幕用本地 Whisper、配音用本地 TTS 与几秒录音的声音克隆、抠像本地推理，装完从设置里下一次模型就能全程离线。更少见的是它把自己也做成了机器可用的工具——<code>concat --mcp</code> 起一个 MCP 服务器，Claude 这类 Agent 能直接建轨道、下字幕、导时间线；源码构建还额外带 gRPC 与 CLI。62 天 11.6k star、1.4k fork，说明「不想被订阅绑住」是真需求。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>一切本地，且真的离线</b>：Whisper 字幕、TTS 与声音克隆、人物/物体抠像、100 个特效滤镜转场全部本地跑；模型一次性下载，之后断网可用，素材不出本机。</li>
+    <li><b>剪辑基本功不缺</b>：多轨多时间线、磁性时间线、切分/修剪/波纹/合并/冻结帧/变速、混合模式、裁切翻转，位置缩放旋转不透明度与特效参数都能打关键帧，自带曲线编辑器。</li>
+    <li><b>字幕与配音是主打</b>：本地 Whisper 按模型大小选精度直接上时间线，样式可套；配音可选免费本地音色，或用几秒录音克隆一个；一键降噪、增强人声、响度对齐。</li>
+    <li><b>导出规格够用</b>：H.264 / HEVC / AV1，最高 4K 60、10bit 色彩，代理与硬件解码保证 4K 时间线拖得动。</li>
+    <li><b>给 Agent 和脚本留了门</b>：<code>concat --mcp</code> 起 MCP server，一行配置接进 Claude 等 Agent；JSON-RPC API 给自动化脚本；源码构建还带 gRPC 与命令行工具。</li>
+    <li><b>五端同一份工程文件</b>：macOS（Intel/Apple Silicon）、Windows、Linux（deb/rpm/AppImage/Arch/Flatpak）、Android、iOS 侧载，同一 App、同一工程格式、26 种界面语言。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Rust 1.93+（原生引擎、GPU 合成器、代理、硬件解码），编解码依赖 FFmpeg 7+，UI 与引擎同一个 cargo workspace；CI 跑 fmt、clippy（<code>-D warnings</code>）与测试；本地 AI 用 Whisper/TTS/抠像模型；AGPL-3.0-or-later；本地化字符串由 <code>scripts/locales.py</code> 统一维护。</p>
+  <h3>适用场景</h3>
+  <p>做短视频/Reels/Shorts 但不想被剪映订阅和水印绑住的创作者；需要批量、可脚本化出片的自动化流程（JSON-RPC / CLI）；想让 Agent 直接改片子（口播切片、自动加字幕）的开发者；对素材保密有要求、不能上传云端的团队（法务、医疗、内部培训）。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>「不加水印不上传」不是口号而是架构</b>：本地 Rust 引擎 + 本地模型是硬约束下做出来的，不是把云端 API 换个皮——这也是它能在 62 天拿到 11.6k star 的原因。</li>
+    <li><b>把剪辑器做成了可编程对象</b>：内置 MCP server 这一步很少见：视频剪辑恰好是「步骤多、判断多、纯手工」的活，交给 Agent 编排的收益比聊天画图高得多。</li>
+    <li><b>工程规范不像个人项目</b>：CI 有 clippy <code>-D warnings</code>、26 语种 README、CODE_SIGNING.md 明说联网行为、逐版校验和——作者对「可信」这件事是有自觉的。</li>
+    <li><b>跨端覆盖罕见</b>：手机端也能剪同一份工程，对「拍了就发」的场景比桌面独占的工具顺手。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① <b>仍是 beta</b>：作者自己写「能用，但还有毛边」，215 个 open issue，别把重要交付压在上面做唯一工具；② 安装包未签名：Windows 需绕过 SmartScreen、macOS 首次要 <code>xattr -dr com.apple.quarantine</code>，企业环境会被策略拦；③ <b>AGPL-3.0</b>，闭源分发或做成 SaaS 前务必读清传染范围；④ 首次用字幕/配音/抠像要联网下模型，模型体积与磁盘占用按精度递增；⑤ Windows ARM 构建已暂停（见 issue #326）；⑥ 复杂多轨 4K 工程在弱机上仍会卡，官方建议开代理；⑦ 快捷键与操作逻辑仍会变，跟教程时要看版本号。</div>
+  <div class="callout blue"><b>一句话理解：</b>像把一整间剪辑室塞进你的笔记本：字幕员（Whisper）、配音员（TTS）、抠像师都在本地待命，不用把素材寄给任何云；同时还把操作台的开关键（MCP）交给了 AI 助手。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">3</span>
+    <h4 class="repo"><a href="https://github.com/deeplethe/utopia" target="_blank">deeplethe / utopia</a></h4>
+    <span class="tag t-algo">算法/模型</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Rust</span><span><b>Stars</b> 8.5k</span><span><b>近期</b> 建库 80 天 ≈+750 ⭐ 周均（估算）</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> utopia.bi 官网（含 philosophy 与 roadmap 长文）+ 仓库内 walkthrough（curl 跑通入库→提问→带证据回答）+ web/src/docs/mcp.md 的 MCP 工具清单 + 两套公开 benchmark（contracts 合同语料、scripts/bench 时序 QA）+ GHCR 多架构预构建镜像 + Discussions + 简体中文 README</span></div>
+  <p class="lead"><b>一句话简介：</b>向量库和普通知识图谱优化的是「现在正确」，但企业真正难的问题是<b>「当时我们以为是什么」</b>。Utopia 把时间塞进底座：每条事实带两个时钟——在世界里何时成立、系统何时才知道；改错不覆盖，而是关掉旧版本并把新版本链上去，于是任何一次决策事后都能复盘出「依据是哪句、什么时候生效」。工程上它很克制：<b>一个 Rust 二进制 + 一个 Postgres</b>，全文用内置 Tantivy、向量进 pgvector、任务队列就是一张表，没有第五个中间件。本体（schema.org / PROV-O / W3C Org / FOAF / IOF Core）随二进制分发，公理能编译成前向链规则推导新事实，冲突分三类各给三条处置选项。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>双时态是核心，不是插件</b>：两个时间轴：事实在现实世界生效的区间，和系统相信它的区间。修正一条付款条款不会抹掉历史，而是把旧条款「关闭」并把新事实链上去，边界可追溯。</li>
+    <li><b>一个二进制 + 一个 Postgres</b>：全文检索是编进二进制的 Tantivy，向量存 pgvector，任务队列是一张表，RRF 融合两路召回；整套可 air-gapped 离线跑。</li>
+    <li><b>入库覆盖真实企业格式</b>：PDF/DOCX/PPTX/XLSX/XLS/ODS/CSV/TSV/Markdown/HTML/纯文本，老编码自动识别；扫描件走 MinerU 或视觉模型，录音走带说话人标注的转写；网页、RSS、GitHub、Jira、Notion、WebDAV、S3 可定时同步。</li>
+    <li><b>实体消歧 + 人工复核队列</b>：三阶段合并：精确名/别名 → 向量相似 → 模型裁决可疑对；每次合并可撤销，低置信抽取、疑似重复、基数冲突都进 review 队列等人拍板。</li>
+    <li><b>本体驱动的推理与冲突检测</b>：五套本体包随二进制分发，公理编译成规则做前向链推导（默认关闭，因为错的公理推出错的事实）；事实冲突给「关旧/并存/拒绝」，公理违背（自环、非对称、传递环、基数）给「撤回/放宽/接受」——先查本体自身是否自相矛盾。</li>
+    <li><b>给 Agent 的手是「只读 + 提案」</b>：每个知识库一个 MCP server，Claude Desktop / Cursor 等可接；查的是「某实体在某日的事实」「两点之间的路径」「上周变了什么」，返回带稳定 ID 与证据；写入一律变提案进人工队列。</li>
+    <li><b>还能挂数据库问</b>：把 Postgres/MySQL/ClickHouse/Trino/Databricks/Snowflake 挂到知识库上，对话里同时查文档与表；映射方案由 Agent 提议、人确认（背后方法论文 Ontology2SQL 在 BIRD Mini-Dev 上刷到 SOTA）。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Rust 单二进制 + Postgres（pgvector 存向量、Tantivy 内置全文、队列表）；Web UI 含系统控制台、图浏览器与本体工作台；Docker 镜像发布在 GHCR（linux/amd64 + linux/arm64）；LLM 走任意 OpenAI 兼容端点（DeepSeek/Qwen/GLM/Ollama/vLLM）；Apache-2.0；自带 contracts 语料与时序 QA 两套公开 benchmark 与端到端走查脚本。</p>
+  <h3>适用场景</h3>
+  <p>合同/采购链里需要回答「某年某月生效的是哪一版条款、出自哪次修订」的法务与合规团队；人事、财务、研发记录频繁更正，需要区分「当时的事实」与「后来才知道」的组织；要给 Agent 一个可信、带证据、可审计的知识底座的工程团队；机器人/监控场景把「某物 08:05 在哪」这类观测按时间推入图谱的开发者。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>把「时间」当一等公民，切中了 RAG 的真短板</b>：主流 RAG 只能回答「现在文档里怎么写」，一问「当时怎么规定」就只能瞎编；双时态图谱让这类问题变成一次带区间的查询。</li>
+    <li><b>工程克制得少见</b>：一个二进制一个库就整套跑起来，容器镜像多架构现成，对比动辄要起五六个组件的 GraphRAG 方案，运维成本低一个量级。</li>
+    <li><b>治理链路是闭合的</b>：抽取→消歧→复核→冲突处置→推导→决策账本，每一环都留痕且可撤销；对「AI 结论要能被审计」的场景，这比模型精度更重要。</li>
+    <li><b>有公开 benchmark 而非只有截图</b>：合同语料与时序 QA 两套 bench 都在仓库里，能拿自己的数据先验证再决定要不要投入建模。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① <b>仍是 0.1.0-rc9（RC 阶段）</b>：schema、API、迁移路径都可能变，生产用先锁镜像 tag；② 不是「丢文档就出答案」的通用 RAG：要先接受本体 + 双时态的建模范式，冷启动得选本体包、确认术语，学习曲线明显陡于向量库；③ 抽取质量高度依赖你配的 LLM，弱模型会把脏事实写进图（有 review 队列兜底，但要人真的去看）；④ 「world model / 企业世界模型」是它的营销词，本质是时序知识图谱 + 决策留痕，别按仿真世界模型期待；⑤ 85 个 open issue，部分高级能力（决策智能、场景叠加推演）仍在路线图上未完成；⑥ 单机 Postgres 架构在超大规模图上有上限，先按自己的数据量做压测。</div>
+  <div class="callout blue"><b>一句话理解：</b>像给公司的记忆装了一台「行车记录仪 + 时间机器」：它不只告诉你现在是什么，还能倒回 2024 年 3 月 15 日，调出那天生效的条款原文，以及当时我们以为的条款——两者不一样时，它能指出是哪次修订改的。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">4</span>
+    <h4 class="repo"><a href="https://github.com/coollabsio/coolify" target="_blank">coollabsio / coolify</a></h4>
+    <span class="tag t-eng">工程实践</span>
+  </div>
+  <div class="stats"><span><b>语言</b> PHP</span><span><b>Stars</b> 64.5k</span><span><b>近期</b> 日榜 +152 ⭐</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> coolify.io 官网 + coolify.io/docs 完整文档（安装/服务器/资源/备份）+ 官网 philosophy 说明「永不收费墙」的立场 + Discord 与 GitHub Discussions + 一键安装脚本（仓库内 scripts/install.sh 可先审再跑）+ Coolify Cloud 托管版 + 正式 release（v4.5.0，2026-10-23）</span></div>
+  <p class="lead"><b>一句话简介：</b>「不想为一个小项目付 20 美元/月的平台费」是很多人的起点。Coolify 把云平台那块控制台搬到你的 VPS 上：<b>只要能 SSH 进去，不管是一台 5 美元的 VPS、一台二手服务器还是一块树莓派</b>，都能被它接管——Git 推送自动构建部署、PR 预览环境、自动申请 HTTPS、多服务器编排、数据库备份与定时任务。技术栈是 Laravel + Svelte 5，2021 年至今迭代到 v4.5.0，64.5k star / 5.8k fork 的社区规模说明它不是玩票。更关键的一条承诺：<b>停用 Coolify，已经跑起来的资源照旧运行、照旧可管理</b>——配置留在你的机器上，不锁死。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>部署任何东西</b>：GitHub / GitLab / Bitbucket / Gitea 拉代码，构建走 Nixpacks、Railpack、Dockerfile、Docker Compose 或预构建镜像；静态站点、Node、Python、PHP、Go、Rust 都能直上。</li>
+    <li><b>360+ 一键服务与托管数据库</b>：Postgres/MySQL/MariaDB/Redis/Mongo 等带持久化卷与自动生成凭据，另有 360 多个一键服务模板，点一下就有。</li>
+    <li><b>推送即部署 + 预览环境</b>：每个 Git push 自动重建，可为 PR 生成独立预览域名，支持部署 webhook 与回滚到保留的历史镜像。</li>
+    <li><b>网络这层不用自己拼</b>：自定义域名、自动 HTTPS 证书（含续期）、反向代理、健康检查、容器网络与端口映射全部由面板接管。</li>
+    <li><b>多机运维视角</b>：一个面板管多台服务器，看部署与运行时日志、开容器终端、看资源曲线；备份、定时任务、环境变量与密钥、通知集中配置。</li>
+    <li><b>四种入口 + 团队权限</b>：Dashboard 之外还有 REST API、CLI、MCP，可以接进自己的流水线或让 Agent 触发部署；支持团队与角色权限。</li>
+    <li><b>不锁死这条最值钱</b>：所有配置存在你自己的服务器上，卸载面板后已部署的容器与数据仍在，迁移成本远低于 SaaS 平台。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>后端 Laravel（PHP），前端 Svelte 5 + Next.js（Inertia），目标服务器靠 Docker / Docker Compose 编排，SSH 下发指令；Apache-2.0；v4.5.0（2026-10-23）；一条 curl 安装脚本，源码在 scripts/install.sh 可先审；文档站 coolify.io/docs 覆盖安装、服务器、备份与故障排查。</p>
+  <h3>适用场景</h3>
+  <p>想用一台 VPS 跑十几个小项目、又不想逐个手写 compose 与 Nginx 配置的独立开发者；预算敏感但需要 PR 预览与自动部署的小团队（自托管替代 Vercel）；要把部署面收到内网/自有硬件的公司（合规、数据不出境）；想给客户交付「可自助部署」产品的 SaaS 团队。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>成熟度经得起生产</b>：2021 年至今、v4.5.0、5.8k fork，功能矩阵（部署/数据库/备份/多机/权限）已经覆盖大多数自托管需求，不是半成品。</li>
+    <li><b>把「平台税」换成「运维时间」的划算交易</b>：同样功能在托管平台按月计费，Coolify 只花机器钱；对长期跑、数量多的项目，成本差距会随规模放大。</li>
+    <li><b>反锁定设计值得学</b>：配置留在本机、卸载后资源照旧——这条产品决策本身就值得做基础设施的人抄。</li>
+    <li><b>生态与文档完整</b>：官方文档、Discord、Discussions 齐全，360+ 服务模板降低了「自己写 compose」的门槛。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① <b>官方推荐架构是「一台跑面板 + 若干台跑业务」</b>，单机 all-in-one 只适合玩票，把面板和业务混在一台上，业务一崩面板也失联；② 面板自己也要备份——它挂了不影响已部署资源，但管理面和历史配置会丢；③ 363 个 open issue：功能面很宽，边角 bug 不少，生产环境建议锁 release 版本、别追 main；④ 免费版没有官方 SLA，要托管与支持得用付费的 Coolify Cloud；⑤ 自托管意味着 CVE、系统补丁、证书续期都得你自己跟，安全责任在你；⑥ 团队/细粒度权限仍在迭代，多租户场景先验证。</div>
+  <div class="callout blue"><b>一句话理解：</b>像给你的 VPS 装了一块「云厂商控制台」：点几下就有自动 HTTPS、一键数据库和 Git 自动部署，账单从每月订阅变成了电费——代价是机房里的活也得你自己干。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">5</span>
+    <h4 class="repo"><a href="https://github.com/TauricResearch/TradingAgents" target="_blank">TauricResearch / TradingAgents</a></h4>
+    <span class="tag t-agent">AI Agent</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Python</span><span><b>Stars</b> 114.7k</span><span><b>近期</b> 日榜 +381 ⭐</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> arXiv 2412.20138 论文 + CHANGELOG.md 逐版变更说明（v0.2.0 → v0.7.0） + 官方 CLI（`--ticker` / `--date` 免交互跑批） + Docker Compose 一键起 + 每版 GitHub Release 附 wheel 包 + 报告导出为单页 HTML + Discord 社区 + 八语种 README（含简体中文）</span></div>
+  <p class="lead"><b>一句话简介：</b>单个 LLM 问「这只票能不能买」，得到的往往是一段四平八稳的废话。TradingAgents 换了个思路：<b>把投研流程本身做成多智能体图</b>——四个分析师（基本面、情绪、新闻宏观、技术指标）各自带工具并行跑完才进入研究辩论，看多与看空研究员结构化对辩，Trader 给出时机与仓位，风控团队评估波动与流动性，最后由组合经理批准或否决。有 arXiv 论文（2412.20138）、v0.7.0 版本、22k fork，更难得的是它在「可复现」上下了功夫：point-in-time 数据保真（分析日之后才发布的数据一律不可见）、决策日志与 LangGraph checkpoint 续跑、回测按每次决策后的第一个收盘价结算。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>四个分析师并行出报告</b>：基本面（财报与指标、内在价值与红旗）、情绪（新闻标题 + StockTwits + Reddit 聚合成一个情绪读数）、新闻宏观、技术面（MACD/RSI 等形态），各跑各的工具，全部完成才进辩论。</li>
+    <li><b>多空研究员结构化对辩</b>：看多与看空研究员拿着同一批分析师报告互相攻击，权衡收益与风险，输出不带结论偏好的研究结论。</li>
+    <li><b>交易员 + 风控 + 组合经理三级把关</b>：Trader 定时机与仓位，风控团队按波动、流动性等风险因子评估并调整策略，组合经理批准后订单才发往模拟交易所——「有人能否决」是这套设计的核心。</li>
+    <li><b>可复现性被认真对待</b>：point-in-time 保真覆盖 FRED 宏观、社交情绪与决策记忆；回测只在分析日可见数据上运行；每次运行的设置写进报告；checkpoint 可断点续跑。</li>
+    <li><b>模型与数据源自由组合</b>：多供应商（OpenAI/Anthropic/Google/Qwen/DeepSeek/GLM/Mistral/Bedrock/Ollama/任意 OpenAI 兼容端点），还能给不同模型档位配不同 provider，让分析师与管理层跑不同模型。</li>
+    <li><b>跑批与出报告都顺手</b>：CLI 用 <code>--ticker</code> <code>--date</code> 免交互跑网格回测，报告导出成单页 HTML，每版 release 附 wheel 便于装进自己的流水线。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Python 3.11+，LangGraph 编排多智能体图（含 checkpoint 断点续跑），多供应商 LLM 适配层；数据源含 Yahoo Finance、Alpha Vantage、FRED、Polymarket、SEC EDGAR、Reddit/StockTwits；Docker Compose 部署；CI 门禁；Apache-2.0；v0.7.0，每版附 wheel 与 CHANGELOG。</p>
+  <h3>适用场景</h3>
+  <p>研究多智能体协作与「辩论式推理」的研究者与算法工程师（这是它最主要的定位）；想搭投研辅助工作流、但人工做尽调的团队（当信息汇聚与初筛工具用）；教学场景（一家交易公司的角色分工可以完整映射成一张图）；要学 LangGraph 复杂图编排与状态管理的开发者。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>多智能体不是堆角色，是有对抗的结构</b>：「分析师 → 多空辩论 → 交易 → 风控否决 → 经理签字」这条链上每一步都有制衡，比「让十个 Agent 各写一段再汇总」更接近真实决策，也更容易观察偏差从哪来。</li>
+    <li><b>对「回测作弊」有清醒认识</b>：point-in-time 保真、按决策后首个收盘价结算、把运行设置写进报告——多数金融 Agent 项目在这三点上装死。</li>
+    <li><b>论文 + 版本 + wheel 三重可核验</b>：有 arXiv 论文可读方法，有 CHANGELOG 可看演进，有 wheel 可直接装，评估成本比只有 README 的项目低很多。</li>
+    <li><b>是学 LangGraph 的好样本</b>：并行分析、辩论循环、条件路由、checkpoint 续跑、结构化输出，一张图里几乎覆盖了 LangGraph 的主要用法。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>① <b>作者明确写着「仅用于研究」</b>，不构成投资建议；把它当实盘信号源，亏钱是设计外行为；② 结果强依赖所选模型、temperature 与数据质量，同一 ticker 跑两次结论可能不同——这是多智能体的固有方差，不是 bug；③ 订单只发往<b>模拟交易所</b>，接真实券商要自己解决 API、合规与风控，仓库不提供；④ 一次完整运行要烧相当多 token（四分析师并行 + 多轮辩论 + 三级决策），成本先算清再跑网格回测；⑤ 22k fork 里大量是「fork 了没改」的噪声，fork 数不能当质量指标；⑥ 最近提交 2026-10-16，节奏稳但不是每天动，新模型支持会滞后于厂商发布；⑦ 金融数据源多数需要自行申请 API Key，部分有免费额度上限。</div>
+  <div class="callout blue"><b>一句话理解：</b>像把一家小投研团队塞进一台服务器：四个分析师各看各的盘、两个研究员当庭对辩、风控在旁边随时喊停、经理最后签字——只是每个角色都是一次 LLM 调用，所以「开会」是要按 token 付费的。</div>
+</div>
+
+<h2>附录：本期说明</h2>
+<div class="card">
+  <h3>数据来源与筛选口径</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>维度</th><th>标准</th></tr></thead>
+    <tbody>
+      <tr><td>时间活性</td><td>最近 30 天内有提交，非归档仓库</td></tr>
+      <tr><td>热度门槛</td><td>周榜增量 ≥ 300 ⭐ 或日榜增量 ≥ 80 ⭐</td></tr>
+      <tr><td>存量门槛</td><td>总 stars ≥ 1,000</td></tr>
+      <tr><td>仓库资质</td><td>非 fork、非 awesome / 资源聚合列表、非纯教程大纲、非空壳；License 明确且有 README 正文</td></tr>
+      <tr><td>质量信号</td><td>有 CI / 测试 / 文档站 / 正式 release 者优先</td></tr>
+      <tr><td>类目配额</td><td>每期 2–5 个，至少覆盖 2 个类目，单类目 ≤ 2 个</td></tr>
+      <tr><td>去重基线</td><td><code>archive/index.json</code> 中记录的历史仓库</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>本期取舍说明</h3>
+  <ul>
+    <li>候选池：Trending 日榜 11 条 + 周榜 14 条（合并去重后 21 个），其中 9 个已在往期推送、7 个属技能/插件合集；新增可用候选仅 5 个，靠 4 组 Search API 查询补池（<code>created:&gt;2026-08-20 stars:&gt;4000 pushed:&gt;2026-10-18</code>、<code>topic:llm created:&gt;2026-07-01 stars:&gt;8000</code>、<code>topic:inference created:&gt;2026-05-01 stars:&gt;3000</code>、<code>topic:machine-learning created:&gt;2026-06-01 stars:&gt;3000</code>），另对 9 个单仓逐个核验 License / 活跃度 / release。</li>
+    <li>类目配额：应用项目 ×2（Microduck、Concat）、算法/模型 ×1（Utopia）、工程实践 ×1（Coolify）、AI Agent ×1（TradingAgents）——覆盖 4 个类目，单类目不超过 2 个。</li>
+    <li>本期入选协议：Apache-2.0 ×4（Microduck、Utopia、Coolify、TradingAgents）+ AGPL-3.0 ×1（Concat）。5 个仓库均有完整 README 正文与正式 release（Microduck 用 release 标签而非语义版本号，Concat v0.2.8、Utopia v0.1.0-rc9、Coolify v4.5.0、TradingAgents v0.7.0）；Microduck / Concat / Utopia（GHCR 镜像 + bench）/ TradingAgents 均有 CI 或公开 benchmark，Coolify 有完整文档站与 5.8k fork 社区。</li>
+    <li>去重检查：与往期十二期（09-28 至 10-23，共 60 个仓库）均无重叠，基线为 <code>archive/index.json</code>；本期五个仓库无同名双仓与同组织家族问题（storytold 家族已整族排除）。10-24、10-25 两期未运行，本期为第 13 期，归档日期链存在两天缺口，已在 index.json 中如实反映。</li>
+    <li>数据口径：total stars、License、最近提交、release 取自 <code>gh api repos/*</code>（5 个仓库 <code>pushed_at</code> 为 10-16 至 10-26，全部在 30 天活性线内）；Microduck（+647）、Coolify（+152）、TradingAgents（+381）为 Trending <b>日榜原始数字</b>；Concat（62 天 ≈1,300/周）、Utopia（80 天 ≈750/周）未上榜，增量由「累计 star ÷ 建库天数」换算，速览表统一标注「估算」，不与原始数字混用。</li>
+    <li>本期风险提示（与功能同等看待）：<code>Concat</code> 仍是 beta、安装包未签名、且为 AGPL-3.0，商用分发前必须评估传染范围；<code>Utopia</code> 处于 0.1.0-rc9，schema 与 API 会变，且建模范式学习曲线陡；<code>Coolify</code> 363 个 open issue、免费版无 SLA，自托管的安全补丁要自己跟；<code>TradingAgents</code> 作者明示仅用于研究、只对接模拟交易所、单次运行 token 成本高；<code>Microduck</code> 需要实体硬件才能完整体验，BOM 不便宜，且 daemon 契约仍可能变。</li>
+  </ul>
+  <h3>本期按规则排除的候选</h3>
+  <ul>
+    <li><code>debpalash/VoiceStudio</code>（日 +1,592）、<code>anomalyco/opencode</code>（周 +5,921）、<code>stablyai/orca</code>（周 +9,622）、<code>heygen-com/hyperframes</code>（周 +5,612）、<code>akitaonrails/ai-memory</code>（周 +3,254）、<code>Comfy-Org/ComfyUI</code>（周 +4,790）、<code>vllm-project/vllm</code>（周 +1,445）、<code>pingdotgg/t3code</code>（周 +1,770）：热度全部达标，但均已在往期推送，按 <code>archive/index.json</code> 去重基线（前 12 期 / 60 个仓库）排除。</li>
+    <li><code>cloudflare/security-audit-skill</code>（日 +2,878 / 周 +15,072）、<code>anthropics/knowledge-work-plugins</code>（周 +2,790）、<code>anthropics/claude-plugins-official</code>（周 +2,245）、<code>android/skills</code>（周 +1,070）、<code>multica-ai/andrej-karpathy-skills</code>（周 +2,937）、<code>Nutlope/hallmark</code>（34.1k，「anti-AI-slop design skill」）、<code>AgriciDaniel/claude-seo</code>（21.0k，26 个子技能 + 19 个子 Agent）、<code>ruvnet/ruflo</code>（周 +2,987）、<code>Graphify-Labs/graphify</code>（周 +6,903，实质以 Claude Code skill 分发）：产物形态是 agent 技能/插件/提示词集合，属资源聚合型；<code>security-audit-skill</code> 且最后提交 09-14 已超 30 天活性线。按既有口径整类排除。</li>
+    <li><code>pbakaus/impeccable</code>（87.9k，Rust，Apache-2.0，日 +1,092）：本期热度最高的新面孔，但产品实质是「给 AI harness 用的设计语言/规则包 + 引擎」，与上条同一类产物形态，按口径排除——它的增量说明「让 Agent 输出好看」已成显性需求，值得单独关注。</li>
+    <li><code>storytold/photocraft</code>（72.9k）、<code>pdfcraft</code>（17.9k）、<code>filmcraft</code>（16.3k）、<code>wordcraft</code>（16.1k）、<code>lightcraft</code>（14.7k）、<code>vectorcraft</code>（10.7k）：同一组织的纯 Rust 重写家族，延续 10-14 期口径（同源同质只取其一，<code>artcraft</code> 已推送），整族不再重复入选。</li>
+    <li><code>Ebony-Vinyl/dsh-our-free-model</code>（43.1k，建库 32 天）、<code>hypit-ai/hypit</code>（25.6k，NOASSERTION）、<code>Gathin23/cleanyourtv</code>（35.6k，NOASSERTION）、<code>trailhq/Trail-Code</code>（10.8k，无正式 release、250 open issue 待观察）：分别按「合规存疑」「License 不明确」「发布成熟度不足」排除。</li>
+    <li><code>eternity4719/HowToLiveBetter</code>（69.1k）与 <code>cdyforever/how-to-live-better</code>（13.4k，License 缺失）：书籍/指南在线阅读页，非可运行软件项目，按「非纯教程大纲」口径排除。</li>
+    <li><code>makecindy/cindy</code>（5.0k，TS，Apache-2.0，日 +675）、<code>Renhuai123/ziwei-doushu</code>（7.7k，TS，MIT，日 +199）：指标与 License 均合格，但前者 star 总量偏低且与本期 TradingAgents 的 Agent 名额重叠，后者属领域排盘算法引擎、受众过窄，本期让位。</li>
+    <li><code>Human-Agent-Society/reef</code>（7.7k，Python，Apache-2.0，CI + PyPI + 文档站 + v0.1.3，建库 56 天 ≈970/周估）：10-20 期列为优先候选的「持续自改进 Agent 基础设施」，本期再次因 Agent 类目配额（TradingAgents 占位）让位，继续留作下期首选。</li>
+    <li><code>KnifeLemon/Filee</code>（12.4k，C#，MIT，建库 27 天 ≈3,200/周估）、<code>KKKKhazix/AIHOT</code>（8.6k，TS，MIT）、<code>mizorewww/laya-mlx</code>（7.0k，Python，Apache-2.0）：均合格，但应用/算法名额已由 Microduck、Concat、Utopia 占满，按类目配额让位。</li>
+    <li><code>JetBrains/thinkrail</code>（1.9k，日 +51，Apache-2.0）、<code>coollabsio/coolify</code> 之外的泛用 PaaS 候选：thinkrail 日增量 51 未过 80 门槛、star 也未到 1k×(增量) 的合理热度，按热度规则排除。</li>
+  </ul>
+</div>
+
+<footer>
+  由 WorkBuddy 每日 GitHub 精选任务自动生成 · 数据截至 2026-10-26<br>
+  <span class="foot-links">归档仓库：<a href="https://github.com/luyao-appleaccount/github-daily-archive" target="_blank">github.com/luyao-appleaccount/github-daily-archive</a></span>
+</footer>
+
+</div>
+</body>
+</html>
