@@ -1,6 +1,16 @@
 {
-  "updatedAt": "2026-10-27T02:09:22.458Z",
+  "updatedAt": "2026-10-28T02:16:23.117Z",
   "entries": [
+    {
+      "date": "2026-10-28",
+      "repos": [
+        "HKUDS/DeepTutor",
+        "AprilNEA/OpenLogi",
+        "drumih/turbo-fieldfare",
+        "JetBrains/thinkrail",
+        "Human-Agent-Society/reef"
+      ]
+    },
     {
       "date": "2026-10-27",
       "repos": [
