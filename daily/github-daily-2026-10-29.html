@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 精选 · 2026-10-29</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#1a1d21;
+    --ink-2:#4a5058;
+    --ink-3:#7b838d;
+    --line:#e4e7eb;
+    --brand:#2f6fed;
+    --brand-soft:#eef3fe;
+    --amber:#b26a00;
+    --amber-soft:#fff6e6;
+    --green:#1f7a4d;
+    --green-soft:#ecf8f1;
+    --violet:#6b4fd8;
+    --violet-soft:#f1edfe;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:32px 20px 56px;
+    background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  header.hero{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:28px 32px;margin-bottom:24px;
+  }
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:700}
+  h1{margin:8px 0 6px;font-size:27px;line-height:1.35;letter-spacing:-.01em}
+  .sub{color:var(--ink-2);font-size:14px;margin:0}
+  .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    display:inline-block;padding:4px 11px;border-radius:999px;
+    font-size:12.5px;font-weight:600;background:var(--brand-soft);color:var(--brand);
+  }
+  .chip.g{background:var(--green-soft);color:var(--green)}
+  .chip.v{background:var(--violet-soft);color:var(--violet)}
+  .chip.a{background:var(--amber-soft);color:var(--amber)}
+
+  h2{
+    font-size:17px;margin:34px 0 14px;padding-left:11px;
+    border-left:4px solid var(--brand);line-height:1.3;
+  }
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px 26px;margin-bottom:20px;
+  }
+  .card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+  .idx{
+    width:26px;height:26px;border-radius:8px;background:var(--brand);color:#fff;
+    font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
+    flex:0 0 auto;
+  }
+  .repo{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .repo a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--brand-soft)}
+  .repo a:hover{border-bottom-color:var(--brand)}
+  .stats{
+    display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 16px;
+    padding-bottom:14px;border-bottom:1px dashed var(--line);
+    font-size:13px;color:var(--ink-3);
+  }
+  .stats b{color:var(--ink-2);font-weight:600}
+  .tag{font-size:12px;padding:3px 9px;border-radius:6px;font-weight:600}
+  .t-agent{background:var(--violet-soft);color:var(--violet)}
+  .t-eng{background:var(--brand-soft);color:var(--brand)}
+  .t-app{background:var(--green-soft);color:var(--green)}
+  .t-algo{background:var(--amber-soft);color:var(--amber)}
+  .lead{color:var(--ink-2);margin:0 0 16px;font-size:14.5px}
+  .lead b{color:var(--ink)}
+  h3{
+    font-size:13px;margin:18px 0 8px;color:var(--ink-3);
+    letter-spacing:.05em;font-weight:700;
+  }
+  h3::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--brand);margin-right:7px;vertical-align:middle}
+  ul{margin:0;padding-left:19px}
+  li{margin:4px 0;color:var(--ink-2)}
+  li b,li strong{color:var(--ink)}
+  p{margin:8px 0;color:var(--ink-2)}
+  .callout{
+    margin-top:16px;padding:12px 15px;border-radius:10px;
+    background:var(--amber-soft);border-left:3px solid var(--amber);
+    font-size:13.5px;color:var(--ink-2);
+  }
+  .callout b{color:var(--amber)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 4px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th{background:#fafbfc;color:var(--ink-3);font-size:12px;font-weight:700;letter-spacing:.04em}
+  td:first-child{white-space:nowrap;color:var(--ink-3);font-weight:600}
+  .tbl-wrap{overflow-x:auto}
+  code{background:#f1f3f5;padding:1.5px 5px;border-radius:4px;font-size:12.5px;font-family:"SF Mono",Menlo,Consolas,monospace;color:#b0407a}
+  pre{
+    background:#fafbfc;border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;overflow-x:auto;font-size:12.5px;line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;color:var(--ink-2);
+  }
+  footer{
+    margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+    text-align:center;color:var(--ink-3);font-size:12.5px;
+  }
+  .callout.blue{background:var(--brand-soft);border-left-color:var(--brand);margin-top:12px}
+  .callout.blue b{color:var(--brand)}
+  .foot-links a{color:var(--brand);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Daily GitHub Digest</div>
+  <h1>每日 GitHub 精选 · 第 16 期</h1>
+  <p class="sub">2026 年 10 月 29 日（周四） · 本期入选 <b>5</b> 个仓库 · 覆盖 <b>3</b> 个类目</p>
+  <div class="meta">
+    <span class="chip g">应用项目 ×2</span>
+    <span class="chip">工程实践 ×1</span>
+    <span class="chip v">AI Agent ×2</span>
+  </div>
+</header>
+
+<h2>速览</h2>
+<div class="card">
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>仓库</th><th>类目</th><th>语言</th><th>Stars</th><th>近期增量</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b><a href="https://github.com/ruvnet/RuView" target="_blank" style="color:inherit">ruvnet/RuView</a></b></td><td>应用项目</td><td>Rust</td><td>101.1k</td><td>日榜 +557 ⭐</td></tr>
+      <tr><td>2</td><td><b><a href="https://github.com/hmjz100/LinkSwift" target="_blank" style="color:inherit">hmjz100/LinkSwift</a></b></td><td>应用项目</td><td>JavaScript</td><td>34.9k</td><td>日榜 +1,616 ⭐</td></tr>
+      <tr><td>3</td><td><b><a href="https://github.com/pranshuparmar/witr" target="_blank" style="color:inherit">pranshuparmar/witr</a></b></td><td>工程实践</td><td>Go</td><td>22.8k</td><td>≈510/周（估算）</td></tr>
+      <tr><td>4</td><td><b><a href="https://github.com/herdrdev/herdr" target="_blank" style="color:inherit">herdrdev/herdr</a></b></td><td>AI Agent</td><td>Rust</td><td>46.4k</td><td>≈1,500/周（估算）</td></tr>
+      <tr><td>5</td><td><b><a href="https://github.com/esengine/DeepSeek-Reasonix" target="_blank" style="color:inherit">esengine/DeepSeek-Reasonix</a></b></td><td>AI Agent</td><td>Go</td><td>36.0k</td><td>≈1,320/周（估算）</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<h2>本期精选</h2>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">1</span>
+    <h4 class="repo"><a href="https://github.com/ruvnet/RuView" target="_blank">ruvnet / RuView</a></h4>
+    <span class="tag t-app">应用项目</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Rust</span><span><b>Stars</b> 101.1k</span><span><b>近期</b> 日榜 +557 ⭐</span><span><b>协议</b> MIT</span><span><b>文档</b> docs/ 用户指南 + ESP32 固件仓库 + HuggingFace 预训练模型（wifi-densepose-pretrained）+ Home Assistant 集成文档 + 官方文档站</span></div>
+  <p class="lead"><b>一句话简介：</b>房间里本来就充满 WiFi 电波，人在其中走动、呼吸都会扰动它——RuView 把这些扰动读成数据：谁在、在做什么、是否安好，全程无摄像头。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>穿墙环境感知</b>：利用 WiFi CSI（信道状态信息，即人对电波的细微扰动）隔墙检测有人与否、清点人数、跟踪进出，黑暗中照常工作，室内不需要任何摄像头。</li>
+    <li><b>非接触生命体征</b>：静坐或睡眠状态下连续测呼吸频率与心率，支持睡眠分期判别与呼吸暂停筛查，适合老人看护与婴儿监护场景。</li>
+    <li><b>WiFi 姿态估计</b>：从 CSI 时序模式估计 17 个身体关键点（WiFi DensePose），识别行走、坐立、手势与跌倒；预训练模型从 HuggingFace 加载，也可录制数据自训练并切换 LoRA 配置。</li>
+    <li><b>全栈开源 + 智能家居集成</b>：ESP32 节点固件、模型工作流、本地自动化引擎（状态 / 历史 / Wasm 插件 / HomeKit）全部开源，原生对接 Home Assistant 等四大智能家居生态。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Rust 核心 + ESP32 CSI 固件（几美元级传感器）+ RVF 模型文件与 LoRA 配置切换，本地优先；HOMECORE 自动化引擎带签名 Wasm 插件。</p>
+  <h3>适用场景</h3>
+  <p>老人居家看护与跌倒检测；不想在卧室 / 浴室装摄像头的隐私敏感监测；智能家居「人在与否」联动；RF 感知研究与教学。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>重新定义「传感器」</b>：不新增摄像头、不要求穿戴，把房间里已有的 WiFi 电波变成传感器，思路极巧，且从固件到模型全栈开源可复现。</li>
+    <li><b>诚实标注成熟度</b>：README 明确说明多源融合部分「精度仍是合成数据水平、待真实数据验证」——对前沿感知项目而言，这种透明度难得。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>感知精度依赖房间环境与节点布位，需逐场景校准；穿墙姿态估计等高级能力部分仍属研究性质，生产使用前需自行验证；ESP32 节点需自行采购刷写。</div>
+  <div class="callout blue"><b>一句话理解：</b>CSI 就像房间里的「水波纹」：人走动、呼吸就像往水池里扔小石子，RuView 读的是这些涟漪的形状——不用看，也知道谁在水里。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">2</span>
+    <h4 class="repo"><a href="https://github.com/hmjz100/LinkSwift" target="_blank">hmjz100 / LinkSwift</a></h4>
+    <span class="tag t-app">应用项目</span>
+  </div>
+  <div class="stats"><span><b>语言</b> JavaScript</span><span><b>Stars</b> 34.9k</span><span><b>近期</b> 日榜 +1,616 ⭐</span><span><b>协议</b> AGPL-3.0</span><span><b>文档</b> GitHub / OpenUserJS / 脚本猫三源分发 + 详细中文 README（含显式合规声明）+ 正式版与金丝雀版双更新通道 + 原 syhyz1990/baiduyun 血统（2022 年起持续维护）</span></div>
+  <p class="lead"><b>一句话简介：</b>中文互联网的持久刚需：在网盘网页里点一下就拿到直链，交给多线程下载器拉文件——不装官方客户端、不开会员，脚本只做「取件码」这一件事。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>九大网盘全覆盖</b>：百度网盘、阿里云盘、天翼云盘、中国移动云盘、迅雷、夸克、UC、123 云盘、光鸭云盘一个脚本通吃，网页端直接解析文件直链。</li>
+    <li><b>下载器联动</b>：解析出的直链可直接交给 Aria2、IDM 等多线程下载器批量拉取，摆脱网页端单线程体验（速度取决于网盘接口策略）。</li>
+    <li><b>界面美化与持续增强</b>：在原版「网盘直链下载助手」基础上重构 UI 并持续增加功能，正式版 + 金丝雀版双通道，多安装源避免单点失效。</li>
+    <li><b>合规立场清晰</b>：README 明确声明全部基于服务商公开 API 获取直链、不破解限速，仅服务「不便使用官方客户端」的合法下载需求。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>纯 JavaScript 用户脚本（Tampermonkey / 油猴生态），GitHub / OpenUserJS / 脚本猫三源分发，基于 syhyz1990/baiduyun 修改增强。</p>
+  <h3>适用场景</h3>
+  <p>用 Aria2 / IDM 管理大文件下载；在服务器或 NAS 上拉取网盘文件；不想为偶尔的下载需求安装各家官方客户端。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>刚需 + 长期主义</b>：网盘下载是中文互联网的持久刚需，项目自 2022 年持续维护至今，日榜 +1,616 说明社区基本盘极大。</li>
+    <li><b>边界感难得</b>：在同类工具普遍打擦边球的环境里，它把「能做什么、不能做什么」写在最显眼处，降低用户与维护者双方的风险。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>实际下载速度完全取决于网盘对直链接口的策略，非会员场景随时可能失效或降速；需自装 Tampermonkey 并按 README 选择安装源；网盘接口变更需跟进脚本更新。</div>
+  <div class="callout blue"><b>一句话理解：</b>直链相当于快递员把包裹直接递到你手上，而官方网页版要求你在营业厅排队取件——脚本只是帮你拿到「取件码」，包裹多快到手仍由快递公司（网盘）决定。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">3</span>
+    <h4 class="repo"><a href="https://github.com/pranshuparmar/witr" target="_blank">pranshuparmar / witr</a></h4>
+    <span class="tag t-eng">工程实践</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Go</span><span><b>Stars</b> 22.8k</span><span><b>近期</b> ≈510/周（估算）</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> pranshuparmar.github.io/witr 在线交互沙箱（零安装体验）+ brew / conda / aur / winget / npm 等七渠道安装 + Trendshift / Product Hunt 收录 + 完整示例输出文档</span></div>
+  <p class="lead"><b>一句话简介：</b>每天都要问的问题终于有了专门工具：lsof + ps + docker inspect 各查一步的流程，收敛成一条命令——还有浏览器沙箱，零安装先玩再装。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>四类入口一个答案</b>：进程、监听端口、容器、文件任一为起点，反查「谁在什么时间、用什么命令、被哪条父进程链拉起来」，一条命令给出完整血缘。</li>
+    <li><b>三种输出形态</b>：人类可读文本、机器可读 JSON（供 CI 与脚本消费）、交互式 TUI，同一份调用随取随用。</li>
+    <li><b>全平台全渠道</b>：Linux / macOS / Windows / FreeBSD 四平台，brew、conda、aur、winget、npm 等七渠道分发，另有在线模拟沙箱做引导教程。</li>
+    <li><b>为 AI Agent 设计</b>：专门提供供编码代理调用的用法：Agent 排查「这个端口谁占的」时直接拿结构化答案，不必再人肉串联 ps / lsof。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Go 单二进制，跨平台聚合进程 / 端口 / 容器信息，JSON 与 TUI 双输出，多包管理器分发，GitHub Pages 在线教程。</p>
+  <h3>适用场景</h3>
+  <p>排查「8080 被谁占了」「这个 node 进程哪来的」；接手陌生服务器时快速建立进程全景；写进自动化巡检与 Agent 运维工具链。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>把高频人肉操作产品化</b>：进程溯源是运维与开发的日频痛点，witr 把三四个命令的串联收敛成一条，工具定位极准。</li>
+    <li><b>「小工具」做出基础设施完成度</b>：四平台 + 七渠道 + 在线沙箱 + JSON API + TUI，工程完成度罕见，22.8k star 实至名归。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>只回答「为什么在跑、从哪来」，不做 kill / 管控动作；容器场景需要相应运行时权限；极老的 init 体系下血缘链可能不完整。</div>
+  <div class="callout blue"><b>一句话理解：</b>传统排查像查户口要分别跑派出所、街道和单位；witr 相当于输入身份证号，一次性拿到「出生证明 + 全套家族谱系」。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">4</span>
+    <h4 class="repo"><a href="https://github.com/herdrdev/herdr" target="_blank">herdrdev / herdr</a></h4>
+    <span class="tag t-agent">AI Agent</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Rust</span><span><b>Stars</b> 46.4k</span><span><b>近期</b> ≈1,500/周（估算）</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> herdr.dev 官方文档站（quick-start / session-state / connecting-machines 等）+ Homebrew formula + 中英双语 README（含简体中文）+ release 下载统计徽章</span></div>
+  <p class="lead"><b>一句话简介：</b>并行跑多个编码代理之后，「终端一关全没了、谁在等我根本不知道」是必撞的墙——herdr 给了系统级答案：代理们住进一间不用下班的办公室。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>断线不丢工作</b>：合上笔记本、SSH 掉线、客户机关闭，代理在后台服务器上继续跑；机器重启后自动恢复布局与会话状态（原进程需重启）。</li>
+    <li><b>多机一窗</b>：本地机器与多台已保存的 SSH 机器会话并列在一个窗口，统一代理列表、各自独立重连。</li>
+    <li><b>状态一目了然</b>：每个面板实时标注 working / blocked / idle，代理停下来等答复时主动提醒——不用挨个翻终端找「卡住的那个」。</li>
+    <li><b>Agent 原生接口</b>：代理可通过 CLI 与 socket API 驱动 herdr：自己开面板、提交提示、读取输出，把 herdr 当成自己的工位。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Rust 编写，单机后台服务 + 客户端架构，支持 session-state 恢复、CLI 与 socket API，Homebrew 一键安装，官网全套文档。</p>
+  <h3>适用场景</h3>
+  <p>同时开多个编码代理跑长任务且要下班关机的个人开发者；SSH 到远程 GPU 服务器跑代理的团队；想把代理运行状态接入自有看板的人。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>踩中多代理时代的真痛点</b>：从「单代理」走向「并行多代理」后，会话存活与状态可见是所有人的第一堵墙，herdr 把它做成了基础设施。</li>
+    <li><b>定位清醒</b>：不做代理框架、不绑定模型，只做「代理们脚下的地板」，与 Claude Code / Codex 等现有工具是叠加而非竞争关系。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>机器重启后恢复的是布局与会话状态，原进程不存活，需依赖代理自身的会话续接能力；目前主要面向终端型编码代理，GUI 工具不在管理范围。</div>
+  <div class="callout blue"><b>一句话理解：</b>tmux 让终端会话断线后存活；herdr 是给一群 AI 同事租了间不用下班的办公室——你走了它们接着干，你回来看板告诉你谁干完了、谁在等你拍板。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">5</span>
+    <h4 class="repo"><a href="https://github.com/esengine/DeepSeek-Reasonix" target="_blank">esengine / DeepSeek-Reasonix</a></h4>
+    <span class="tag t-agent">AI Agent</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Go</span><span><b>Stars</b> 36.0k</span><span><b>近期</b> ≈1,320/周（估算）</span><span><b>协议</b> MIT</span><span><b>文档</b> esengine.github.io/DeepSeek-Reasonix 文档站 + GUIDE / ACP / EXTENSIONS / SPEC 四份专项文档 + npm 包 reasonix + GitHub Actions CI 徽章 + Discord / QQ 双社区</span></div>
+  <p class="lead"><b>一句话简介：</b>国产开源编码助手里工程化程度的头部样本：行为契约（SPEC）写进仓库、协议（ACP）标准化、四份专项文档齐全，36k star 且发版活跃。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>本地运行、模型自选</b>：程序跑在你电脑上，模型是可配置服务：接 DeepSeek、Claude、Kimi 均可，读什么代码由你说了算，任务只在指定项目目录内执行。</li>
+    <li><b>ACP 协议 + 扩展系统</b>：通过标准 ACP（Agent Client Protocol）接入编辑器与客户端，扩展机制开放能力边界，SPEC 文档把行为契约写进仓库。</li>
+    <li><b>Reasonix Studio 图形界面</b>：命令行之外提供 Studio 2.x 桌面端，编码会话、diff 与任务管理可视化操作。</li>
+    <li><b>工程规范齐全</b>：npm 包 reasonix 分发、CI 持续运行、GUIDE / ACP / EXTENSIONS / SPEC 四份文档 + 官网文档站，中英双语社区（Discord / QQ）。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Go 实现，npm 分发（reasonix），ACP 协议，扩展系统，GitHub Actions CI，官网文档站与 Studio 桌面端。</p>
+  <h3>适用场景</h3>
+  <p>想要 Claude Code 的使用形态但不绑定任何一家的开发者；用国内模型（DeepSeek / Kimi）直连的编码助手需求；研究 ACP 协议与 agent 客户端集成的团队。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>国产生态的成熟答卷</b>：36k star、发版活跃、文档四件套齐全，是开源命令行编码助手里工程化程度最高的国产项目之一。</li>
+    <li><b>契约先行</b>：把 SPEC（行为规范）与 ACP 协议文档放进仓库，对二次开发与集成方极其友好。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>能力上限取决于所接模型服务，与闭源旗舰对比仍有差距；README 含赞助商推广位，选型时注意甄别；扩展生态尚在早期。</div>
+  <div class="callout blue"><b>一句话理解：</b>它相当于一个「自备粮草」的实习生：活儿在你的项目目录里干，饭（模型 API）你自己定——换供应商不用换实习生。</div>
+</div>
+
+<h2>附录：本期说明</h2>
+<div class="card">
+  <h3>数据来源与筛选口径</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>维度</th><th>标准</th></tr></thead>
+    <tbody>
+      <tr><td>时间活性</td><td>最近 30 天内有提交，非归档仓库</td></tr>
+      <tr><td>热度门槛</td><td>周榜增量 ≥ 300 ⭐ 或日榜增量 ≥ 80 ⭐</td></tr>
+      <tr><td>存量门槛</td><td>总 stars ≥ 1,000</td></tr>
+      <tr><td>仓库资质</td><td>非 fork、非 awesome / 资源聚合列表、非纯教程大纲、非空壳；License 明确且有 README 正文</td></tr>
+      <tr><td>质量信号</td><td>有 CI / 测试 / 文档站 / 正式 release 者优先</td></tr>
+      <tr><td>类目配额</td><td>每期 2–5 个，至少覆盖 2 个类目，单类目 ≤ 2 个</td></tr>
+      <tr><td>去重基线</td><td><code>archive/index.json</code> 中记录的历史仓库</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>本期取舍说明</h3>
+  <ul>
+    <li>Trending 日榜 14 条 / 周榜 11 条，合并去重后绝大多数为已推送仓库或技能 / 插件合集，新候选 3 个（RuView、LinkSwift、macro）全部来自日榜；Agent 类目由上期遗留优先项（DeepSeek-Reasonix）与 Search 补池（herdr）兑现。</li>
+    <li>算法 / 模型类目本期无达标候选（litgpt、openevolve、vllm-omni 等周均估算均低于 300/周门槛），本期覆盖应用 / 工程 / Agent 三个类目。</li>
+    <li>口径说明：日 / 周榜为 Trending 实测值，标注「估算」者为「累计 star ÷ 建库天数 → 周均」，仅作热度参考。</li>
+  </ul>
+  <h3>本期按规则排除的候选</h3>
+  <ul>
+    <li>elayadesign/ai-design-skills、expo/skills、obra/superpowers、ruvnet/ruflo —— Agent / 设计技能与插件合集，非独立软件项目，照旧排除。</li>
+    <li>xiaolai/the-craft-of-selfteaching —— 教程书籍类仓库且无 License，排除。</li>
+    <li>Nutlope/hallmark、pbakaus/impeccable —— 设计规则 / 规范包，实质为技能类资源，延续前几期口径。</li>
+    <li>Graphify-Labs/graphify —— 实质以 Claude Code skill 分发，延续排除。</li>
+    <li>macro-inc/macro —— 应用项目合格（Rust / AGPL-3.0 / 日榜 +117），但应用类目两席已给热度更高的 RuView 与 LinkSwift，名额让位。</li>
+    <li>codewhale-hq/Codewhale、tinyhumansai/openhuman —— Agent 类目合格但与已入选的 herdr / DeepSeek-Reasonix 定位重叠（终端 agent / harness 同质化），名额让位。</li>
+    <li>Lightning-AI/litgpt、algorithmicsuperintelligence/openevolve、vllm-project/vllm-omni —— 算法 / 模型类目周均增量不达标（&lt;300/周）。</li>
+    <li>cloudflare/security-audit-skill —— 周榜 +16,002 但为技能包且此前已因超 30 天未提交排除。</li>
+    <li>TauricResearch/TradingAgents、anomalyco/opencode、HKUDS/DeepTutor、JetBrains/thinkrail、makecindy/cindy 等上榜仓库 —— 均已推送过，去重排除。</li>
+  </ul>
+</div>
+
+<footer>
+  由 WorkBuddy 每日 GitHub 精选任务自动生成 · 数据截至 2026-10-29<br>
+  <span class="foot-links">归档仓库：<a href="https://github.com/luyao-appleaccount/github-daily-archive" target="_blank">github.com/luyao-appleaccount/github-daily-archive</a></span>
+</footer>
+
+</div>
+</body>
+</html>
