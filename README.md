@@ -3,7 +3,7 @@
 每天自动筛选 2–5 个优质开源仓库，覆盖 **应用项目 / 算法模型 / 工程实践 / AI Agent** 四类，
 每个仓库附项目简介、核心功能、技术栈、适用场景与推荐理由（含局限）。
 
-累计 **18** 期 · **90** 个仓库。
+累计 **19** 期 · **95** 个仓库。
 
 ## 怎么读？（重要）
 
@@ -26,6 +26,7 @@ GitHub 对 `.html` **只当源码显示，不会渲染**。所以下表给了三
 
 | 日期 | 本期收录 | 日报 |
 |------|---------|------|
+| **2026-11-06** | DiscImageStudio · auto-ontology · VibeVoice · pr-agent 等 5 个 | [阅读](daily/github-daily-2026-11-06.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-11-06.html) · [长图](daily/github-daily-2026-11-06.jpg) |
 | **2026-11-04** | ghostty · Scrapling · floci · LlamaFactory 等 5 个 | [阅读](daily/github-daily-2026-11-04.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-11-04.html) · [长图](daily/github-daily-2026-11-04.jpg) |
 | **2026-11-02** | browser · Handy · kornia · OpenBot 等 5 个 | [阅读](daily/github-daily-2026-11-02.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-11-02.html) · [长图](daily/github-daily-2026-11-02.jpg) |
 | **2026-10-29** | RuView · LinkSwift · witr · herdr 等 5 个 | [阅读](daily/github-daily-2026-10-29.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-10-29.html) · [长图](daily/github-daily-2026-10-29.jpg) |
