@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日 GitHub 精选 · 2026-11-13</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#1a1d21;
+    --ink-2:#4a5058;
+    --ink-3:#7b838d;
+    --line:#e4e7eb;
+    --brand:#2f6fed;
+    --brand-soft:#eef3fe;
+    --amber:#b26a00;
+    --amber-soft:#fff6e6;
+    --green:#1f7a4d;
+    --green-soft:#ecf8f1;
+    --violet:#6b4fd8;
+    --violet-soft:#f1edfe;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;padding:32px 20px 56px;
+    background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+  header.hero{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:28px 32px;margin-bottom:24px;
+  }
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:700}
+  h1{margin:8px 0 6px;font-size:27px;line-height:1.35;letter-spacing:-.01em}
+  .sub{color:var(--ink-2);font-size:14px;margin:0}
+  .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    display:inline-block;padding:4px 11px;border-radius:999px;
+    font-size:12.5px;font-weight:600;background:var(--brand-soft);color:var(--brand);
+  }
+  .chip.g{background:var(--green-soft);color:var(--green)}
+  .chip.v{background:var(--violet-soft);color:var(--violet)}
+  .chip.a{background:var(--amber-soft);color:var(--amber)}
+
+  h2{
+    font-size:17px;margin:34px 0 14px;padding-left:11px;
+    border-left:4px solid var(--brand);line-height:1.3;
+  }
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:24px 26px;margin-bottom:20px;
+  }
+  .card-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px}
+  .idx{
+    width:26px;height:26px;border-radius:8px;background:var(--brand);color:#fff;
+    font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;
+    flex:0 0 auto;
+  }
+  .repo{font-size:18px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .repo a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--brand-soft)}
+  .repo a:hover{border-bottom-color:var(--brand)}
+  .stats{
+    display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 16px;
+    padding-bottom:14px;border-bottom:1px dashed var(--line);
+    font-size:13px;color:var(--ink-3);
+  }
+  .stats b{color:var(--ink-2);font-weight:600}
+  .tag{font-size:12px;padding:3px 9px;border-radius:6px;font-weight:600}
+  .t-agent{background:var(--violet-soft);color:var(--violet)}
+  .t-eng{background:var(--brand-soft);color:var(--brand)}
+  .t-app{background:var(--green-soft);color:var(--green)}
+  .t-algo{background:var(--amber-soft);color:var(--amber)}
+  .lead{color:var(--ink-2);margin:0 0 16px;font-size:14.5px}
+  .lead b{color:var(--ink)}
+  h3{
+    font-size:13px;margin:18px 0 8px;color:var(--ink-3);
+    letter-spacing:.05em;font-weight:700;
+  }
+  h3::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--brand);margin-right:7px;vertical-align:middle}
+  ul{margin:0;padding-left:19px}
+  li{margin:4px 0;color:var(--ink-2)}
+  li b,li strong{color:var(--ink)}
+  p{margin:8px 0;color:var(--ink-2)}
+  .callout{
+    margin-top:16px;padding:12px 15px;border-radius:10px;
+    background:var(--amber-soft);border-left:3px solid var(--amber);
+    font-size:13.5px;color:var(--ink-2);
+  }
+  .callout b{color:var(--amber)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 4px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+  th{background:#fafbfc;color:var(--ink-3);font-size:12px;font-weight:700;letter-spacing:.04em}
+  td:first-child{white-space:nowrap;color:var(--ink-3);font-weight:600}
+  .tbl-wrap{overflow-x:auto}
+  code{background:#f1f3f5;padding:1.5px 5px;border-radius:4px;font-size:12.5px;font-family:"SF Mono",Menlo,Consolas,monospace;color:#b0407a}
+  pre{
+    background:#fafbfc;border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;overflow-x:auto;font-size:12.5px;line-height:1.7;
+    font-family:"SF Mono",Menlo,Consolas,monospace;color:var(--ink-2);
+  }
+  footer{
+    margin-top:34px;padding-top:18px;border-top:1px solid var(--line);
+    text-align:center;color:var(--ink-3);font-size:12.5px;
+  }
+  .callout.blue{background:var(--brand-soft);border-left-color:var(--brand);margin-top:12px}
+  .callout.blue b{color:var(--brand)}
+  .foot-links a{color:var(--brand);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Daily GitHub Digest</div>
+  <h1>每日 GitHub 精选 · 第 21 期</h1>
+  <p class="sub">2026 年 11 月 13 日（周五） · 本期入选 <b>5</b> 个仓库 · 覆盖 <b>4</b> 个类目</p>
+  <div class="meta">
+    <span class="chip g">应用项目 ×2</span>
+    <span class="chip a">算法/模型 ×1</span>
+    <span class="chip">工程实践 ×1</span>
+    <span class="chip v">AI Agent ×1</span>
+  </div>
+</header>
+
+<h2>速览</h2>
+<div class="card">
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>仓库</th><th>类目</th><th>语言</th><th>Stars</th><th>近期增量</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b><a href="https://github.com/we-promise/sure" target="_blank" style="color:inherit">we-promise/sure</a></b></td><td>应用项目</td><td>Ruby</td><td>14.0k</td><td>日榜 +967 ⭐</td></tr>
+      <tr><td>2</td><td><b><a href="https://github.com/pookjw/HermesEnabler" target="_blank" style="color:inherit">pookjw/HermesEnabler</a></b></td><td>应用项目</td><td>Objective-C</td><td>1.5k</td><td>日榜 +218 ⭐</td></tr>
+      <tr><td>3</td><td><b><a href="https://github.com/google-deepmind/mujoco" target="_blank" style="color:inherit">google-deepmind/mujoco</a></b></td><td>算法/模型</td><td>C++</td><td>17.8k</td><td>周榜 +1,671 ⭐</td></tr>
+      <tr><td>4</td><td><b><a href="https://github.com/openai/codex-security" target="_blank" style="color:inherit">openai/codex-security</a></b></td><td>工程实践</td><td>TypeScript</td><td>12.4k</td><td>日榜 +643 ⭐</td></tr>
+      <tr><td>5</td><td><b><a href="https://github.com/QwenLM/qwen-code" target="_blank" style="color:inherit">QwenLM/qwen-code</a></b></td><td>AI Agent</td><td>TypeScript</td><td>29.8k</td><td>日榜 +151 ⭐</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<h2>本期精选</h2>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">1</span>
+    <h4 class="repo"><a href="https://github.com/we-promise/sure" target="_blank">we-promise / sure</a></h4>
+    <span class="tag t-app">应用项目</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Ruby</span><span><b>Stars</b> 14.0k</span><span><b>近期</b> 日榜 +967 ⭐</span><span><b>协议</b> AGPL-3.0</span><span><b>文档</b> 官网 sure.am + 仓内 docs/ 完整托管文档（Docker / Render / PikaPods / Hostim 多路一键部署）+ 演示数据一键加载 + Discussions 活跃</span></div>
+  <p class="lead"><b>一句话简介：</b>Maybe 团队花近 100 万美元做的理财应用 2023 年停更开源后，社区把它接过来继续养——日榜 +967 说明「能自己管钱的应用」需求远未饱和。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>完整理财功能集继承</b>：现金流、净资产、支出概览三大仪表盘 + 账户 / 交易 / 分类体系全部来自 Maybe 原版；支持一键加载演示数据，五分钟体验全部功能再决定要不要自建。</li>
+    <li><b>券商与银行数据同步</b>：集成 SimpleFIN、SnapTrade、Trade Republic 等数据源，持仓批次（holding lots）会计规则含 FIFO / 加权平均 / 拆股处理，可与券商数据对账重映射。</li>
+    <li><b>AI 助手三种部署模式</b>：无 AI / OpenAI 简单模式 / 外部 AI（AlphaClaw）三档可选，AI 版走 pgvector 向量存储支持文档导入问答；MCP 端点暴露 35+ 工具，LLM Agent 可以直接替你查账。</li>
+    <li><b>多端覆盖</b>：浏览器主站 + Tauri 桌面客户端（macOS，可连局域网自托管服务器）+ API 客户端；移动端与桌面端共享同一份自托管数据。</li>
+    <li><b>部署链路成熟</b>：Docker Compose（含 AI 版 compose 模板）为推荐姿势，Render / PikaPods / Hostim 一键模板三选一，Helm chart 支持上 Kubernetes；CI、Brakeman 安全扫描、Dev Container 一应俱全。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Ruby on Rails + PostgreSQL（AI 版需 pgvector）+ Redis + Sidekiq；前端 Tailwind CSS 4 + ViewComponent 组件体系；桌面端 Tauri；部署 Docker Compose / Helm，CI 走 GitHub Actions。</p>
+  <h3>适用场景</h3>
+  <p>想完全掌控自己财务数据的个人 / 家庭自托管记账；Maybe 老用户寻找仍在维护的续作；理财产品的开发参考（持仓批次会计规则与数据同步层实现很完整）；给 LLM Agent 挂一个能查账的 MCP 数据源。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>百万美元级代码库的免费续命</b>：Maybe 当年按商业产品标准投入开发（含「咨询顾问」功能），代码质量与功能完整度远超社区白手起家的记账项目；社区分支让它避免重蹈「上游归档、无人可用」的结局。</li>
+    <li><b>本期 Trending 最热的实用应用</b>：日榜 +967 是今天全站前三的增量，热度集中在「自托管 + AI 助手 + 数据同步」这条完整链路上，不是炒作型空壳。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>AGPL-3.0 传染性协议，二次开发对外提供服务需开源；「Maybe」名称与 logo 是商标，fork 禁止沿用；数据量大时有已知性能瓶颈（项目用 Skylight 面板公开追踪，欢迎优化贡献）；上游 Maybe 已归档、发展方向由社区主导存在不确定性；数据同步源以欧美服务为主，国内券商 / 银行基本要靠手动导入或自己写 Provider。</div>
+  <div class="callout blue"><b>一句话理解：</b>像一家烧了上亿融资后关门的餐厅把菜谱全公开了，社区大厨们合伙把店重新开起来——菜单没变，掌勺的换成了志愿者。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">2</span>
+    <h4 class="repo"><a href="https://github.com/pookjw/HermesEnabler" target="_blank">pookjw / HermesEnabler</a></h4>
+    <span class="tag t-app">应用项目</span>
+  </div>
+  <div class="stats"><span><b>语言</b> Objective-C</span><span><b>Stars</b> 1.5k</span><span><b>近期</b> 日榜 +218 ⭐</span><span><b>协议</b> MIT</span><span><b>文档</b> 八语 README（含简中 / 繁中）+ Releases 预编译 IPA + 仓内侧载与签名排障文档（11-13 刚更新）+ macOS / Windows 双平台安装指南</span></div>
+  <p class="lead"><b>一句话简介：</b>爱马仕表盘官方只在 Hermès 款 Watch 上卖，这台工具把「机型锁定」直接绕开——本质是消费电子圈对硬件区隔定价的一次民间反抗。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>机型区隔一键破除</b>：原理是修改设备上报的机型信息（MobileGestalt），让系统认为这是 Hermès 款从而解锁联名表盘；改动在 Watch 端的 HermesEnabler2 应用内完成，有引导步骤。</li>
+    <li><b>三条安装通道</b>：macOS 用 Sideloadly 签 IPA 或 Xcode 直跑，Windows 用社区工具 WatchBridge 完成 USB 开发者模式准备与双端安装；iPhone 与 Watch 的开发者模式开启步骤逐条写明。</li>
+    <li><b>watchOS 适配极快</b>：11-13 当天就合并了对 watchOS 24R363 / 24S5086l 的支持提交；版本窗口要求 watchOS 27.0–27.3 beta 1，README 顶部明确标注。</li>
+    <li><b>文档质量罕见地认真</b>：八语 README、排障文档覆盖 Sideloadly 0.72 已知剥 Watch 应用的 bug、免费证书 7 天过期、App Groups 权限需付费开发者账号等全部坑点。</li>
+    <li><b>回滚有保障</b>：改机型信息前会做 MobileGestalt 备份，删除应用前要求先通过应用内功能恢复备份，把变砖风险压到最低。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>Objective-C（Watch 端 HermesEnabler2 + iPhone 宿主 App，Xcode 工程）+ Swift/SwiftUI 配套 Companion；分发走 GitHub Releases IPA；签名依赖 Sideloadly（macOS）/ WatchBridge（Windows）；核心机制引用 Gester 项目的 MobileGestalt 改写代码。</p>
+  <h3>适用场景</h3>
+  <p>非爱马仕款 Apple Watch 用户想用联名表盘；iOS 逆向 / 私有 API 研究者参考 MobileGestalt 改机与双端侧载流程；想了解 Apple「硬件区隔定价」技术实现机制的案例。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>精准戳中一个真实痒点</b>：表盘是 Apple 生态里少有的「花几万买手表才能看」的内容区隔，1,548 star 与日榜 +218 说明需求真实且传播快。</li>
+    <li><b>工程与文档完成度远超同类越狱式项目</b>：版本适配当天跟进、八语文档、双平台指南、排障与备份恢复流程齐全——这类民间工具通常是「能用但没人管」的状态，它明显例外。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>支持窗口很窄：仅 watchOS 27.0–27.3 beta 1，升系统前先确认适配；免费 Personal Team 证书 7 天过期要重签，App Groups 权限免费账号无法签名（可能需要付费开发者账号，99 美元/年）；本质是修改系统私有机制，有变砖理论风险，README 明确「Use at your own risk」；解锁付费内容属于灰色地带，商用与分发需自行评估法律风险。</div>
+  <div class="callout blue"><b>一句话理解：</b>就像用一张改造过的会员卡骗过了商场闸机，进去了本来只让 VIP 进的展厅——技术上是卡信息上报环节动了手脚，进得去，但商场随时可能换闸机。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">3</span>
+    <h4 class="repo"><a href="https://github.com/google-deepmind/mujoco" target="_blank">google-deepmind / mujoco</a></h4>
+    <span class="tag t-algo">算法/模型</span>
+  </div>
+  <div class="stats"><span><b>语言</b> C++</span><span><b>Stars</b> 17.8k</span><span><b>近期</b> 周榜 +1,671 ⭐</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> mujoco.org 官网 + Google DeepMind 官方文档站 + PyPI（mujoco）Python 绑定 + Unity 插件 + DM-Control / mjrl 等生态工具链 + 原始论文（Todorov 等，IEEE T-RO 2012）</span></div>
+  <p class="lead"><b>一句话简介：</b>训练一只机器狗走路之前，先在 MuJoCo 里把路「摔」个几千次——真实硬件摔一次几万块，仿真里摔一次只要几毫秒。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>快而准的接触动力学</b>：专为铰接结构与环境交互优化：预分配的低层数据结构 + XML 编译器，运行时零内存分配，速度快到可以做实时可视化与大规模并行训练，这正是它被 RL 社区选中的根因。</li>
+    <li><b>C API + Python 绑定 + Unity 插件三通道</b>：研究者用 C/C++ 榨性能、算法工程师用 Python（mujoco 包）快速迭代、游戏与可视化团队走 Unity 插件；原生桌面窗口与浏览器 WebGL 两种可视化都内置。</li>
+    <li><b>物理量工具函数全家桶</b>：除仿真循环外还暴露雅可比、逆动力学、接触力、扰动等大量物理量计算工具，做模型预测控制（MPC）与系统辨识不用自己另造轮子。</li>
+    <li><b>机器人研究的生态底座</b>：DM Control、Gymnasium Robotics、四足与人形基准模型（Unitree 系列第三方模型包等）都以其 XML 格式为通用描述语言，学会它等于接通整个机器人 RL 生态。</li>
+    <li><b>Google DeepMind 长期供养</b>：2022 年被 DeepMind 收购后开源并持续活跃（最近提交 11-12），从学术项目升级为有商业团队维护的基础设施，Apache-2.0 可商用。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>C/C++ 核心（Apache-2.0）+ Python 绑定（PyPI：mujoco）+ Unity 插件；模型用 MJCF XML 描述（也兼容 URDF）；构建支持 CMake 与 Bazel；可视化原生 OpenGL 与浏览器 WebGL 双通道；GPU 并行可配 MJX（JAX 后端）。</p>
+  <h3>适用场景</h3>
+  <p>四足 / 人形机器人运动控制的 RL 与 MPC 算法训练与验证；机械臂抓取与操作仿真；生物力学步态分析；图形动画的物理驱动角色；将仿真策略迁移到真机前的 Sim-to-Real 基础环节。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>领域事实标准，生态无可替代</b>：机器人 RL 领域的论文基准、开源模型、课程教材几乎默认 MuJoCo 格式；DeepMind 接手后维护强度只增不减，17.8k star 是长期复利的结果而非短期热点。</li>
+    <li><b>周榜 +1,671 的回潮有实因</b>：人形与四足机器人这两年从实验室走向量产，大量新团队第一次认真对待仿真；对做巡检机器人、运动控制落地的团队，它是绕不开的第一站。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>它是仿真引擎不是机器人解决方案：没有开箱即用的「让机器狗走路」，模型、奖励函数、训练循环都要自己搭（可从 DM Control 与 mujoco_menagerie 模型库起步）；接触动力学快是靠软约束近似换的，参数（solimp/solref）调不好会穿模或抖动；Sim-to-Real 仍有域差，真机部署前需做域随机化；学习曲线对非科班团队偏陡。</div>
+  <div class="callout blue"><b>一句话理解：</b>MuJoCo 之于机器人，好比风洞之于飞机设计师：产品还没造出来就能在虚拟风洞里试几千次机翼角度——便宜、快、摔不坏，但最后还得真飞一次才算数。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">4</span>
+    <h4 class="repo"><a href="https://github.com/openai/codex-security" target="_blank">openai / codex-security</a></h4>
+    <span class="tag t-eng">工程实践</span>
+  </div>
+  <div class="stats"><span><b>语言</b> TypeScript</span><span><b>Stars</b> 12.4k</span><span><b>近期</b> 日榜 +643 ⭐</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> developers.openai.com/codex/security 官方文档 + npm @openai/codex-security（v0.10.0，2026-11）+ 官方 GitHub Action 模板 + SARIF / JSON / CSV 导出 + Jira / Linear / ServiceNow 集成</span></div>
+  <p class="lead"><b>一句话简介：</b>传统 SAST 扫描器给你一屏幕误报，它多做了两步：先用模型验证「这个洞是不是真的」，再直接生成修好它的补丁。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>三档扫描范围</b>：整仓扫描、<code>--path</code> 指定路径、<code>--diff origin/main</code> 只扫本次变更——最后一档对「只想在 PR 里拦住新漏洞」的团队最实用；Deep Scan 模式重复扫描并去重汇总。</li>
+    <li><b>验证与修复闭环</b>：不只报问题：候选漏洞先经模型调查验证真伪，确认后生成修复补丁，还能反向验证既有修复是否真的堵住了洞；扫描结果本地保存、可查历史与去重。</li>
+    <li><b>策略与威胁建模</b>：<code>cs policy</code> 起草 / 更新 SECURITY.md 并保存威胁模型，可导出为 artifact；把「安全要求文档化」从一次性合规动作变成可维护的活文档。</li>
+    <li><b>第三方报告导入与工单打通</b>：可导入 Tenable、CrowdStrike FCS 等 IaC / 漏洞报告，统一按严重度评估后发往 Linear / Jira / GitHub，导出 SARIF / JSON / CSV 接入既有安全流程。</li>
+    <li><b>CI 自动化</b>：官方 GitHub Action 模板支持每周定时扫描（单次约 5 美元费用上限），Docker 容器化批量扫描覆盖多仓；多模型通道可选 OpenAI、Bedrock、OpenRouter、Fireworks。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>TypeScript CLI + SDK（npm 全局安装即用，Node 22.13+ / 24 / 26）+ Python 3.10+ 工具链；Bun 构建、Wolfi 容器、GitHub Actions；模型通道支持 OpenAI API、AWS Bedrock（无需 OpenAI 账号）、OpenRouter、Fireworks。</p>
+  <h3>适用场景</h3>
+  <p>在 PR / 定时 CI 里拦安全漏洞的工程团队；接手老项目要先摸清漏洞底数的安全工程师；把 SAST 报告去重、定级、派单的安全运营流程；给 Codex 等编码 Agent 挂「写完就扫」的安全工作流。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>把「验证」环节补进了扫描链路</b>：误报是传统扫描器最大的痛，模型验证 + 补丁生成让输出从「疑似问题清单」变成「已确认问题 + 修法」，这是它与 grep 式 SAST 的本质区别。</li>
+    <li><b>OpenAI 官方出品且工程化完整</b>：Apache-2.0、npm 一条命令、官方 Action、SARIF 与工单生态全打通，日榜 +643 说明安全团队对「AI 原生扫描器」的尝鲜意愿极强。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>按扫描计费：GitHub Action 示例单次约 5 美元上限，进行中的请求可能超限，批量跑多仓前先算成本；部分网络安全类请求与「受保护发现」需要 Trusted Access for Cyber 资质；本地 serve 与浏览器仪表盘已被移除（旧数据可读）；扫描报告有排除项（exclusions），读 REPORT 才能理解覆盖率；模型验证不是银弹，高危结论仍需人工复核。</div>
+  <div class="callout blue"><b>一句话理解：</b>普通扫描器像烟雾报警器：一烧糊早餐就尖叫。它更像请了个安全顾问：先确认是不是真着火，再顺手把灭火器递给你并演示怎么喷。</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <span class="idx">5</span>
+    <h4 class="repo"><a href="https://github.com/QwenLM/qwen-code" target="_blank">QwenLM / qwen-code</a></h4>
+    <span class="tag t-agent">AI Agent</span>
+  </div>
+  <div class="stats"><span><b>语言</b> TypeScript</span><span><b>Stars</b> 29.8k</span><span><b>近期</b> 日榜 +151 ⭐</span><span><b>协议</b> Apache-2.0</span><span><b>文档</b> qwenlm.github.io/qwen-code-docs 官方文档站 + npm / Homebrew / 一键脚本三路分发 + VS Code / Zed / JetBrains 插件 + macOS / Windows / Linux 桌面版 + v1.x release 持续发版</span></div>
+  <p class="lead"><b>一句话简介：</b>编码 Agent 的竞争已经卷到「入口」层面：同一个 Agent，终端里是 CLI、编辑器里是插件、微信里是聊天机器人，它把三条路都铺了。</p>
+  <h3>核心功能</h3>
+  <ul>
+    <li><b>开箱即用的 Agentic 能力</b>：Auto-Memory、Auto-Skills、SubAgents、Agent Teams、MCP 全部零配置默认开启；动态工作流让复杂任务自动拆解执行，不用先学一套提示词工程。</li>
+    <li><b>多协议模型热切换</b>：支持 OpenAI、Anthropic、Gemini、Qwen API 及任意第三方 / 本地模型（Ollama / vLLM），运行时可切——不想被单一厂商锁定时尤其有用。</li>
+    <li><b>入口全覆盖</b>：终端 TUI 之外还有 VS Code / Zed / JetBrains 插件、桌面应用、Web UI、TS / Python / Java SDK，以及 Telegram / 钉钉 / 微信 / 飞书聊天集成（<code>qwen channel start</code>）。</li>
+    <li><b>Daemon 与 Headless 双模式</b>：<code>qwen serve</code> 起常驻服务，多客户端共享同一 Agent 会话（HTTP + SSE + Web Shell）；<code>qwen -p "..."</code> 无头模式直接接脚本与 CI/CD。</li>
+    <li><b>独家：Agent Arena</b>：多个模型同题对战、同一任务并行对比输出质量——选模型、测回归时是个很实用的「考场」功能。</li>
+  </ul>
+  <h3>技术栈</h3>
+  <p>TypeScript / Node.js（pnpm monorepo，Vitest + Playwright 测试齐备）+ Java 控制平面（managed-agent 服务端，Spring + MySQL）；分发 npm / Homebrew / 安装脚本；Qwen 3.7 Max 在 SWE-bench Verified 七个版本平均 76.40–77.80%。</p>
+  <h3>适用场景</h3>
+  <p>想用一个 Agent 覆盖终端 / IDE / IM 全入口的个人与小团队；需要模型不锁定的多模型混用场景（本地 Ollama + 云端 API 随切）；把编码 Agent 接进钉钉 / 飞书做团队共享助手的国内团队；CI/CD 里的无人值守代码任务。</p>
+  <h3>推荐理由</h3>
+  <ul>
+    <li><b>国产模型生态里完成度最高的开源编码 Agent</b>：从 Gemini CLI 分叉后已独立演进上万次提交，文档站、桌面端、IM 通道、企业控制平面都做齐了，不是「套壳 demo」级别的项目。</li>
+    <li><b>微信 / 钉钉 / 飞书集成是差异化刚需</b>：国际编码 Agent 基本只覆盖 Telegram / Discord，它把国内团队日常工作的 IM 入口做进去了——这点对国内用户是实打实的便利。</li>
+  </ul>
+  <div class="callout"><b>注意：</b>Node ≥ 22，需 Qwen Plus/Pro 订阅或 API key（也支持第三方协议接其他模型）；安全注意：Daemon 默认只监听 loopback 且无认证，本机任何进程都能调它的完整 API（含代码执行），共享主机务必设 <code>QWEN_SERVER_TOKEN</code> 并 <code>--require-auth</code>；Web UI 与 Daemon 标注实验性；2223 个 open issue 反映社区庞大但响应有积压。</div>
+  <div class="callout blue"><b>一句话理解：</b>别的编码 Agent 是一把好用的电钻，它是整套电动工具墙：钻头（终端）、锯（IDE 插件）、吸尘器（IM 机器人）共用同一个电机和电池——干活的地方变了，核心始终是那一个。</div>
+</div>
+
+<h2>附录：本期说明</h2>
+<div class="card">
+  <h3>数据来源与筛选口径</h3>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>维度</th><th>标准</th></tr></thead>
+    <tbody>
+      <tr><td>时间活性</td><td>最近 30 天内有提交，非归档仓库</td></tr>
+      <tr><td>热度门槛</td><td>周榜增量 ≥ 300 ⭐ 或日榜增量 ≥ 80 ⭐</td></tr>
+      <tr><td>存量门槛</td><td>总 stars ≥ 1,000</td></tr>
+      <tr><td>仓库资质</td><td>非 fork、非 awesome / 资源聚合列表、非纯教程大纲、非空壳；License 明确且有 README 正文</td></tr>
+      <tr><td>质量信号</td><td>有 CI / 测试 / 文档站 / 正式 release 者优先</td></tr>
+      <tr><td>类目配额</td><td>每期 2–5 个，至少覆盖 2 个类目，单类目 ≤ 2 个</td></tr>
+      <tr><td>去重基线</td><td><code>archive/index.json</code> 中记录的历史仓库</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <h3>本期取舍说明</h3>
+  <ul>
+    <li>Trending 日榜 12 条 / 周榜 10 条，合并去重后新候选约三分之一；本期 5 个入选覆盖应用 2、算法 1、工程 1、Agent 1 四类目，单类目不超过 2；五个仓库的 License、活性（全部最近 24 小时内有提交）、非 fork 状态均经 GitHub API 逐个核验。</li>
+    <li>环境说明：本机所在网络对 github.com 与 open.feishu.cn 的 HTTPS 做全量证书替换（伪造 VeriSign Class 1 EV CA，与 11-02 / 11-04 同源），bash 侧 curl / node fetch / git push 全部不可用。本期取数全流程改走 WebFetch 工具通道（Trending 页 + api.github.com + 仓库页 README），产物与本地产物归档照常完成；push 与飞书推送按规则跳过，本地 commit 保留待网络恢复后由发布脚本自动补推。</li>
+    <li>MuJoCo 入选说明：上期附录曾以「知名大项目热榜回潮」为由避让，本期破例入选并注明——周榜 +1,671 远超 300 门槛、算法类目无其他达标候选（TensorFold 日增量 +54 不达标且周增量无法核验），且机器人仿真场景（四足 / 人形运动控制训练）对巡检机器人方向的团队有直接参考价值。</li>
+    <li>增量口径：sure、HermesEnabler、codex-security、qwen-code 的增量为 Trending 日榜实测值，mujoco 为周榜实测值；本期无「估算」条目。</li>
+  </ul>
+  <h3>本期按规则排除的候选</h3>
+  <ul>
+    <li>addyosmani/agent-skills（116.7k，日榜 +816）、anthropics/skills（193.7k，周榜 +6,055）、mattpocock/skills（323k，周榜 +8,731）、google/skills（24.1k，周榜 +1,933）、cloudflare/security-audit-skill（71.2k，周榜 +10,700，且曾因超 30 天未提交排除）—— 技能 / 规则包合集，照旧整类排除。</li>
+    <li>GoogleChrome/modern-web-guidance-src（3.1k，日榜 +739，Apache-2.0）—— 「让编码 agent 保持 Web 最佳实践」的规则源仓库，本质是内容 / 规则分发而非可运行软件，按「非资源聚合」口径排除。</li>
+    <li>Alishahryar1/free-claude-code（69.3k，日榜 +415）—— 免费多 harness 令牌中转（宣称 1.3B+ 免费 token），ToS / 合规风险，主动排除（同 heretic、闲鱼爬虫案例口径）。</li>
+    <li>ggml-org/llama.cpp（134.6k，日榜 +176）、zed-industries/zed（94.9k，周榜 +2,339）、nodejs/node、nvm-sh/nvm（日增量未达 80）—— 高度知名项目的热榜回潮；llama.cpp 增量达标但属知名回潮且算法类目已由 MuJoCo 占位。</li>
+    <li>ashhart/TensorFold（2.0k，日榜 +54）—— Zig 写的 Metal/CUDA/Vulkan LLM 推理引擎，方向不错但日增量未达 80 门槛，周榜未见、增量无法核验。</li>
+    <li>meta/astryx、CopilotKit/OpenBot、vercel-labs/agent-desktop、vercel-labs/agent-browser、NVIDIA/auto-ontology、D4Vinci/Scrapling、milind-soni/OpenMausBot（曾因 718 open issue / 426MB 让位，本期延续）—— 往期已推送，按 archive/index.json 去重排除。</li>
+  </ul>
+</div>
+
+<footer>
+  由 WorkBuddy 每日 GitHub 精选任务自动生成 · 数据截至 2026-11-13<br>
+  <span class="foot-links">归档仓库：<a href="https://github.com/luyao-appleaccount/github-daily-archive" target="_blank">github.com/luyao-appleaccount/github-daily-archive</a></span>
+</footer>
+
+</div>
+</body>
+</html>
