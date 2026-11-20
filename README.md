@@ -3,7 +3,7 @@
 每天自动筛选 2–5 个优质开源仓库，覆盖 **应用项目 / 算法模型 / 工程实践 / AI Agent** 四类，
 每个仓库附项目简介、核心功能、技术栈、适用场景与推荐理由（含局限）。
 
-累计 **25** 期 · **125** 个仓库。
+累计 **26** 期 · **130** 个仓库。
 
 ## 怎么读？（重要）
 
@@ -26,6 +26,7 @@ GitHub 对 `.html` **只当源码显示，不会渲染**。所以下表给了三
 
 | 日期 | 本期收录 | 日报 |
 |------|---------|------|
+| **2026-11-20** | autoclip · Ghost-Downloader-3 · kiri · Mika 等 5 个 | [阅读](daily/github-daily-2026-11-20.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-11-20.html) · [长图](daily/github-daily-2026-11-20.jpg) |
 | **2026-11-19** | openidea · qingjian · FreeVideo · OpenHeart 等 5 个 | [阅读](daily/github-daily-2026-11-19.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-11-19.html) · [长图](daily/github-daily-2026-11-19.jpg) |
 | **2026-11-18** | arcane · minimind · blaze · paper-orchestra 等 5 个 | [阅读](daily/github-daily-2026-11-18.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-11-18.html) · [长图](daily/github-daily-2026-11-18.jpg) |
 | **2026-11-17** | Filee · Edge0 · plannotator · dsh-superagent-prototype 等 5 个 | [阅读](daily/github-daily-2026-11-17.md) · [网页版](https://htmlpreview.github.io/?https://github.com/luyao-appleaccount/github-daily-archive/blob/main/daily/github-daily-2026-11-17.html) · [长图](daily/github-daily-2026-11-17.jpg) |
