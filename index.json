@@ -1,6 +1,16 @@
 {
-  "updatedAt": "2026-11-24T02:18:32.315Z",
+  "updatedAt": "2026-11-25T02:30:35.048Z",
   "entries": [
+    {
+      "date": "2026-11-25",
+      "repos": [
+        "ersinkoc/phonebox",
+        "shy3130/tick-stock-panel",
+        "mizorewww/laya-mlx",
+        "erkamyaman/rust-anything",
+        "rocketride-org/rocketride-server"
+      ]
+    },
     {
       "date": "2026-11-24",
       "repos": [
